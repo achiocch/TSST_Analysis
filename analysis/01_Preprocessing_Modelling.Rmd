@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
                       messages =F, 
-                      warnings = F)
+                      warning = F)
 
 
 library(haven)
@@ -27,6 +27,8 @@ home = "S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis"
 ```
 
 # Prepare
+
+## Definitions
 
 **IV of interest :**
 
@@ -126,32 +128,6 @@ export_table
 ```
 
 
-## Definitions
-
-**IV of interest :**
-
-* Gruppe ("group") 
-* sex ("gender")
-* Zeitpunkt ("Time")
-* Gruppe x Zeitpunkt
-* Gruppe x sex
-
-**IV of no interest :** 
-
-* Site ("centre")
-* Age scaled ("age_meancentered")
-* "explstart_meancentered_min" 
-* "BMI_imp_meancentered"
-* "any_med_ccept"
-* "smoking_yes_no"
-
-**DV:**
-
-* psychologischer Stress („stressed“)
-* Cortisol („CORT“)
-* Testosteron („TEST”) 
-* Oxytocin (OXT”)
-
 ## linear model with mixed effects 
 
 We adapted a boxed design by individual over Time
@@ -165,9 +141,9 @@ for (depvar in names(AV)){
     gather(key = "value", value = "DV", all_of(cols))
   long$Time = AV[[depvar]][long$value]
   long$twuid = as.factor(long$twuid)
-  long  = long%>% mutate_if(is.numeric, scale)
-  model.lme = lme4::lmer(models[[depvar]], data=long)
-  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
+  long2  = long%>% mutate_if(is.numeric, scale)
+  model.lme = lme4::lmer(models[[depvar]], data=long2)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long2)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(>Chisq)`[2]
   Res = summary(model.lme)
