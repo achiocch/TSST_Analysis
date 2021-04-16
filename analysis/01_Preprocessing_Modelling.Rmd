@@ -88,13 +88,13 @@ AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
 
 models=list(
-AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,7)+gender*group+poly(Time,7)*group+gender*poly(Time,7)*group+(1|twuid)+(1|centre)",
+AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid)+(1|centre)",
 
-AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender*group+poly(Time,4)*group+gender*poly(Time,4)*group+(1|twuid) + (1|centre)",
+AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
 
-AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid) + (1|centre)",
+AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
 
-AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid) + (1|centre)")
+AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)")
 
 # do not include site in correlation plot 
 
@@ -139,16 +139,19 @@ for (depvar in names(AV)){
   cols = names(AV[[depvar]])
   long = df[,c("twuid",cols, UV)] %>% 
     gather(key = "value", value = "DV", all_of(cols))
-  long$Time = AV[[depvar]][long$value]
-  long$twuid = as.factor(long$twuid)
   long2  = long%>% mutate_if(is.numeric, scale)
+  long2$Time = AV[[depvar]][long2$value]
+  long2$value =as.factor(long2$value) %>% 
+    relevel(., ref=grep("BL|stressed_1",  unique(long2$value),value = T))
+  long2$twuid = as.factor(long2$twuid)
+  
   model.lme = lme4::lmer(models[[depvar]], data=long2)
   model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long2)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(>Chisq)`[2]
   Res = summary(model.lme)
   resall[[depvar]] = model.lme
-  resall[[paste0(depvar,"_longdat")]] = long
+  resall[[paste0(depvar,"_longdat")]] = long2
   res.coeff = as.data.frame(Res$coefficients)
   res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,"_coeff")]]=res.coeff
@@ -180,7 +183,7 @@ resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(depvar)+
+  ylab("density") + xlab(paste("zscores",depvar))+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
@@ -201,7 +204,6 @@ full models: `r models[[2]]`
 h0 model: DV~1+(1|twuid)):
 
 overall model p-value:`r as.character(signif(resall[["AV_CORT_modsig"]],3))`
-
 
 
 ```{r wrap_res_CORT}
