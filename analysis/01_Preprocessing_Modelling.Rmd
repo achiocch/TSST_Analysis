@@ -106,7 +106,7 @@ corrplot::corrplot(cor(tmpframe, use = "pairwise"))
 ## complete cohort descriptives
 
 ```{r preprocess_allstat}
-res = compareGroups(group~., data = df[,UV])
+res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))])
 #summary(res)
 export_table <- createTable(res)
 export_table
@@ -114,16 +114,19 @@ export_table
 
 ## male only cohort descriptives
 ```{r preprocess_malestat}
-res = compareGroups(group~., data = df[,UV], subset = gender=="male")
+res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))], subset = gender=="male")
 export_table <- createTable(res)
 export_table
 ```
 
 ## female only cohort descriptives
 ```{r preprocess_femalestat}
-res = compareGroups(group~., data = df[,UV], subset = gender=="female")
+res = compareGroups(group~., 
+                    data = df[,c(UV, unlist(lapply(AV, names)))], 
+                    subset = gender=="female")
 export_table <- createTable(res)
 export_table
+
 
 ```
 
@@ -144,9 +147,8 @@ for (depvar in names(AV)){
   long2$value =as.factor(long2$value) %>% 
     relevel(., ref=grep("BL|stressed_1",  unique(long2$value),value = T))
   long2$twuid = as.factor(long2$twuid)
-  
   model.lme = lme4::lmer(models[[depvar]], data=long2)
-  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long2)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid)+(1|centre), data=long2)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(>Chisq)`[2]
   Res = summary(model.lme)
@@ -167,7 +169,7 @@ for (depvar in names(AV)){
 
 full models: `r models[[1]]`
 
-h0 model: DV~1+(1|twuid)):
+h0 model: DV~1+(1|twuid)+(1|centre):
 
 overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
 
@@ -201,7 +203,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 full models: `r models[[2]]`
 
-h0 model: DV~1+(1|twuid)):
+h0 model:DV~1+(1|twuid)+(1|centre):
 
 overall model p-value:`r as.character(signif(resall[["AV_CORT_modsig"]],3))`
 
@@ -228,7 +230,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 full models: `r models[[2]]`
 
-h0 model: DV~1+(1|twuid)):
+h0 model: DV~1+(1|twuid)+(1|centre):
 
 
 overall model p-value:
@@ -257,7 +259,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 full models: `r models[[2]]`
 
-h0 model: DV~1+(1|twuid)):
+h0 model: DV~DV~1+(1|twuid)+(1|centre):
 
 overall model p-value:
 `r as.character(signif(resall[["AV_OXT_modsig"]], 3))`
