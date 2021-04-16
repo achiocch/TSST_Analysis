@@ -389,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-04-16
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -501,16 +501,16 @@ S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8552f9bbeeb61a02838e5a28fe22bbc8d7d06408targetblank8552f9ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/8552f9bbeeb61a02838e5a28fe22bbc8d7d06408" target="_blank">8552f9b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee5fd27aaa0a6f68dfb0f0d4d599e35409eda557btargetblanke5fd27aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/e5fd27aaa0a6f68dfb0f0d4d599e35409eda557b" target="_blank">e5fd27a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8552f9bbeeb61a02838e5a28fe22bbc8d7d06408targetblank8552f9ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee5fd27aaa0a6f68dfb0f0d4d599e35409eda557btargetblanke5fd27aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/8552f9bbeeb61a02838e5a28fe22bbc8d7d06408" target="_blank">8552f9b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/e5fd27aaa0a6f68dfb0f0d4d599e35409eda557b" target="_blank">e5fd27a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -521,10 +521,6 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
-
-Unstaged changes:
-    Modified:   analysis/01_Preprocessing_Modelling.Rmd
-    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -546,8 +542,30 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 </div>
 <div id="prepare" class="section level1">
 <h1>Prepare</h1>
-<div id="read-and-check-data" class="section level2">
-<h2>read and check data</h2>
+<p><strong>IV of interest :</strong></p>
+<ul>
+<li>Gruppe (“group”)</li>
+<li>sex (“gender”)</li>
+<li>Zeitpunkt (“Time”) with polynomes (as many as possible)</li>
+<li>Gruppe x Zeitpunkt(each poly)</li>
+<li>Gruppe x sex</li>
+</ul>
+<p><strong>IV of no interest :</strong></p>
+<ul>
+<li>Site (“centre”)</li>
+<li>Age scaled (“age_meancentered”)</li>
+<li>“explstart_meancentered_min”</li>
+<li>“BMI_imp_meancentered”</li>
+<li>“any_med_ccept”</li>
+<li>“smoking_yes_no”</li>
+</ul>
+<p><strong>DV:</strong></p>
+<ul>
+<li>psychologischer Stress („stressed“)</li>
+<li>Cortisol („CORT“)</li>
+<li>Testosteron („TEST”)</li>
+<li>Oxytocin (OXT”) ## read and check data</li>
+</ul>
 <pre class="r"><code>df = as.data.frame(read_sav(paste0(home,&quot;/data/13.04.2021_290_170_CORTAUCsplit.sav&quot;)))
 
 df$group = drop(factor(df$group, levels = c(1,2), labels=c(&quot;CD&quot;, &quot;CTRL&quot;))) %&gt;% relevel(., ref=&quot;CTRL&quot;)
@@ -607,7 +625,6 @@ tmpframe = df[,UV[!UV%in% c(&quot;centre&quot;)]] %&gt;% mutate_if(is.factor, fu
 
 corrplot::corrplot(cor(tmpframe, use = &quot;pairwise&quot;))</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/preprocess-1.png" width="672" style="display: block; margin: auto;" /></p>
-</div>
 <div id="complete-cohort-descriptives" class="section level2">
 <h2>complete cohort descriptives</h2>
 <pre class="r"><code>res = compareGroups(group~., data = df[,UV])
@@ -3069,7 +3086,7 @@ other attached packages:
  [7] data.table_1.14.0   forcats_0.5.1       stringr_1.4.0      
 [10] dplyr_1.0.5         purrr_0.3.4         readr_1.4.0        
 [13] tidyr_1.1.3         tibble_3.1.0        ggplot2_3.3.3      
-[16] tidyverse_1.3.0     haven_2.3.1        
+[16] tidyverse_1.3.0     haven_2.3.1         workflowr_1.6.2    
 
 loaded via a namespace (and not attached):
   [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
@@ -3078,16 +3095,16 @@ loaded via a namespace (and not attached):
  [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
  [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
  [16] codetools_0.2-18     splines_4.0.4        knitr_1.31          
- [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
- [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
- [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
- [28] assertthat_0.2.1     cli_2.3.1            later_1.1.0.1       
- [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
- [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
- [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
- [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
- [43] iterators_1.0.13     timeDate_3043.102    xfun_0.21           
- [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
+ [19] jsonlite_1.7.2       nloptr_1.2.2.2       pROC_1.17.0.1       
+ [22] broom_0.7.5          dbplyr_2.1.0         compiler_4.0.4      
+ [25] httr_1.4.2           backports_1.2.1      assertthat_0.2.1    
+ [28] cli_2.3.1            later_1.1.0.1        htmltools_0.5.1.1   
+ [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
+ [34] reshape2_1.4.4       Rcpp_1.0.6           cellranger_1.1.0    
+ [37] jquerylib_0.1.3      vctrs_0.3.6          writexl_1.3.1       
+ [40] svglite_2.0.0        nlme_3.1-152         iterators_1.0.13    
+ [43] timeDate_3043.102    xfun_0.21            gower_0.2.2         
+ [46] ps_1.6.0             rvest_1.0.0          lifecycle_1.0.0     
  [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
  [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
  [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
