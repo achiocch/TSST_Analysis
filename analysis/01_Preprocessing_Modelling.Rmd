@@ -77,11 +77,12 @@ UV = c("centre","age_meancentered", "explstart_meancentered_min",
   "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group")
 
 
+
 AV = list(
-AV_stressed = c(stressed_1=1, stressed_2=2,
-                stressed_3=3, stressed_4=4,
-                stressed_5=5, stressed_6=6, 
-                stressed_7=7, stressed_8=8), 
+AV_stressed = c(stressed_1=0, stressed_2=2,
+                stressed_3=7, stressed_4=8,
+                stressed_5=18, stressed_6=33, 
+                stressed_7=48, stressed_8=63), 
 AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
 AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
