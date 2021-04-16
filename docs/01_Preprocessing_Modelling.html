@@ -501,16 +501,16 @@ S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee5fd27aaa0a6f68dfb0f0d4d599e35409eda557btargetblanke5fd27aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/e5fd27aaa0a6f68dfb0f0d4d599e35409eda557b" target="_blank">e5fd27a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee45fde0eecefc04287ae5f6ee18012a126a6fc58targetblanke45fde0a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/e45fde0eecefc04287ae5f6ee18012a126a6fc58" target="_blank">e45fde0</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee5fd27aaa0a6f68dfb0f0d4d599e35409eda557btargetblanke5fd27aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee45fde0eecefc04287ae5f6ee18012a126a6fc58targetblanke45fde0a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/e5fd27aaa0a6f68dfb0f0d4d599e35409eda557b" target="_blank">e5fd27a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/e45fde0eecefc04287ae5f6ee18012a126a6fc58" target="_blank">e45fde0</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -542,6 +542,8 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 </div>
 <div id="prepare" class="section level1">
 <h1>Prepare</h1>
+<div id="definitions" class="section level2">
+<h2>Definitions</h2>
 <p><strong>IV of interest :</strong></p>
 <ul>
 <li>Gruppe (“group”)</li>
@@ -625,6 +627,7 @@ tmpframe = df[,UV[!UV%in% c(&quot;centre&quot;)]] %&gt;% mutate_if(is.factor, fu
 
 corrplot::corrplot(cor(tmpframe, use = &quot;pairwise&quot;))</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/preprocess-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
 <div id="complete-cohort-descriptives" class="section level2">
 <h2>complete cohort descriptives</h2>
 <pre class="r"><code>res = compareGroups(group~., data = df[,UV])
@@ -660,10 +663,8 @@ gender:                                                0.829
 </div>
 <div id="male-only-cohort-descriptives" class="section level2">
 <h2>male only cohort descriptives</h2>
-<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;male&quot;)</code></pre>
-<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
-Some levels of &#39;gender&#39; are removed since no observation in that/those levels</code></pre>
-<pre class="r"><code>export_table &lt;- createTable(res)
+<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;male&quot;)
+export_table &lt;- createTable(res)
 export_table</code></pre>
 <pre><code>
 --------Summary descriptives table by &#39;group&#39;---------
@@ -692,17 +693,8 @@ gender: male                104 (100%)   82 (100%)      .
 </div>
 <div id="female-only-cohort-descriptives" class="section level2">
 <h2>female only cohort descriptives</h2>
-<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;female&quot;)</code></pre>
-<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
-Some levels of &#39;centre&#39; are removed since no observation in that/those levels</code></pre>
-<pre><code>Warning in chisq.test(xx, correct = FALSE): Chi-squared approximation may be
-incorrect
-
-Warning in chisq.test(xx, correct = FALSE): Chi-squared approximation may be
-incorrect</code></pre>
-<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
-Some levels of &#39;gender&#39; are removed since no observation in that/those levels</code></pre>
-<pre class="r"><code>export_table &lt;- createTable(res)
+<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;female&quot;)
+export_table &lt;- createTable(res)
 export_table</code></pre>
 <pre><code>
 --------Summary descriptives table by &#39;group&#39;---------
@@ -728,33 +720,6 @@ smoking_yes_no:                                        &lt;0.001
 gender: female               56 (100%)    48 (100%)       .     
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
 </div>
-<div id="definitions" class="section level2">
-<h2>Definitions</h2>
-<p><strong>IV of interest :</strong></p>
-<ul>
-<li>Gruppe (“group”)</li>
-<li>sex (“gender”)</li>
-<li>Zeitpunkt (“Time”)</li>
-<li>Gruppe x Zeitpunkt</li>
-<li>Gruppe x sex</li>
-</ul>
-<p><strong>IV of no interest :</strong></p>
-<ul>
-<li>Site (“centre”)</li>
-<li>Age scaled (“age_meancentered”)</li>
-<li>“explstart_meancentered_min”</li>
-<li>“BMI_imp_meancentered”</li>
-<li>“any_med_ccept”</li>
-<li>“smoking_yes_no”</li>
-</ul>
-<p><strong>DV:</strong></p>
-<ul>
-<li>psychologischer Stress („stressed“)</li>
-<li>Cortisol („CORT“)</li>
-<li>Testosteron („TEST”)</li>
-<li>Oxytocin (OXT”)</li>
-</ul>
-</div>
 <div id="linear-model-with-mixed-effects" class="section level2">
 <h2>linear model with mixed effects</h2>
 <p>We adapted a boxed design by individual over Time</p>
@@ -766,9 +731,9 @@ for (depvar in names(AV)){
     gather(key = &quot;value&quot;, value = &quot;DV&quot;, all_of(cols))
   long$Time = AV[[depvar]][long$value]
   long$twuid = as.factor(long$twuid)
-  long  = long%&gt;% mutate_if(is.numeric, scale)
-  model.lme = lme4::lmer(models[[depvar]], data=long)
-  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
+  long2  = long%&gt;% mutate_if(is.numeric, scale)
+  model.lme = lme4::lmer(models[[depvar]], data=long2)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long2)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(&gt;Chisq)`[2]
   Res = summary(model.lme)
@@ -2463,102 +2428,6 @@ genderfemale:groupCD:poly(Time, 2)2
   ylab(depvar) + xlab(&quot;Time&quot;)+
   geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.91672</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.3094</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 3.8072e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 5.3333</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.91672</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.3094</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 3.8072e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 5.3333</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.91672</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.3094</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 7.3106e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 5.3333</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.91672</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.3094</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 7.3106e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 5.3333</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.91672</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.3094</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 6.8947e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 5.3333</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.91672</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.3094</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 6.8947e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 5.3333</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.91672</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.3094</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 6.015e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 5.3333</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.91672</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.3094</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 6.015e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 5.3333</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="oxt" class="section level2">
@@ -2952,111 +2821,12 @@ genderfemale:groupCD:poly(Time, 2)2
        aes(DV, group=Time, col=Time)) + 
   ylab(&quot;density&quot;) + xlab(depvar)+
   geom_density()</code></pre>
-<pre><code>Warning: Removed 360 rows containing non-finite values (stat_density).</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(Time,DV, col=group)) + 
   ylab(depvar) + xlab(&quot;Time&quot;)+
   geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<pre><code>Warning: Removed 360 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.82602</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.2336</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 2.9966e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 4.9889</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.82602</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.2336</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 2.9966e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 4.9889</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.82602</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.2336</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 1.6268e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 4.9889</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.82602</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.2336</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 1.6268e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 4.9889</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.82602</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.2336</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 2.6988e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 4.9889</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.82602</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.2336</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 2.6988e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 4.9889</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.82602</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 2.2336</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 4.1091e-016</code></pre>
-<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 4.9889</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.82602</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-2.2336</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 4.1091e-016</code></pre>
-<pre><code>Warning in predLoess(object$y, object$x, newx = if
-(is.null(newdata)) object$x else if (is.data.frame(newdata))
-as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 4.9889</code></pre>
-<pre><code>Warning: Removed 360 rows containing missing values (geom_point).</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
