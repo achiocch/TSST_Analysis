@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -389,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-04-16
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee69c47eedf9c707eb0f8d7962c8879ad2b6d4b4atargetblanke69c47ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/e69c47eedf9c707eb0f8d7962c8879ad2b6d4b4a" target="_blank">e69c47e</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreeb7fd3dfc429e61c96de00a0319b48ed53ad2e6aetargetblankb7fd3dfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/b7fd3dfc429e61c96de00a0319b48ed53ad2e6ae" target="_blank">b7fd3df</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreee69c47eedf9c707eb0f8d7962c8879ad2b6d4b4atargetblanke69c47ea" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreeb7fd3dfc429e61c96de00a0319b48ed53ad2e6aetargetblankb7fd3dfa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/e69c47eedf9c707eb0f8d7962c8879ad2b6d4b4a" target="_blank">e69c47e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/b7fd3dfc429e61c96de00a0319b48ed53ad2e6ae" target="_blank">b7fd3df</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,9 +497,6 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
-
-Unstaged changes:
-    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -611,7 +608,7 @@ corrplot::corrplot(cor(tmpframe, use = &quot;pairwise&quot;))</code></pre>
 </div>
 <div id="complete-cohort-descriptives" class="section level2">
 <h2>complete cohort descriptives</h2>
-<pre class="r"><code>res = compareGroups(group~., data = df[,UV])
+<pre class="r"><code>res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))])
 #summary(res)
 export_table &lt;- createTable(res)
 export_table</code></pre>
@@ -640,11 +637,30 @@ smoking_yes_no:                                       &lt;0.001
 gender:                                                0.829   
     male                    56 (35.0%)   48 (36.9%)            
     female                 104 (65.0%)   82 (63.1%)            
+stressed_1                 1.12 (1.89)  1.48 (2.19)    0.135   
+stressed_2                 2.94 (2.86)  3.53 (3.26)    0.108   
+stressed_3                 3.24 (2.96)  3.74 (3.41)    0.188   
+stressed_4                 1.58 (2.31)  2.01 (2.58)    0.139   
+stressed_5                 0.57 (1.12)  1.09 (1.80)    0.004   
+stressed_6                 0.46 (1.03)  1.25 (2.15)   &lt;0.001   
+stressed_7                 0.37 (0.85)  0.99 (1.98)    0.001   
+stressed_8                 0.35 (0.88)  0.95 (2.00)    0.002   
+CORT_BL_log                0.87 (0.63)  0.97 (0.53)    0.121   
+CORT_10_log                1.54 (0.77)  0.97 (0.61)   &lt;0.001   
+CORT_25_log                1.33 (0.74)  0.91 (0.57)   &lt;0.001   
+CORT_40_log                1.14 (0.67)  0.86 (0.54)   &lt;0.001   
+CORT_55_log                1.01 (0.65)  0.80 (0.55)    0.004   
+TEST_BL_log                3.60 (0.57)  3.71 (0.56)    0.088   
+TEST_10_log                3.79 (0.56)  3.74 (0.60)    0.479   
+TEST_55_log                3.67 (0.59)  3.72 (0.63)    0.533   
+OXT_BL_log                 0.18 (0.48)  0.15 (0.36)    0.639   
+OXT_1_log                  0.33 (0.53)  0.20 (0.36)    0.052   
+OXT_10_log                 0.26 (0.50)  0.28 (0.37)    0.810   
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
 </div>
 <div id="male-only-cohort-descriptives" class="section level2">
 <h2>male only cohort descriptives</h2>
-<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;male&quot;)
+<pre class="r"><code>res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))], subset = gender==&quot;male&quot;)
 export_table &lt;- createTable(res)
 export_table</code></pre>
 <pre><code>
@@ -669,11 +685,32 @@ smoking_yes_no:                                        &lt;0.001
     no_smk                  47 (83.9%)    23 (47.9%)            
     smk                      9 (16.1%)    25 (52.1%)            
 gender: male                 56 (100%)    48 (100%)       .     
+stressed_1                  0.94 (1.69)  1.43 (1.65)    0.132   
+stressed_2                  2.34 (2.44)  2.86 (2.81)    0.321   
+stressed_3                  3.22 (2.84)  3.10 (3.10)    0.834   
+stressed_4                  1.24 (1.73)  1.82 (2.29)    0.151   
+stressed_5                  0.54 (1.10)  0.92 (1.33)    0.112   
+stressed_6                  0.37 (0.89)  1.14 (1.88)    0.011   
+stressed_7                  0.30 (0.67)  0.99 (1.72)    0.011   
+stressed_8                  0.26 (0.65)  0.94 (1.90)    0.022   
+CORT_BL_log                 1.05 (0.59)  1.01 (0.57)    0.750   
+CORT_10_log                 1.54 (0.82)  0.99 (0.56)   &lt;0.001   
+CORT_25_log                 1.35 (0.80)  0.88 (0.57)    0.001   
+CORT_40_log                 1.17 (0.73)  0.86 (0.59)    0.020   
+CORT_55_log                 1.16 (0.68)  0.80 (0.61)    0.005   
+TEST_BL_log                 3.90 (0.60)  3.94 (0.63)    0.754   
+TEST_10_log                 4.02 (0.64)  3.99 (0.65)    0.807   
+TEST_55_log                 4.02 (0.64)  3.95 (0.80)    0.602   
+OXT_BL_log                  0.11 (0.52)  0.02 (0.30)    0.368   
+OXT_1_log                   0.29 (0.52)  0.10 (0.32)    0.052   
+OXT_10_log                  0.19 (0.52)  0.18 (0.36)    0.904   
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
 </div>
 <div id="female-only-cohort-descriptives" class="section level2">
 <h2>female only cohort descriptives</h2>
-<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;female&quot;)
+<pre class="r"><code>res = compareGroups(group~., 
+                    data = df[,c(UV, unlist(lapply(AV, names)))], 
+                    subset = gender==&quot;female&quot;)
 export_table &lt;- createTable(res)
 export_table</code></pre>
 <pre><code>
@@ -699,6 +736,25 @@ smoking_yes_no:                                      &lt;0.001
     no_smk                  97 (93.3%)  31 (37.8%)            
     smk                     7 (6.73%)   51 (62.2%)            
 gender: female              104 (100%)   82 (100%)      .     
+stressed_1                 1.21 (1.99)  1.51 (2.47)   0.378   
+stressed_2                 3.26 (3.03)  3.92 (3.45)   0.176   
+stressed_3                 3.25 (3.03)  4.12 (3.55)   0.080   
+stressed_4                 1.76 (2.56)  2.12 (2.75)   0.364   
+stressed_5                 0.58 (1.13)  1.19 (2.03)   0.016   
+stressed_6                 0.52 (1.10)  1.32 (2.29)   0.004   
+stressed_7                 0.40 (0.93)  0.99 (2.14)   0.022   
+stressed_8                 0.40 (0.98)  0.96 (2.07)   0.026   
+CORT_BL_log                0.77 (0.63)  0.95 (0.51)   0.032   
+CORT_10_log                1.54 (0.75)  0.97 (0.64)  &lt;0.001   
+CORT_25_log                1.32 (0.72)  0.93 (0.57)  &lt;0.001   
+CORT_40_log                1.13 (0.64)  0.86 (0.51)   0.002   
+CORT_55_log                0.93 (0.63)  0.80 (0.51)   0.143   
+TEST_BL_log                3.43 (0.48)  3.58 (0.47)   0.041   
+TEST_10_log                3.67 (0.48)  3.60 (0.52)   0.345   
+TEST_55_log                3.49 (0.47)  3.59 (0.47)   0.153   
+OXT_BL_log                 0.23 (0.43)  0.24 (0.37)   0.903   
+OXT_1_log                  0.37 (0.55)  0.27 (0.37)   0.341   
+OXT_10_log                 0.32 (0.48)  0.35 (0.36)   0.696   
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
 </div>
 <div id="linear-model-with-mixed-effects" class="section level2">
@@ -715,7 +771,6 @@ for (depvar in names(AV)){
   long2$value =as.factor(long2$value) %&gt;% 
     relevel(., ref=grep(&quot;BL|stressed_1&quot;,  unique(long2$value),value = T))
   long2$twuid = as.factor(long2$twuid)
-  
   model.lme = lme4::lmer(models[[depvar]], data=long2)
   model.lme0 = lme4::lmer(DV~1+(1|twuid)+(1|centre), data=long2)
   anovah0 = anova(model.lme0, model.lme)
@@ -744,7 +799,7 @@ boundary (singular) fit: see ?isSingular</code></pre>
 <div id="stressed" class="section level2">
 <h2>stressed</h2>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid)+(1|centre)</p>
-<p>h0 model: DV~1+(1|twuid)):</p>
+<p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value:7.8e-155</p>
 <pre class="r"><code>tableplot = function (x){
   x %&gt;% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %&gt;% kbl() %&gt;% kable_classic()
@@ -1420,7 +1475,7 @@ genderfemale:groupCD:valuestressed_8
 <div id="cort" class="section level2">
 <h2>CORT</h2>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
-<p>h0 model: DV~1+(1|twuid)+(1|centre)):</p>
+<p>h0 model:DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value:2.8e-71</p>
 <pre class="r"><code>depvar = &quot;AV_CORT&quot;
 
@@ -1887,7 +1942,7 @@ genderfemale:groupCD:valueCORT_55_log
 <div id="test" class="section level2">
 <h2>TEST</h2>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
-<p>h0 model: DV~1+(1|twuid)):</p>
+<p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value: 4.38e-35</p>
 <pre class="r"><code>depvar = &quot;AV_TEST&quot;
 
@@ -2218,7 +2273,7 @@ genderfemale:groupCD:valueTEST_55_log
 <div id="oxt" class="section level2">
 <h2>OXT</h2>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
-<p>h0 model: DV~1+(1|twuid)):</p>
+<p>h0 model: DV<sub>DV</sub>1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value: 0.000464</p>
 <pre class="r"><code>depvar = &quot;AV_OXT&quot;
 
