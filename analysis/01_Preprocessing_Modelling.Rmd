@@ -20,8 +20,6 @@ library(caret)
 library(ggplot2)
 library(compareGroups)
 
-
-
 home = getwd()
 
 ```
@@ -60,13 +58,14 @@ home = getwd()
 df = as.data.frame(read_sav(paste0(home,"/data/13.04.2021_290_170_CORTAUCsplit.sav")))
 
 df$group = drop(factor(df$group, levels = c(1,2), labels=c("CD", "CTRL"))) %>% relevel(., ref="CTRL")
-df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("FFM", "AAC", "BLB", "BCN", "SZG")))
+df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("Frankfurt", "Aachen", 
+                                                                   "Amsterdam", "SouthHampton", "Basel")))
 df$any_med_ccept = drop(factor(df$any_med_ccept, levels = c(0,1), 
                                labels=c("no_med", "med")))%>% relevel(., ref="no_med")
 df$smoking_yes_no = drop(factor(df$smoking_yes_no, levels = c(0,1), 
                                 labels=c("no_smk", "smk")))%>% relevel(., ref="no_smk")
 df$gender = drop(factor(df$gender, levels = c(1,2), 
-                        labels=c("male", "female")))%>% relevel(., ref="male")
+                        labels=c("female", "male")))%>% relevel(., ref="male")
 
 table(df$group, useNA = "always")
 table(df$centre, useNA = "always")
