@@ -1,7 +1,7 @@
-name: "TSST_Analysis"
+name: TSST_Analysis
 output_dir: ../docs
 navbar:
-  title: "TSST_Analysis"
+  title: TSST_Analysis
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/achiocch/TSST_Analysis
 output:
   workflowr::wflow_html:
     toc: yes
