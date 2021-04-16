@@ -22,7 +22,7 @@ library(compareGroups)
 
 
 
-home = "S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis"
+home = getwd()
 
 ```
 
