@@ -7,4 +7,4 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+Hierarchical linear modelling of hormone response to stress over time in male and female conduct disorder 

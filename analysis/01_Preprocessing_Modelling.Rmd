@@ -6,7 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, 
+                      messages =F, 
+                      warnings = F)
+
 
 library(haven)
 library(tidyverse)
@@ -17,12 +20,38 @@ library(caret)
 library(ggplot2)
 library(compareGroups)
 
+
+
 home = "S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis"
 
 ```
 
 # Prepare
 
+**IV of interest :**
+
+* Gruppe ("group") 
+* sex ("gender")
+* Zeitpunkt ("Time") with polynomes (as many as possible)
+* Gruppe x Zeitpunkt(each poly)
+* Gruppe x sex
+
+
+**IV of no interest :** 
+
+* Site ("centre")
+* Age scaled ("age_meancentered")
+* "explstart_meancentered_min" 
+* "BMI_imp_meancentered"
+* "any_med_ccept"
+* "smoking_yes_no"
+
+**DV:**
+
+* psychologischer Stress („stressed“)
+* Cortisol („CORT“)
+* Testosteron („TEST”) 
+* Oxytocin (OXT”)
 ## read and check data 
 
 ```{r preprocess}
@@ -56,9 +85,14 @@ AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_
 AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
 
+models=list(
+AV_stressed = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,7)+gender*group+poly(Time,7)*group+gender*poly(Time,7)*group+(1|twuid)",
 
+AV_CORT = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender*group+poly(Time,4)*group+gender*poly(Time,4)*group+(1|twuid)",
 
-model = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender*group+Time*group+gender*Time*group+(1|twuid)"
+AV_TEST = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid)",
+
+AV_OXT = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid)")
 
 # do not include site in correlation plot 
 
@@ -118,13 +152,9 @@ export_table
 * Testosteron („TEST”) 
 * Oxytocin (OXT”)
 
-
 ## linear model with mixed effects 
 
 We adapted a boxed design by individual over Time
-
-full model: `r model`
-
 
 ```{r mml, warning=FALSE}
 resall = list()
@@ -135,7 +165,8 @@ for (depvar in names(AV)){
     gather(key = "value", value = "DV", all_of(cols))
   long$Time = AV[[depvar]][long$value]
   long$twuid = as.factor(long$twuid)
-  model.lme = lme4::lmer(model, data=long)
+  long  = long%>% mutate_if(is.numeric, scale)
+  model.lme = lme4::lmer(models[[depvar]], data=long)
   model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(>Chisq)`[2]
@@ -154,10 +185,14 @@ for (depvar in names(AV)){
 
 ## stressed
 
-overall model p-value (h0 model: stressed~1+(1|twuid)):
-`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
 
-```{r, war}
+full models: `r models[[1]]`
+
+h0 model: DV~1+(1|twuid)):
+
+overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
+
+```{r, wrap_res_stressed}
 tableplot = function (x){
   x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
   }
@@ -184,10 +219,16 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ## CORT
 
-overall model p-value (h0 model: CORT~1+(1|twuid)):
-`r as.character(signif(resall[["AV_CORT_modsig"]], 3))`
 
-```{r}
+full models: `r models[[2]]`
+
+h0 model: DV~1+(1|twuid)):
+
+overall model p-value:`r as.character(signif(resall[["AV_CORT_modsig"]],3))`
+
+
+
+```{r wrap_res_CORT}
 depvar = "AV_CORT"
 
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
@@ -202,17 +243,21 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   ylab(depvar) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
 
-  
-
 ```
 
 ## TEST
 
-overall model p-value (h0 model: TEST~1+(1|twuid)):
+
+full models: `r models[[2]]`
+
+h0 model: DV~1+(1|twuid)):
+
+
+overall model p-value:
 `r as.character(signif(resall[["AV_TEST_modsig"]], 3))`
 
 
-```{r}
+```{r wrap_res_TEST}
 depvar = "AV_TEST"
 
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
@@ -232,10 +277,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ## OXT
 
-overall model p-value (h0 model: OXT~1+(1|twuid)):
+full models: `r models[[2]]`
+
+h0 model: DV~1+(1|twuid)):
+
+overall model p-value:
 `r as.character(signif(resall[["AV_OXT_modsig"]], 3))`
 
-```{r}
+
+```{r wrap_res_OXT}
 
 depvar = "AV_OXT"
 
@@ -251,6 +301,5 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   ylab(depvar) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
   
-
 ```
 

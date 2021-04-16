@@ -38,6 +38,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -341,7 +343,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/achiocch/TSST_Analysis">
+    <span class="fas fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -381,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-04-16
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -397,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -493,16 +501,16 @@ S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongd5a6e10"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> d5a6e10 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8552f9bbeeb61a02838e5a28fe22bbc8d7d06408targetblank8552f9ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/8552f9bbeeb61a02838e5a28fe22bbc8d7d06408" target="_blank">8552f9b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongd5a6e10" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8552f9bbeeb61a02838e5a28fe22bbc8d7d06408targetblank8552f9ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version d5a6e10. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/8552f9bbeeb61a02838e5a28fe22bbc8d7d06408" target="_blank">8552f9b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -513,6 +521,10 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
+
+Unstaged changes:
+    Modified:   analysis/01_Preprocessing_Modelling.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -580,9 +592,14 @@ AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_
 AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
 
+models=list(
+AV_stressed = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,7)+gender*group+poly(Time,7)*group+gender*poly(Time,7)*group+(1|twuid)&quot;,
 
+AV_CORT = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender*group+poly(Time,4)*group+gender*poly(Time,4)*group+(1|twuid)&quot;,
 
-model = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender*group+Time*group+gender*Time*group+(1|twuid)&quot;
+AV_TEST = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid)&quot;,
+
+AV_OXT = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,2)+gender*group+poly(Time,2)*group+gender*poly(Time,2)*group+(1|twuid)&quot;)
 
 # do not include site in correlation plot 
 
@@ -724,7 +741,6 @@ gender: female               56 (100%)    48 (100%)       .
 <div id="linear-model-with-mixed-effects" class="section level2">
 <h2>linear model with mixed effects</h2>
 <p>We adapted a boxed design by individual over Time</p>
-<p>full model: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender<em>group+Time</em>group+gender<em>Time</em>group+(1|twuid)</p>
 <pre class="r"><code>resall = list()
 
 for (depvar in names(AV)){
@@ -733,7 +749,8 @@ for (depvar in names(AV)){
     gather(key = &quot;value&quot;, value = &quot;DV&quot;, all_of(cols))
   long$Time = AV[[depvar]][long$value]
   long$twuid = as.factor(long$twuid)
-  model.lme = lme4::lmer(model, data=long)
+  long  = long%&gt;% mutate_if(is.numeric, scale)
+  model.lme = lme4::lmer(models[[depvar]], data=long)
   model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(&gt;Chisq)`[2]
@@ -755,7 +772,9 @@ refitting model(s) with ML (instead of REML)</code></pre>
 <h1>Results</h1>
 <div id="stressed" class="section level2">
 <h2>stressed</h2>
-<p>overall model p-value (h0 model: stressed~1+(1|twuid)): 8.86e-64</p>
+<p>full models: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,7)+gender<em>group+poly(Time,7)</em>group+gender<em>poly(Time,7)</em>group+(1|twuid)</p>
+<p>h0 model: DV~1+(1|twuid)):</p>
+<p>overall model p-value:5.33e-153</p>
 <pre class="r"><code>tableplot = function (x){
   x %&gt;% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %&gt;% kbl() %&gt;% kable_classic()
   }
@@ -789,16 +808,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-3.04
+-0.0437
 </td>
 <td style="text-align:left;">
-0.233
+0.0796
 </td>
 <td style="text-align:left;">
-13.1
+-0.549
 </td>
 <td style="text-align:left;">
-6.38e-39
+0.583
 </td>
 </tr>
 <tr>
@@ -806,10 +825,10 @@ pvalue
 centreAAC
 </td>
 <td style="text-align:left;">
--0.463
+-0.188
 </td>
 <td style="text-align:left;">
-0.381
+0.155
 </td>
 <td style="text-align:left;">
 -1.21
@@ -823,10 +842,10 @@ centreAAC
 centreBLB
 </td>
 <td style="text-align:left;">
--0.478
+-0.195
 </td>
 <td style="text-align:left;">
-0.34
+0.139
 </td>
 <td style="text-align:left;">
 -1.41
@@ -840,10 +859,10 @@ centreBLB
 centreBCN
 </td>
 <td style="text-align:left;">
-0.144
+0.0587
 </td>
 <td style="text-align:left;">
-0.269
+0.109
 </td>
 <td style="text-align:left;">
 0.536
@@ -857,10 +876,10 @@ centreBCN
 centreSZG
 </td>
 <td style="text-align:left;">
-0.00724
+0.00295
 </td>
 <td style="text-align:left;">
-0.295
+0.12
 </td>
 <td style="text-align:left;">
 0.0245
@@ -874,10 +893,10 @@ centreSZG
 age_meancentered
 </td>
 <td style="text-align:left;">
--0.0109
+-0.00856
 </td>
 <td style="text-align:left;">
-0.0562
+0.0443
 </td>
 <td style="text-align:left;">
 -0.193
@@ -891,10 +910,10 @@ age_meancentered
 explstart_meancentered_min
 </td>
 <td style="text-align:left;">
--0.00108
+-0.0237
 </td>
 <td style="text-align:left;">
-0.00176
+0.0389
 </td>
 <td style="text-align:left;">
 -0.611
@@ -908,10 +927,10 @@ explstart_meancentered_min
 BMI_imp_meancentered
 </td>
 <td style="text-align:left;">
-0.0268
+0.0534
 </td>
 <td style="text-align:left;">
-0.0198
+0.0394
 </td>
 <td style="text-align:left;">
 1.35
@@ -925,10 +944,10 @@ BMI_imp_meancentered
 any_med_cceptmed
 </td>
 <td style="text-align:left;">
-0.18
+0.0733
 </td>
 <td style="text-align:left;">
-0.252
+0.103
 </td>
 <td style="text-align:left;">
 0.713
@@ -942,10 +961,10 @@ any_med_cceptmed
 smoking_yes_nosmk
 </td>
 <td style="text-align:left;">
-0.302
+0.123
 </td>
 <td style="text-align:left;">
-0.262
+0.107
 </td>
 <td style="text-align:left;">
 1.15
@@ -959,16 +978,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
--0.654
+-0.154
 </td>
 <td style="text-align:left;">
-0.345
+0.11
 </td>
 <td style="text-align:left;">
--1.9
+-1.4
 </td>
 <td style="text-align:left;">
-0.0578
+0.162
 </td>
 </tr>
 <tr>
@@ -976,33 +995,135 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
-0.255
+0.137
 </td>
 <td style="text-align:left;">
-0.358
+0.123
 </td>
 <td style="text-align:left;">
-0.713
+1.11
 </td>
 <td style="text-align:left;">
-0.476
+0.265
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Time
+poly(Time, 7)1
 </td>
 <td style="text-align:left;">
--0.35
+-15.7
 </td>
 <td style="text-align:left;">
-0.0282
+1.12
 </td>
 <td style="text-align:left;">
--12.4
+-14
 </td>
 <td style="text-align:left;">
-2.05e-35
+1.84e-44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+-4.31
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+-3.83
+</td>
+<td style="text-align:left;">
+0.000126
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+13.3
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+11.9
+</td>
+<td style="text-align:left;">
+1.54e-32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+-7.42
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+-6.6
+</td>
+<td style="text-align:left;">
+4.01e-11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+-0.612
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+-0.545
+</td>
+<td style="text-align:left;">
+0.586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+2.35
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+2.1
+</td>
+<td style="text-align:left;">
+0.036
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+0.332
+</td>
+<td style="text-align:left;">
+1.12
+</td>
+<td style="text-align:left;">
+0.296
+</td>
+<td style="text-align:left;">
+0.767
 </td>
 </tr>
 <tr>
@@ -1010,67 +1131,373 @@ Time
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
--0.142
+0.00842
 </td>
 <td style="text-align:left;">
-0.512
+0.163
 </td>
 <td style="text-align:left;">
--0.278
+0.0515
 </td>
 <td style="text-align:left;">
-0.781
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:Time
-</td>
-<td style="text-align:left;">
-0.0184
-</td>
-<td style="text-align:left;">
-0.0424
-</td>
-<td style="text-align:left;">
-0.433
-</td>
-<td style="text-align:left;">
-0.665
+0.959
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:Time
+groupCD:poly(Time, 7)1
 </td>
 <td style="text-align:left;">
-0.0615
+0.825
 </td>
 <td style="text-align:left;">
-0.0476
+1.69
 </td>
 <td style="text-align:left;">
-1.29
+0.488
 </td>
 <td style="text-align:left;">
-0.196
+0.626
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:Time
+groupCD:poly(Time, 7)2
 </td>
 <td style="text-align:left;">
-0.0362
+-1.4
 </td>
 <td style="text-align:left;">
-0.0706
+1.69
 </td>
 <td style="text-align:left;">
-0.513
+-0.83
 </td>
 <td style="text-align:left;">
-0.608
+0.406
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+0.803
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+0.475
+</td>
+<td style="text-align:left;">
+0.635
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+-1.81
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+-1.07
+</td>
+<td style="text-align:left;">
+0.283
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+0.909
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+0.538
+</td>
+<td style="text-align:left;">
+0.591
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+2.06
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+1.22
+</td>
+<td style="text-align:left;">
+0.223
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+-1.12
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+-0.66
+</td>
+<td style="text-align:left;">
+0.509
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+2.76
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+1.45
+</td>
+<td style="text-align:left;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+-0.31
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.163
+</td>
+<td style="text-align:left;">
+0.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+-1.55
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.818
+</td>
+<td style="text-align:left;">
+0.413
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+1.63
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+0.86
+</td>
+<td style="text-align:left;">
+0.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+-1.89
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.995
+</td>
+<td style="text-align:left;">
+0.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+2.53
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+1.33
+</td>
+<td style="text-align:left;">
+0.183
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+-2.92
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-1.54
+</td>
+<td style="text-align:left;">
+0.124
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+1.63
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.578
+</td>
+<td style="text-align:left;">
+0.563
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+2.8
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.994
+</td>
+<td style="text-align:left;">
+0.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+-3.06
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-1.09
+</td>
+<td style="text-align:left;">
+0.277
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+1.61
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.573
+</td>
+<td style="text-align:left;">
+0.567
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+0.52
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.184
+</td>
+<td style="text-align:left;">
+0.854
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+-3.71
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-1.32
+</td>
+<td style="text-align:left;">
+0.188
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+4.04
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+1.43
+</td>
+<td style="text-align:left;">
+0.152
 </td>
 </tr>
 </tbody>
@@ -1079,17 +1506,19 @@ genderfemale:groupCD:Time
        aes(DV, group=Time, col=Time)) + 
   ylab(&quot;density&quot;) + xlab(depvar)+
   geom_density()</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/war-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(Time,DV, col=group)) + 
   ylab(depvar) + xlab(&quot;Time&quot;)+
   geom_smooth(method = &#39;loess&#39;) + geom_point() +   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/war-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="cort" class="section level2">
 <h2>CORT</h2>
-<p>overall model p-value (h0 model: CORT~1+(1|twuid)): 2.48e-12</p>
+<p>full models: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender<em>group+poly(Time,4)</em>group+gender<em>poly(Time,4)</em>group+(1|twuid)</p>
+<p>h0 model: DV~1+(1|twuid)):</p>
+<p>overall model p-value:8.35e-70</p>
 <pre class="r"><code>depvar = &quot;AV_CORT&quot;
 
 resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
@@ -1118,16 +1547,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-1.3
+0.29
 </td>
 <td style="text-align:left;">
-0.0688
+0.0959
 </td>
 <td style="text-align:left;">
-18.9
+3.02
 </td>
 <td style="text-align:left;">
-2.77e-79
+0.00252
 </td>
 </tr>
 <tr>
@@ -1135,10 +1564,10 @@ pvalue
 centreAAC
 </td>
 <td style="text-align:left;">
-0.0128
+0.019
 </td>
 <td style="text-align:left;">
-0.126
+0.187
 </td>
 <td style="text-align:left;">
 0.102
@@ -1152,10 +1581,10 @@ centreAAC
 centreBLB
 </td>
 <td style="text-align:left;">
--0.141
+-0.209
 </td>
 <td style="text-align:left;">
-0.113
+0.167
 </td>
 <td style="text-align:left;">
 -1.25
@@ -1169,10 +1598,10 @@ centreBLB
 centreBCN
 </td>
 <td style="text-align:left;">
--0.136
+-0.202
 </td>
 <td style="text-align:left;">
-0.089
+0.132
 </td>
 <td style="text-align:left;">
 -1.53
@@ -1186,10 +1615,10 @@ centreBCN
 centreSZG
 </td>
 <td style="text-align:left;">
--0.142
+-0.211
 </td>
 <td style="text-align:left;">
-0.0977
+0.145
 </td>
 <td style="text-align:left;">
 -1.45
@@ -1203,10 +1632,10 @@ centreSZG
 age_meancentered
 </td>
 <td style="text-align:left;">
-0.088
+0.253
 </td>
 <td style="text-align:left;">
-0.0186
+0.0534
 </td>
 <td style="text-align:left;">
 4.73
@@ -1220,10 +1649,10 @@ age_meancentered
 explstart_meancentered_min
 </td>
 <td style="text-align:left;">
--0.00231
+-0.186
 </td>
 <td style="text-align:left;">
-0.000582
+0.0468
 </td>
 <td style="text-align:left;">
 -3.97
@@ -1237,10 +1666,10 @@ explstart_meancentered_min
 BMI_imp_meancentered
 </td>
 <td style="text-align:left;">
-0.00594
+0.0431
 </td>
 <td style="text-align:left;">
-0.00655
+0.0475
 </td>
 <td style="text-align:left;">
 0.907
@@ -1254,10 +1683,10 @@ BMI_imp_meancentered
 any_med_cceptmed
 </td>
 <td style="text-align:left;">
--0.0331
+-0.0491
 </td>
 <td style="text-align:left;">
-0.0836
+0.124
 </td>
 <td style="text-align:left;">
 -0.397
@@ -1271,10 +1700,10 @@ any_med_cceptmed
 smoking_yes_nosmk
 </td>
 <td style="text-align:left;">
--0.0596
+-0.0883
 </td>
 <td style="text-align:left;">
-0.0868
+0.129
 </td>
 <td style="text-align:left;">
 -0.687
@@ -1288,16 +1717,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.022
+0.0389
 </td>
 <td style="text-align:left;">
-0.0978
+0.133
 </td>
 <td style="text-align:left;">
-0.225
+0.294
 </td>
 <td style="text-align:left;">
-0.822
+0.769
 </td>
 </tr>
 <tr>
@@ -1305,33 +1734,84 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.218
+-0.369
 </td>
 <td style="text-align:left;">
-0.106
+0.149
 </td>
 <td style="text-align:left;">
--2.05
+-2.49
 </td>
 <td style="text-align:left;">
-0.0405
+0.013
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Time
+poly(Time, 4)1
 </td>
 <td style="text-align:left;">
--0.0017
+-1.9
 </td>
 <td style="text-align:left;">
-0.000899
+0.881
 </td>
 <td style="text-align:left;">
--1.89
+-2.16
 </td>
 <td style="text-align:left;">
-0.0592
+0.0311
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+-11.4
+</td>
+<td style="text-align:left;">
+0.881
+</td>
+<td style="text-align:left;">
+-12.9
+</td>
+<td style="text-align:left;">
+2.8e-38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+8.81
+</td>
+<td style="text-align:left;">
+0.881
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+1.48e-23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+-5.05
+</td>
+<td style="text-align:left;">
+0.881
+</td>
+<td style="text-align:left;">
+-5.73
+</td>
+<td style="text-align:left;">
+9.97e-09
 </td>
 </tr>
 <tr>
@@ -1339,67 +1819,220 @@ Time
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
--0.0132
+-0.0612
 </td>
 <td style="text-align:left;">
-0.145
+0.197
 </td>
 <td style="text-align:left;">
--0.0906
+-0.311
 </td>
 <td style="text-align:left;">
-0.928
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:Time
-</td>
-<td style="text-align:left;">
--0.00121
-</td>
-<td style="text-align:left;">
-0.00135
-</td>
-<td style="text-align:left;">
--0.896
-</td>
-<td style="text-align:left;">
-0.37
+0.756
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:Time
+groupCD:poly(Time, 4)1
 </td>
 <td style="text-align:left;">
-0.000163
+-1.36
 </td>
 <td style="text-align:left;">
-0.00152
+1.33
 </td>
 <td style="text-align:left;">
-0.107
+-1.02
 </td>
 <td style="text-align:left;">
-0.914
+0.306
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:Time
+groupCD:poly(Time, 4)2
 </td>
 <td style="text-align:left;">
--0.00108
+10.5
 </td>
 <td style="text-align:left;">
-0.00225
+1.33
 </td>
 <td style="text-align:left;">
--0.48
+7.92
 </td>
 <td style="text-align:left;">
-0.631
+2.45e-15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+-8.35
+</td>
+<td style="text-align:left;">
+1.33
+</td>
+<td style="text-align:left;">
+-6.29
+</td>
+<td style="text-align:left;">
+3.13e-10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+5.01
+</td>
+<td style="text-align:left;">
+1.33
+</td>
+<td style="text-align:left;">
+3.78
+</td>
+<td style="text-align:left;">
+0.00016
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+0.183
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+0.123
+</td>
+<td style="text-align:left;">
+0.902
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+5.94
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+3.99
+</td>
+<td style="text-align:left;">
+6.53e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+-1.5
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+-1
+</td>
+<td style="text-align:left;">
+0.315
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+2.12
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+1.42
+</td>
+<td style="text-align:left;">
+0.154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+-1.21
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+-0.549
+</td>
+<td style="text-align:left;">
+0.583
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+-4.68
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+-2.12
+</td>
+<td style="text-align:left;">
+0.0343
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+1.09
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+0.495
+</td>
+<td style="text-align:left;">
+0.621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+-2.92
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+-1.32
+</td>
+<td style="text-align:left;">
+0.186
 </td>
 </tr>
 </tbody>
@@ -1408,17 +2041,19 @@ genderfemale:groupCD:Time
        aes(DV, group=Time, col=Time)) + 
   ylab(&quot;density&quot;) + xlab(depvar)+
   geom_density()</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_CORT-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(Time,DV, col=group)) + 
   ylab(depvar) + xlab(&quot;Time&quot;)+
   geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-1-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_CORT-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="test" class="section level2">
 <h2>TEST</h2>
-<p>overall model p-value (h0 model: TEST~1+(1|twuid)): 1.84e-20</p>
+<p>full models: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender<em>group+poly(Time,4)</em>group+gender<em>poly(Time,4)</em>group+(1|twuid)</p>
+<p>h0 model: DV~1+(1|twuid)):</p>
+<p>overall model p-value: 1.86e-36</p>
 <pre class="r"><code>depvar = &quot;AV_TEST&quot;
 
 resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
@@ -1447,16 +2082,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-3.54
+-0.302
 </td>
 <td style="text-align:left;">
-0.0592
+0.0991
 </td>
 <td style="text-align:left;">
-59.9
+-3.05
 </td>
 <td style="text-align:left;">
-0
+0.00228
 </td>
 </tr>
 <tr>
@@ -1464,10 +2099,10 @@ pvalue
 centreAAC
 </td>
 <td style="text-align:left;">
-0.35
+0.596
 </td>
 <td style="text-align:left;">
-0.113
+0.193
 </td>
 <td style="text-align:left;">
 3.08
@@ -1481,10 +2116,10 @@ centreAAC
 centreBLB
 </td>
 <td style="text-align:left;">
--0.0259
+-0.044
 </td>
 <td style="text-align:left;">
-0.101
+0.173
 </td>
 <td style="text-align:left;">
 -0.255
@@ -1498,10 +2133,10 @@ centreBLB
 centreBCN
 </td>
 <td style="text-align:left;">
-0.0348
+0.0592
 </td>
 <td style="text-align:left;">
-0.08
+0.136
 </td>
 <td style="text-align:left;">
 0.434
@@ -1515,10 +2150,10 @@ centreBCN
 centreSZG
 </td>
 <td style="text-align:left;">
-0.221
+0.376
 </td>
 <td style="text-align:left;">
-0.0878
+0.15
 </td>
 <td style="text-align:left;">
 2.51
@@ -1532,10 +2167,10 @@ centreSZG
 age_meancentered
 </td>
 <td style="text-align:left;">
-0.0726
+0.239
 </td>
 <td style="text-align:left;">
-0.0167
+0.0552
 </td>
 <td style="text-align:left;">
 4.34
@@ -1549,10 +2184,10 @@ age_meancentered
 explstart_meancentered_min
 </td>
 <td style="text-align:left;">
--0.002
+-0.185
 </td>
 <td style="text-align:left;">
-0.000524
+0.0484
 </td>
 <td style="text-align:left;">
 -3.83
@@ -1566,10 +2201,10 @@ explstart_meancentered_min
 BMI_imp_meancentered
 </td>
 <td style="text-align:left;">
-0.0205
+0.171
 </td>
 <td style="text-align:left;">
-0.00589
+0.0491
 </td>
 <td style="text-align:left;">
 3.48
@@ -1583,10 +2218,10 @@ BMI_imp_meancentered
 any_med_cceptmed
 </td>
 <td style="text-align:left;">
--0.116
+-0.198
 </td>
 <td style="text-align:left;">
-0.0752
+0.128
 </td>
 <td style="text-align:left;">
 -1.55
@@ -1600,10 +2235,10 @@ any_med_cceptmed
 smoking_yes_nosmk
 </td>
 <td style="text-align:left;">
-0.0837
+0.142
 </td>
 <td style="text-align:left;">
-0.078
+0.133
 </td>
 <td style="text-align:left;">
 1.07
@@ -1617,16 +2252,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.334
+0.645
 </td>
 <td style="text-align:left;">
-0.0824
+0.137
 </td>
 <td style="text-align:left;">
-4.05
+4.71
 </td>
 <td style="text-align:left;">
-5.12e-05
+2.52e-06
 </td>
 </tr>
 <tr>
@@ -1634,33 +2269,50 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.0656
+-0.0903
 </td>
 <td style="text-align:left;">
-0.0916
+0.154
 </td>
 <td style="text-align:left;">
--0.717
+-0.588
 </td>
 <td style="text-align:left;">
-0.474
+0.556
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Time
+poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--0.00058
+-0.697
 </td>
 <td style="text-align:left;">
-0.000484
+0.54
 </td>
 <td style="text-align:left;">
--1.2
+-1.29
 </td>
 <td style="text-align:left;">
-0.231
+0.197
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-5.01
+</td>
+<td style="text-align:left;">
+0.54
+</td>
+<td style="text-align:left;">
+-9.28
+</td>
+<td style="text-align:left;">
+1.77e-20
 </td>
 </tr>
 <tr>
@@ -1668,67 +2320,118 @@ Time
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
-0.0979
+0.0815
 </td>
 <td style="text-align:left;">
-0.122
+0.204
 </td>
 <td style="text-align:left;">
-0.8
+0.401
 </td>
 <td style="text-align:left;">
-0.424
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:Time
-</td>
-<td style="text-align:left;">
-0.00058
-</td>
-<td style="text-align:left;">
-0.00073
-</td>
-<td style="text-align:left;">
-0.795
-</td>
-<td style="text-align:left;">
-0.426
+0.689
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:Time
+groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-0.00208
+0.697
 </td>
 <td style="text-align:left;">
-0.000819
+0.813
 </td>
 <td style="text-align:left;">
-2.53
+0.857
 </td>
 <td style="text-align:left;">
-0.0113
+0.391
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:Time
+groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--0.00231
+4.58
 </td>
 <td style="text-align:left;">
-0.00122
+0.813
 </td>
 <td style="text-align:left;">
--1.9
+5.64
 </td>
 <td style="text-align:left;">
-0.0573
+1.71e-08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+2.49
+</td>
+<td style="text-align:left;">
+0.913
+</td>
+<td style="text-align:left;">
+2.73
+</td>
+<td style="text-align:left;">
+0.00628
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+2.81
+</td>
+<td style="text-align:left;">
+0.913
+</td>
+<td style="text-align:left;">
+3.08
+</td>
+<td style="text-align:left;">
+0.0021
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-2.77
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+-2.05
+</td>
+<td style="text-align:left;">
+0.0404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-3.51
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+-2.59
+</td>
+<td style="text-align:left;">
+0.00964
 </td>
 </tr>
 </tbody>
@@ -1737,113 +2440,115 @@ genderfemale:groupCD:Time
        aes(DV, group=Time, col=Time)) + 
   ylab(&quot;density&quot;) + xlab(depvar)+
   geom_density()</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(Time,DV, col=group)) + 
   ylab(depvar) + xlab(&quot;Time&quot;)+
   geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.275</code></pre>
+parametric, : pseudoinverse used at -0.91672</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 55.275</code></pre>
+parametric, : neighborhood radius 2.3094</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 9.612e-016</code></pre>
+parametric, : reciprocal condition number 3.8072e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 3055.3</code></pre>
+parametric, : There are other near singularities as well. 5.3333</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.275</code></pre>
+-0.91672</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-55.275</code></pre>
+2.3094</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 9.612e-016</code></pre>
+number 3.8072e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 3055.3</code></pre>
+singularities as well. 5.3333</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.275</code></pre>
+parametric, : pseudoinverse used at -0.91672</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 55.275</code></pre>
+parametric, : neighborhood radius 2.3094</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 4.7148e-016</code></pre>
+parametric, : reciprocal condition number 7.3106e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 3055.3</code></pre>
+parametric, : There are other near singularities as well. 5.3333</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.275</code></pre>
+-0.91672</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-55.275</code></pre>
+2.3094</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 4.7148e-016</code></pre>
+number 7.3106e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 3055.3</code></pre>
+singularities as well. 5.3333</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.275</code></pre>
+parametric, : pseudoinverse used at -0.91672</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 55.275</code></pre>
+parametric, : neighborhood radius 2.3094</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 5.7748e-016</code></pre>
+parametric, : reciprocal condition number 6.8947e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 3055.3</code></pre>
+parametric, : There are other near singularities as well. 5.3333</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.275</code></pre>
+-0.91672</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-55.275</code></pre>
+2.3094</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 5.7748e-016</code></pre>
+number 6.8947e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 3055.3</code></pre>
+singularities as well. 5.3333</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.275</code></pre>
+parametric, : pseudoinverse used at -0.91672</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 55.275</code></pre>
+parametric, : neighborhood radius 2.3094</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 4.7108e-016</code></pre>
+parametric, : reciprocal condition number 6.015e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 3055.3</code></pre>
+parametric, : There are other near singularities as well. 5.3333</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.275</code></pre>
+-0.91672</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-55.275</code></pre>
+2.3094</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 4.7108e-016</code></pre>
+number 6.015e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 3055.3</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+singularities as well. 5.3333</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="oxt" class="section level2">
 <h2>OXT</h2>
-<p>overall model p-value (h0 model: OXT~1+(1|twuid)): 0.0901</p>
+<p>full models: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time,4)+gender<em>group+poly(Time,4)</em>group+gender<em>poly(Time,4)</em>group+(1|twuid)</p>
+<p>h0 model: DV~1+(1|twuid)):</p>
+<p>overall model p-value: 0.00204</p>
 <pre class="r"><code>depvar = &quot;AV_OXT&quot;
 
 resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
@@ -1872,16 +2577,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-0.324
+0.225
 </td>
 <td style="text-align:left;">
-0.0707
+0.154
 </td>
 <td style="text-align:left;">
-4.58
+1.46
 </td>
 <td style="text-align:left;">
-4.73e-06
+0.146
 </td>
 </tr>
 <tr>
@@ -1889,10 +2594,10 @@ pvalue
 centreAAC
 </td>
 <td style="text-align:left;">
-0.0127
+0.0285
 </td>
 <td style="text-align:left;">
-0.123
+0.278
 </td>
 <td style="text-align:left;">
 0.103
@@ -1906,10 +2611,10 @@ centreAAC
 centreBLB
 </td>
 <td style="text-align:left;">
--0.0917
+-0.206
 </td>
 <td style="text-align:left;">
-0.106
+0.238
 </td>
 <td style="text-align:left;">
 -0.866
@@ -1923,10 +2628,10 @@ centreBLB
 centreBCN
 </td>
 <td style="text-align:left;">
--0.0908
+-0.204
 </td>
 <td style="text-align:left;">
-0.113
+0.253
 </td>
 <td style="text-align:left;">
 -0.807
@@ -1940,10 +2645,10 @@ centreBCN
 centreSZG
 </td>
 <td style="text-align:left;">
--0.0728
+-0.164
 </td>
 <td style="text-align:left;">
-0.188
+0.423
 </td>
 <td style="text-align:left;">
 -0.386
@@ -1957,10 +2662,10 @@ centreSZG
 age_meancentered
 </td>
 <td style="text-align:left;">
-0.0237
+0.103
 </td>
 <td style="text-align:left;">
-0.0192
+0.0839
 </td>
 <td style="text-align:left;">
 1.23
@@ -1974,10 +2679,10 @@ age_meancentered
 explstart_meancentered_min
 </td>
 <td style="text-align:left;">
--0.000179
+-0.0218
 </td>
 <td style="text-align:left;">
-0.000816
+0.0996
 </td>
 <td style="text-align:left;">
 -0.219
@@ -1991,10 +2696,10 @@ explstart_meancentered_min
 BMI_imp_meancentered
 </td>
 <td style="text-align:left;">
--0.0081
+-0.0893
 </td>
 <td style="text-align:left;">
-0.00598
+0.0659
 </td>
 <td style="text-align:left;">
 -1.35
@@ -2008,10 +2713,10 @@ BMI_imp_meancentered
 any_med_cceptmed
 </td>
 <td style="text-align:left;">
--0.0142
+-0.032
 </td>
 <td style="text-align:left;">
-0.083
+0.187
 </td>
 <td style="text-align:left;">
 -0.171
@@ -2025,10 +2730,10 @@ any_med_cceptmed
 smoking_yes_nosmk
 </td>
 <td style="text-align:left;">
-0.0955
+0.215
 </td>
 <td style="text-align:left;">
-0.0875
+0.197
 </td>
 <td style="text-align:left;">
 1.09
@@ -2042,16 +2747,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
--0.129
+-0.311
 </td>
 <td style="text-align:left;">
-0.0953
+0.207
 </td>
 <td style="text-align:left;">
--1.36
+-1.5
 </td>
 <td style="text-align:left;">
-0.174
+0.133
 </td>
 </tr>
 <tr>
@@ -2059,33 +2764,50 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.0688
+-0.0973
 </td>
 <td style="text-align:left;">
-0.108
+0.236
 </td>
 <td style="text-align:left;">
--0.639
+-0.412
 </td>
 <td style="text-align:left;">
-0.523
+0.68
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Time
+poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-0.00286
+0.852
 </td>
 <td style="text-align:left;">
-0.0046
+1.34
 </td>
 <td style="text-align:left;">
-0.62
+0.634
 </td>
 <td style="text-align:left;">
-0.535
+0.526
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-3.51
+</td>
+<td style="text-align:left;">
+1.34
+</td>
+<td style="text-align:left;">
+-2.61
+</td>
+<td style="text-align:left;">
+0.00893
 </td>
 </tr>
 <tr>
@@ -2093,67 +2815,118 @@ Time
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
--0.0975
+-0.173
 </td>
 <td style="text-align:left;">
-0.136
+0.295
 </td>
 <td style="text-align:left;">
--0.716
+-0.588
 </td>
 <td style="text-align:left;">
-0.474
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:Time
-</td>
-<td style="text-align:left;">
-0.00696
-</td>
-<td style="text-align:left;">
-0.00665
-</td>
-<td style="text-align:left;">
-1.05
-</td>
-<td style="text-align:left;">
-0.296
+0.556
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:Time
+groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--0.00235
+2.08
 </td>
 <td style="text-align:left;">
-0.00682
+1.94
 </td>
 <td style="text-align:left;">
--0.344
+1.07
 </td>
 <td style="text-align:left;">
-0.731
+0.285
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:Time
+groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-0.00555
+2.95
 </td>
 <td style="text-align:left;">
-0.00997
+1.94
 </td>
 <td style="text-align:left;">
-0.557
+1.52
 </td>
 <td style="text-align:left;">
-0.578
+0.129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.7
+</td>
+<td style="text-align:left;">
+1.99
+</td>
+<td style="text-align:left;">
+-0.352
+</td>
+<td style="text-align:left;">
+0.725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-1.37
+</td>
+<td style="text-align:left;">
+1.99
+</td>
+<td style="text-align:left;">
+-0.687
+</td>
+<td style="text-align:left;">
+0.492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+1.66
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+0.569
+</td>
+<td style="text-align:left;">
+0.569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.281
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+0.0966
+</td>
+<td style="text-align:left;">
+0.923
 </td>
 </tr>
 </tbody>
@@ -2163,7 +2936,7 @@ genderfemale:groupCD:Time
   ylab(&quot;density&quot;) + xlab(depvar)+
   geom_density()</code></pre>
 <pre><code>Warning: Removed 360 rows containing non-finite values (stat_density).</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(Time,DV, col=group)) + 
   ylab(depvar) + xlab(&quot;Time&quot;)+
@@ -2171,103 +2944,103 @@ genderfemale:groupCD:Time
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <pre><code>Warning: Removed 360 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.05</code></pre>
+parametric, : pseudoinverse used at -0.82602</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 10.05</code></pre>
+parametric, : neighborhood radius 2.2336</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 5.6675e-016</code></pre>
+parametric, : reciprocal condition number 2.9966e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 101</code></pre>
+parametric, : There are other near singularities as well. 4.9889</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.05</code></pre>
+-0.82602</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-10.05</code></pre>
+2.2336</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 5.6675e-016</code></pre>
+number 2.9966e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 101</code></pre>
+singularities as well. 4.9889</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.05</code></pre>
+parametric, : pseudoinverse used at -0.82602</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 10.05</code></pre>
+parametric, : neighborhood radius 2.2336</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 5.5247e-016</code></pre>
+parametric, : reciprocal condition number 1.6268e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 101</code></pre>
+parametric, : There are other near singularities as well. 4.9889</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.05</code></pre>
+-0.82602</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-10.05</code></pre>
+2.2336</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 5.5247e-016</code></pre>
+number 1.6268e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 101</code></pre>
+singularities as well. 4.9889</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.05</code></pre>
+parametric, : pseudoinverse used at -0.82602</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 10.05</code></pre>
+parametric, : neighborhood radius 2.2336</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 1.0535e-016</code></pre>
+parametric, : reciprocal condition number 2.6988e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 101</code></pre>
+parametric, : There are other near singularities as well. 4.9889</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.05</code></pre>
+-0.82602</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-10.05</code></pre>
+2.2336</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 1.0535e-016</code></pre>
+number 2.6988e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 101</code></pre>
+singularities as well. 4.9889</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : pseudoinverse used at -0.05</code></pre>
+parametric, : pseudoinverse used at -0.82602</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : neighborhood radius 10.05</code></pre>
+parametric, : neighborhood radius 2.2336</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : reciprocal condition number 5.9616e-016</code></pre>
+parametric, : reciprocal condition number 4.1091e-016</code></pre>
 <pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-parametric, : There are other near singularities as well. 101</code></pre>
+parametric, : There are other near singularities as well. 4.9889</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
--0.05</code></pre>
+-0.82602</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
-10.05</code></pre>
+2.2336</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
-number 5.9616e-016</code></pre>
+number 4.1091e-016</code></pre>
 <pre><code>Warning in predLoess(object$y, object$x, newx = if
 (is.null(newdata)) object$x else if (is.data.frame(newdata))
 as.matrix(model.frame(delete.response(terms(object)), : There are other near
-singularities as well. 101</code></pre>
+singularities as well. 4.9889</code></pre>
 <pre><code>Warning: Removed 360 rows containing missing values (geom_point).</code></pre>
-<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-3-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2296,7 +3069,7 @@ other attached packages:
  [7] data.table_1.14.0   forcats_0.5.1       stringr_1.4.0      
 [10] dplyr_1.0.5         purrr_0.3.4         readr_1.4.0        
 [13] tidyr_1.1.3         tibble_3.1.0        ggplot2_3.3.3      
-[16] tidyverse_1.3.0     haven_2.3.1         workflowr_1.6.2    
+[16] tidyverse_1.3.0     haven_2.3.1        
 
 loaded via a namespace (and not attached):
   [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
@@ -2305,16 +3078,16 @@ loaded via a namespace (and not attached):
  [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
  [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
  [16] codetools_0.2-18     splines_4.0.4        knitr_1.31          
- [19] jsonlite_1.7.2       nloptr_1.2.2.2       pROC_1.17.0.1       
- [22] broom_0.7.5          dbplyr_2.1.0         compiler_4.0.4      
- [25] httr_1.4.2           backports_1.2.1      assertthat_0.2.1    
- [28] cli_2.3.1            later_1.1.0.1        htmltools_0.5.1.1   
- [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
- [34] reshape2_1.4.4       Rcpp_1.0.6           cellranger_1.1.0    
- [37] jquerylib_0.1.3      vctrs_0.3.6          writexl_1.3.1       
- [40] svglite_2.0.0        nlme_3.1-152         iterators_1.0.13    
- [43] timeDate_3043.102    xfun_0.21            gower_0.2.2         
- [46] ps_1.6.0             rvest_1.0.0          lifecycle_1.0.0     
+ [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
+ [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
+ [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
+ [28] assertthat_0.2.1     cli_2.3.1            later_1.1.0.1       
+ [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
+ [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
+ [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
+ [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
+ [43] iterators_1.0.13     timeDate_3043.102    xfun_0.21           
+ [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
  [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
  [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
  [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
