@@ -1,0 +1,256 @@
+---
+title: "TSST LMM"
+author: "AGC"
+date: "15 4 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(haven)
+library(tidyverse)
+library(data.table)
+library(lme4)
+library(kableExtra)
+library(caret)
+library(ggplot2)
+library(compareGroups)
+
+home = "S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis"
+
+```
+
+# Prepare
+
+## read and check data 
+
+```{r preprocess}
+df = as.data.frame(read_sav(paste0(home,"/data/13.04.2021_290_170_CORTAUCsplit.sav")))
+
+df$group = drop(factor(df$group, levels = c(1,2), labels=c("CD", "CTRL"))) %>% relevel(., ref="CTRL")
+df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("FFM", "AAC", "BLB", "BCN", "SZG")))
+df$any_med_ccept = drop(factor(df$any_med_ccept, levels = c(0,1), 
+                               labels=c("no_med", "med")))%>% relevel(., ref="no_med")
+df$smoking_yes_no = drop(factor(df$smoking_yes_no, levels = c(0,1), 
+                                labels=c("no_smk", "smk")))%>% relevel(., ref="no_smk")
+df$gender = drop(factor(df$gender, levels = c(1,2), 
+                        labels=c("male", "female")))%>% relevel(., ref="male")
+
+table(df$group, useNA = "always")
+table(df$centre, useNA = "always")
+table(df$any_med_ccept, useNA = "always")
+table(df$smoking_yes_no, useNA = "always")
+table(df$gender, useNA = "always")
+
+UV = c("centre","age_meancentered", "explstart_meancentered_min", 
+  "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group")
+
+
+AV = list(
+AV_stressed = c(stressed_1=1, stressed_2=2,
+                stressed_3=3, stressed_4=4,
+                stressed_5=5, stressed_6=6, 
+                stressed_7=7, stressed_8=8), 
+AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
+AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
+AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
+
+
+
+model = "DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender*group+Time*group+gender*Time*group+(1|twuid)"
+
+# do not include site in correlation plot 
+
+tmpframe = df[,UV[!UV%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
+
+corrplot::corrplot(cor(tmpframe, use = "pairwise"))
+```
+
+## complete cohort descriptives
+
+```{r preprocess_allstat}
+res = compareGroups(group~., data = df[,UV])
+#summary(res)
+export_table <- createTable(res)
+export_table
+```
+
+## male only cohort descriptives
+```{r preprocess_malestat}
+res = compareGroups(group~., data = df[,UV], subset = gender=="male")
+export_table <- createTable(res)
+export_table
+```
+
+## female only cohort descriptives
+```{r preprocess_femalestat}
+res = compareGroups(group~., data = df[,UV], subset = gender=="female")
+export_table <- createTable(res)
+export_table
+
+```
+
+
+## Definitions
+
+**IV of interest :**
+
+* Gruppe ("group") 
+* sex ("gender")
+* Zeitpunkt ("Time")
+* Gruppe x Zeitpunkt
+* Gruppe x sex
+
+**IV of no interest :** 
+
+* Site ("centre")
+* Age scaled ("age_meancentered")
+* "explstart_meancentered_min" 
+* "BMI_imp_meancentered"
+* "any_med_ccept"
+* "smoking_yes_no"
+
+**DV:**
+
+* psychologischer Stress („stressed“)
+* Cortisol („CORT“)
+* Testosteron („TEST”) 
+* Oxytocin (OXT”)
+
+
+## linear model with mixed effects 
+
+We adapted a boxed design by individual over Time
+
+full model: `r model`
+
+
+```{r mml, warning=FALSE}
+resall = list()
+
+for (depvar in names(AV)){
+  cols = names(AV[[depvar]])
+  long = df[,c("twuid",cols, UV)] %>% 
+    gather(key = "value", value = "DV", all_of(cols))
+  long$Time = AV[[depvar]][long$value]
+  long$twuid = as.factor(long$twuid)
+  model.lme = lme4::lmer(model, data=long)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
+  anovah0 = anova(model.lme0, model.lme)
+  model_p_val = anovah0$`Pr(>Chisq)`[2]
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff")]]=res.coeff
+  resall[[paste0(depvar,"_modsig")]]=model_p_val
+}
+
+```
+
+# Results 
+
+## stressed
+
+overall model p-value (h0 model: stressed~1+(1|twuid)):
+`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
+
+```{r, war}
+tableplot = function (x){
+  x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
+  }
+
+
+depvar = "AV_stressed"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+
+
+
+
+```
+
+## CORT
+
+overall model p-value (h0 model: CORT~1+(1|twuid)):
+`r as.character(signif(resall[["AV_CORT_modsig"]], 3))`
+
+```{r}
+depvar = "AV_CORT"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+
+  
+
+```
+
+## TEST
+
+overall model p-value (h0 model: TEST~1+(1|twuid)):
+`r as.character(signif(resall[["AV_TEST_modsig"]], 3))`
+
+
+```{r}
+depvar = "AV_TEST"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+
+
+```
+
+## OXT
+
+overall model p-value (h0 model: OXT~1+(1|twuid)):
+`r as.character(signif(resall[["AV_OXT_modsig"]], 3))`
+
+```{r}
+
+depvar = "AV_OXT"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+  
+
+```
+

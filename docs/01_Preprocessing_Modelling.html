@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="AGC" />
+
+
+<title>TSST LMM</title>
+
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">TSST_Analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">TSST LMM</h1>
+<h4 class="author">AGC</h4>
+<h4 class="date">15 4 2021</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-04-16
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
+</p>
+<p>
+<strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210415code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210415)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210415code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210415)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongabsolute"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>File paths:</strong> absolute </a>
+</p>
+</div>
+<div id="strongFilepathsstrongabsolute" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Using absolute paths to the files within your workflowr project makes it difficult for you and others to run your code on a different machine. Change the absolute path(s) below to the suggested relative path(s) to make your code more reproducible.
+</p>
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th style="text-align:left;">
+absolute
+</th>
+<th style="text-align:left;">
+relative
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+S:/KJP_Biolabor/Projekte/FemNAT-CD/TSST_Analysis
+</td>
+<td style="text-align:left;">
+.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstronga1db9d2"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> a1db9d2 </a>
+</p>
+</div>
+<div id="strongRepositoryversionstronga1db9d2" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version a1db9d2. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .Rproj.user/
+
+Untracked files:
+    Untracked:  analysis/01_Preprocessing_Modelling.Rmd
+    Untracked:  analysis/01_Preprocessing_Modelling.tex
+    Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="prepare" class="section level1">
+<h1>Prepare</h1>
+<div id="read-and-check-data" class="section level2">
+<h2>read and check data</h2>
+<pre class="r"><code>df = as.data.frame(read_sav(paste0(home,&quot;/data/13.04.2021_290_170_CORTAUCsplit.sav&quot;)))
+
+df$group = drop(factor(df$group, levels = c(1,2), labels=c(&quot;CD&quot;, &quot;CTRL&quot;))) %&gt;% relevel(., ref=&quot;CTRL&quot;)
+df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c(&quot;FFM&quot;, &quot;AAC&quot;, &quot;BLB&quot;, &quot;BCN&quot;, &quot;SZG&quot;)))
+df$any_med_ccept = drop(factor(df$any_med_ccept, levels = c(0,1), 
+                               labels=c(&quot;no_med&quot;, &quot;med&quot;)))%&gt;% relevel(., ref=&quot;no_med&quot;)
+df$smoking_yes_no = drop(factor(df$smoking_yes_no, levels = c(0,1), 
+                                labels=c(&quot;no_smk&quot;, &quot;smk&quot;)))%&gt;% relevel(., ref=&quot;no_smk&quot;)
+df$gender = drop(factor(df$gender, levels = c(1,2), 
+                        labels=c(&quot;male&quot;, &quot;female&quot;)))%&gt;% relevel(., ref=&quot;male&quot;)
+
+table(df$group, useNA = &quot;always&quot;)</code></pre>
+<pre><code>
+CTRL   CD &lt;NA&gt; 
+ 160  130    0 </code></pre>
+<pre class="r"><code>table(df$centre, useNA = &quot;always&quot;)</code></pre>
+<pre><code>
+ FFM  AAC  BLB  BCN  SZG &lt;NA&gt; 
+ 144   21   29   56   40    0 </code></pre>
+<pre class="r"><code>table(df$any_med_ccept, useNA = &quot;always&quot;)</code></pre>
+<pre><code>
+no_med    med   &lt;NA&gt; 
+   218     72      0 </code></pre>
+<pre class="r"><code>table(df$smoking_yes_no, useNA = &quot;always&quot;)</code></pre>
+<pre><code>
+no_smk    smk   &lt;NA&gt; 
+   198     92      0 </code></pre>
+<pre class="r"><code>table(df$gender, useNA = &quot;always&quot;)</code></pre>
+<pre><code>
+  male female   &lt;NA&gt; 
+   186    104      0 </code></pre>
+<pre class="r"><code>UV = c(&quot;centre&quot;,&quot;age_meancentered&quot;, &quot;explstart_meancentered_min&quot;, 
+  &quot;BMI_imp_meancentered&quot;, &quot;any_med_ccept&quot;, &quot;smoking_yes_no&quot;, &quot;gender&quot;, &quot;group&quot;)
+
+
+AV = list(
+AV_stressed = c(stressed_1=1, stressed_2=2,
+                stressed_3=3, stressed_4=4,
+                stressed_5=5, stressed_6=6, 
+                stressed_7=7, stressed_8=8), 
+AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
+AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
+AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
+
+
+
+model = &quot;DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender*group+Time*group+gender*Time*group+(1|twuid)&quot;
+
+# do not include site in correlation plot 
+
+tmpframe = df[,UV[!UV%in% c(&quot;centre&quot;)]] %&gt;% mutate_if(is.factor, function(x) as.numeric(x)-1)
+
+corrplot::corrplot(cor(tmpframe, use = &quot;pairwise&quot;))</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/preprocess-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="complete-cohort-descriptives" class="section level2">
+<h2>complete cohort descriptives</h2>
+<pre class="r"><code>res = compareGroups(group~., data = df[,UV])
+#summary(res)
+export_table &lt;- createTable(res)
+export_table</code></pre>
+<pre><code>
+--------Summary descriptives table by &#39;group&#39;---------
+
+______________________________________________________________ 
+                               CTRL          CD      p.overall 
+                              N=160        N=130               
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+centre:                                                0.013   
+    FFM                     81 (50.6%)   63 (48.5%)            
+    AAC                     5 (3.12%)    16 (12.3%)            
+    BLB                     14 (8.75%)   15 (11.5%)            
+    BCN                     32 (20.0%)   24 (18.5%)            
+    SZG                     28 (17.5%)   12 (9.23%)            
+age_meancentered           -0.03 (2.07) 0.01 (1.78)    0.853   
+explstart_meancentered_min 1.66 (53.5)  -0.05 (55.5)   0.791   
+BMI_imp_meancentered       -0.98 (3.79) 1.31 (5.77)   &lt;0.001   
+any_med_ccept:                                        &lt;0.001   
+    no_med                 146 (91.2%)   72 (55.4%)            
+    med                     14 (8.75%)   58 (44.6%)            
+smoking_yes_no:                                       &lt;0.001   
+    no_smk                 144 (90.0%)   54 (41.5%)            
+    smk                     16 (10.0%)   76 (58.5%)            
+gender:                                                0.829   
+    male                   104 (65.0%)   82 (63.1%)            
+    female                  56 (35.0%)   48 (36.9%)            
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
+</div>
+<div id="male-only-cohort-descriptives" class="section level2">
+<h2>male only cohort descriptives</h2>
+<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;male&quot;)</code></pre>
+<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
+Some levels of &#39;gender&#39; are removed since no observation in that/those levels</code></pre>
+<pre class="r"><code>export_table &lt;- createTable(res)
+export_table</code></pre>
+<pre><code>
+--------Summary descriptives table by &#39;group&#39;---------
+
+_____________________________________________________________ 
+                               CTRL         CD      p.overall 
+                              N=104        N=82               
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+centre:                                               0.002   
+    FFM                     49 (47.1%)  29 (35.4%)            
+    AAC                     2 (1.92%)   13 (15.9%)            
+    BLB                     14 (13.5%)  15 (18.3%)            
+    BCN                     16 (15.4%)  16 (19.5%)            
+    SZG                     23 (22.1%)   9 (11.0%)            
+age_meancentered           -0.13 (2.07) 0.12 (1.54)   0.342   
+explstart_meancentered_min 8.40 (53.6)  0.43 (58.0)   0.337   
+BMI_imp_meancentered       -1.07 (3.92) 1.89 (6.54)  &lt;0.001   
+any_med_ccept:                                       &lt;0.001   
+    no_med                  92 (88.5%)  34 (41.5%)            
+    med                     12 (11.5%)  48 (58.5%)            
+smoking_yes_no:                                      &lt;0.001   
+    no_smk                  97 (93.3%)  31 (37.8%)            
+    smk                     7 (6.73%)   51 (62.2%)            
+gender: male                104 (100%)   82 (100%)      .     
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
+</div>
+<div id="female-only-cohort-descriptives" class="section level2">
+<h2>female only cohort descriptives</h2>
+<pre class="r"><code>res = compareGroups(group~., data = df[,UV], subset = gender==&quot;female&quot;)</code></pre>
+<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
+Some levels of &#39;centre&#39; are removed since no observation in that/those levels</code></pre>
+<pre><code>Warning in chisq.test(xx, correct = FALSE): Chi-squared approximation may be
+incorrect
+
+Warning in chisq.test(xx, correct = FALSE): Chi-squared approximation may be
+incorrect</code></pre>
+<pre><code>Warning in compare.i(X[, i], y = y, selec.i = selec[i], method.i = method[i], :
+Some levels of &#39;gender&#39; are removed since no observation in that/those levels</code></pre>
+<pre class="r"><code>export_table &lt;- createTable(res)
+export_table</code></pre>
+<pre><code>
+--------Summary descriptives table by &#39;group&#39;---------
+
+_______________________________________________________________ 
+                               CTRL           CD      p.overall 
+                               N=56          N=48               
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ 
+centre:                                                 0.452   
+    FFM                     32 (57.1%)    34 (70.8%)            
+    AAC                      3 (5.36%)    3 (6.25%)             
+    BCN                     16 (28.6%)    8 (16.7%)             
+    SZG                      5 (8.93%)    3 (6.25%)             
+age_meancentered            0.16 (2.06)  -0.17 (2.13)   0.422   
+explstart_meancentered_min -10.88 (51.4) -0.88 (51.6)   0.326   
+BMI_imp_meancentered       -0.82 (3.55)  0.33 (4.03)    0.128   
+any_med_ccept:                                          0.015   
+    no_med                  54 (96.4%)    38 (79.2%)            
+    med                      2 (3.57%)    10 (20.8%)            
+smoking_yes_no:                                        &lt;0.001   
+    no_smk                  47 (83.9%)    23 (47.9%)            
+    smk                      9 (16.1%)    25 (52.1%)            
+gender: female               56 (100%)    48 (100%)       .     
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
+</div>
+<div id="definitions" class="section level2">
+<h2>Definitions</h2>
+<p><strong>IV of interest :</strong></p>
+<ul>
+<li>Gruppe (“group”)</li>
+<li>sex (“gender”)</li>
+<li>Zeitpunkt (“Time”)</li>
+<li>Gruppe x Zeitpunkt</li>
+<li>Gruppe x sex</li>
+</ul>
+<p><strong>IV of no interest :</strong></p>
+<ul>
+<li>Site (“centre”)</li>
+<li>Age scaled (“age_meancentered”)</li>
+<li>“explstart_meancentered_min”</li>
+<li>“BMI_imp_meancentered”</li>
+<li>“any_med_ccept”</li>
+<li>“smoking_yes_no”</li>
+</ul>
+<p><strong>DV:</strong></p>
+<ul>
+<li>psychologischer Stress („stressed“)</li>
+<li>Cortisol („CORT“)</li>
+<li>Testosteron („TEST”)</li>
+<li>Oxytocin (OXT”)</li>
+</ul>
+</div>
+<div id="linear-model-with-mixed-effects" class="section level2">
+<h2>linear model with mixed effects</h2>
+<p>We adapted a boxed design by individual over Time</p>
+<p>full model: DV~1+centre+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+Time+gender<em>group+Time</em>group+gender<em>Time</em>group+(1|twuid)</p>
+<pre class="r"><code>resall = list()
+
+for (depvar in names(AV)){
+  cols = names(AV[[depvar]])
+  long = df[,c(&quot;twuid&quot;,cols, UV)] %&gt;% 
+    gather(key = &quot;value&quot;, value = &quot;DV&quot;, all_of(cols))
+  long$Time = AV[[depvar]][long$value]
+  long$twuid = as.factor(long$twuid)
+  model.lme = lme4::lmer(model, data=long)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long)
+  anovah0 = anova(model.lme0, model.lme)
+  model_p_val = anovah0$`Pr(&gt;Chisq)`[2]
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,&quot;_longdat&quot;)]] = long
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$&quot;t value&quot;), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,&quot;_coeff&quot;)]]=res.coeff
+  resall[[paste0(depvar,&quot;_modsig&quot;)]]=model_p_val
+}</code></pre>
+<pre><code>refitting model(s) with ML (instead of REML)
+refitting model(s) with ML (instead of REML)
+refitting model(s) with ML (instead of REML)
+refitting model(s) with ML (instead of REML)</code></pre>
+</div>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div id="stressed" class="section level2">
+<h2>stressed</h2>
+<p>overall model p-value (h0 model: stressed~1+(1|twuid)): 8.86e-64</p>
+<pre class="r"><code>tableplot = function (x){
+  x %&gt;% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %&gt;% kbl() %&gt;% kable_classic()
+  }
+
+
+depvar = &quot;AV_stressed&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+3.04
+</td>
+<td style="text-align:left;">
+0.233
+</td>
+<td style="text-align:left;">
+13.1
+</td>
+<td style="text-align:left;">
+6.38e-39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreAAC
+</td>
+<td style="text-align:left;">
+-0.463
+</td>
+<td style="text-align:left;">
+0.381
+</td>
+<td style="text-align:left;">
+-1.21
+</td>
+<td style="text-align:left;">
+0.225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBLB
+</td>
+<td style="text-align:left;">
+-0.478
+</td>
+<td style="text-align:left;">
+0.34
+</td>
+<td style="text-align:left;">
+-1.41
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBCN
+</td>
+<td style="text-align:left;">
+0.144
+</td>
+<td style="text-align:left;">
+0.269
+</td>
+<td style="text-align:left;">
+0.536
+</td>
+<td style="text-align:left;">
+0.592
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreSZG
+</td>
+<td style="text-align:left;">
+0.00724
+</td>
+<td style="text-align:left;">
+0.295
+</td>
+<td style="text-align:left;">
+0.0245
+</td>
+<td style="text-align:left;">
+0.98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+-0.0109
+</td>
+<td style="text-align:left;">
+0.0562
+</td>
+<td style="text-align:left;">
+-0.193
+</td>
+<td style="text-align:left;">
+0.847
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.00108
+</td>
+<td style="text-align:left;">
+0.00176
+</td>
+<td style="text-align:left;">
+-0.611
+</td>
+<td style="text-align:left;">
+0.541
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.0268
+</td>
+<td style="text-align:left;">
+0.0198
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+0.176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+0.18
+</td>
+<td style="text-align:left;">
+0.252
+</td>
+<td style="text-align:left;">
+0.713
+</td>
+<td style="text-align:left;">
+0.476
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.302
+</td>
+<td style="text-align:left;">
+0.262
+</td>
+<td style="text-align:left;">
+1.15
+</td>
+<td style="text-align:left;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.654
+</td>
+<td style="text-align:left;">
+0.345
+</td>
+<td style="text-align:left;">
+-1.9
+</td>
+<td style="text-align:left;">
+0.0578
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+0.255
+</td>
+<td style="text-align:left;">
+0.358
+</td>
+<td style="text-align:left;">
+0.713
+</td>
+<td style="text-align:left;">
+0.476
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Time
+</td>
+<td style="text-align:left;">
+-0.35
+</td>
+<td style="text-align:left;">
+0.0282
+</td>
+<td style="text-align:left;">
+-12.4
+</td>
+<td style="text-align:left;">
+2.05e-35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+-0.142
+</td>
+<td style="text-align:left;">
+0.512
+</td>
+<td style="text-align:left;">
+-0.278
+</td>
+<td style="text-align:left;">
+0.781
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:Time
+</td>
+<td style="text-align:left;">
+0.0184
+</td>
+<td style="text-align:left;">
+0.0424
+</td>
+<td style="text-align:left;">
+0.433
+</td>
+<td style="text-align:left;">
+0.665
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:Time
+</td>
+<td style="text-align:left;">
+0.0615
+</td>
+<td style="text-align:left;">
+0.0476
+</td>
+<td style="text-align:left;">
+1.29
+</td>
+<td style="text-align:left;">
+0.196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:Time
+</td>
+<td style="text-align:left;">
+0.0362
+</td>
+<td style="text-align:left;">
+0.0706
+</td>
+<td style="text-align:left;">
+0.513
+</td>
+<td style="text-align:left;">
+0.608
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/war-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point() +   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/war-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cort" class="section level2">
+<h2>CORT</h2>
+<p>overall model p-value (h0 model: CORT~1+(1|twuid)): 2.48e-12</p>
+<pre class="r"><code>depvar = &quot;AV_CORT&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+1.3
+</td>
+<td style="text-align:left;">
+0.0688
+</td>
+<td style="text-align:left;">
+18.9
+</td>
+<td style="text-align:left;">
+2.77e-79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreAAC
+</td>
+<td style="text-align:left;">
+0.0128
+</td>
+<td style="text-align:left;">
+0.126
+</td>
+<td style="text-align:left;">
+0.102
+</td>
+<td style="text-align:left;">
+0.919
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBLB
+</td>
+<td style="text-align:left;">
+-0.141
+</td>
+<td style="text-align:left;">
+0.113
+</td>
+<td style="text-align:left;">
+-1.25
+</td>
+<td style="text-align:left;">
+0.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBCN
+</td>
+<td style="text-align:left;">
+-0.136
+</td>
+<td style="text-align:left;">
+0.089
+</td>
+<td style="text-align:left;">
+-1.53
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreSZG
+</td>
+<td style="text-align:left;">
+-0.142
+</td>
+<td style="text-align:left;">
+0.0977
+</td>
+<td style="text-align:left;">
+-1.45
+</td>
+<td style="text-align:left;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.088
+</td>
+<td style="text-align:left;">
+0.0186
+</td>
+<td style="text-align:left;">
+4.73
+</td>
+<td style="text-align:left;">
+2.23e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.00231
+</td>
+<td style="text-align:left;">
+0.000582
+</td>
+<td style="text-align:left;">
+-3.97
+</td>
+<td style="text-align:left;">
+7.27e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.00594
+</td>
+<td style="text-align:left;">
+0.00655
+</td>
+<td style="text-align:left;">
+0.907
+</td>
+<td style="text-align:left;">
+0.364
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.0331
+</td>
+<td style="text-align:left;">
+0.0836
+</td>
+<td style="text-align:left;">
+-0.397
+</td>
+<td style="text-align:left;">
+0.692
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+-0.0596
+</td>
+<td style="text-align:left;">
+0.0868
+</td>
+<td style="text-align:left;">
+-0.687
+</td>
+<td style="text-align:left;">
+0.492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.022
+</td>
+<td style="text-align:left;">
+0.0978
+</td>
+<td style="text-align:left;">
+0.225
+</td>
+<td style="text-align:left;">
+0.822
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.218
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+<td style="text-align:left;">
+-2.05
+</td>
+<td style="text-align:left;">
+0.0405
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Time
+</td>
+<td style="text-align:left;">
+-0.0017
+</td>
+<td style="text-align:left;">
+0.000899
+</td>
+<td style="text-align:left;">
+-1.89
+</td>
+<td style="text-align:left;">
+0.0592
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+-0.0132
+</td>
+<td style="text-align:left;">
+0.145
+</td>
+<td style="text-align:left;">
+-0.0906
+</td>
+<td style="text-align:left;">
+0.928
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:Time
+</td>
+<td style="text-align:left;">
+-0.00121
+</td>
+<td style="text-align:left;">
+0.00135
+</td>
+<td style="text-align:left;">
+-0.896
+</td>
+<td style="text-align:left;">
+0.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:Time
+</td>
+<td style="text-align:left;">
+0.000163
+</td>
+<td style="text-align:left;">
+0.00152
+</td>
+<td style="text-align:left;">
+0.107
+</td>
+<td style="text-align:left;">
+0.914
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:Time
+</td>
+<td style="text-align:left;">
+-0.00108
+</td>
+<td style="text-align:left;">
+0.00225
+</td>
+<td style="text-align:left;">
+-0.48
+</td>
+<td style="text-align:left;">
+0.631
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-1-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="test" class="section level2">
+<h2>TEST</h2>
+<p>overall model p-value (h0 model: TEST~1+(1|twuid)): 1.84e-20</p>
+<pre class="r"><code>depvar = &quot;AV_TEST&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+3.54
+</td>
+<td style="text-align:left;">
+0.0592
+</td>
+<td style="text-align:left;">
+59.9
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreAAC
+</td>
+<td style="text-align:left;">
+0.35
+</td>
+<td style="text-align:left;">
+0.113
+</td>
+<td style="text-align:left;">
+3.08
+</td>
+<td style="text-align:left;">
+0.00205
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBLB
+</td>
+<td style="text-align:left;">
+-0.0259
+</td>
+<td style="text-align:left;">
+0.101
+</td>
+<td style="text-align:left;">
+-0.255
+</td>
+<td style="text-align:left;">
+0.799
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBCN
+</td>
+<td style="text-align:left;">
+0.0348
+</td>
+<td style="text-align:left;">
+0.08
+</td>
+<td style="text-align:left;">
+0.434
+</td>
+<td style="text-align:left;">
+0.664
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreSZG
+</td>
+<td style="text-align:left;">
+0.221
+</td>
+<td style="text-align:left;">
+0.0878
+</td>
+<td style="text-align:left;">
+2.51
+</td>
+<td style="text-align:left;">
+0.0119
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.0726
+</td>
+<td style="text-align:left;">
+0.0167
+</td>
+<td style="text-align:left;">
+4.34
+</td>
+<td style="text-align:left;">
+1.44e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.002
+</td>
+<td style="text-align:left;">
+0.000524
+</td>
+<td style="text-align:left;">
+-3.83
+</td>
+<td style="text-align:left;">
+0.000129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.0205
+</td>
+<td style="text-align:left;">
+0.00589
+</td>
+<td style="text-align:left;">
+3.48
+</td>
+<td style="text-align:left;">
+0.000497
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.116
+</td>
+<td style="text-align:left;">
+0.0752
+</td>
+<td style="text-align:left;">
+-1.55
+</td>
+<td style="text-align:left;">
+0.121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.0837
+</td>
+<td style="text-align:left;">
+0.078
+</td>
+<td style="text-align:left;">
+1.07
+</td>
+<td style="text-align:left;">
+0.283
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.334
+</td>
+<td style="text-align:left;">
+0.0824
+</td>
+<td style="text-align:left;">
+4.05
+</td>
+<td style="text-align:left;">
+5.12e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.0656
+</td>
+<td style="text-align:left;">
+0.0916
+</td>
+<td style="text-align:left;">
+-0.717
+</td>
+<td style="text-align:left;">
+0.474
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Time
+</td>
+<td style="text-align:left;">
+-0.00058
+</td>
+<td style="text-align:left;">
+0.000484
+</td>
+<td style="text-align:left;">
+-1.2
+</td>
+<td style="text-align:left;">
+0.231
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+0.0979
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+0.8
+</td>
+<td style="text-align:left;">
+0.424
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:Time
+</td>
+<td style="text-align:left;">
+0.00058
+</td>
+<td style="text-align:left;">
+0.00073
+</td>
+<td style="text-align:left;">
+0.795
+</td>
+<td style="text-align:left;">
+0.426
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:Time
+</td>
+<td style="text-align:left;">
+0.00208
+</td>
+<td style="text-align:left;">
+0.000819
+</td>
+<td style="text-align:left;">
+2.53
+</td>
+<td style="text-align:left;">
+0.0113
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:Time
+</td>
+<td style="text-align:left;">
+-0.00231
+</td>
+<td style="text-align:left;">
+0.00122
+</td>
+<td style="text-align:left;">
+-1.9
+</td>
+<td style="text-align:left;">
+0.0573
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 55.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 9.612e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 3055.3</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+55.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 9.612e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 3055.3</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 55.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 4.7148e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 3055.3</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+55.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 4.7148e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 3055.3</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 55.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 5.7748e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 3055.3</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+55.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 5.7748e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 3055.3</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 55.275</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 4.7108e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 3055.3</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+55.275</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 4.7108e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 3055.3</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="oxt" class="section level2">
+<h2>OXT</h2>
+<p>overall model p-value (h0 model: OXT~1+(1|twuid)): 0.0901</p>
+<pre class="r"><code>depvar = &quot;AV_OXT&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.324
+</td>
+<td style="text-align:left;">
+0.0707
+</td>
+<td style="text-align:left;">
+4.58
+</td>
+<td style="text-align:left;">
+4.73e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreAAC
+</td>
+<td style="text-align:left;">
+0.0127
+</td>
+<td style="text-align:left;">
+0.123
+</td>
+<td style="text-align:left;">
+0.103
+</td>
+<td style="text-align:left;">
+0.918
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBLB
+</td>
+<td style="text-align:left;">
+-0.0917
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+<td style="text-align:left;">
+-0.866
+</td>
+<td style="text-align:left;">
+0.386
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreBCN
+</td>
+<td style="text-align:left;">
+-0.0908
+</td>
+<td style="text-align:left;">
+0.113
+</td>
+<td style="text-align:left;">
+-0.807
+</td>
+<td style="text-align:left;">
+0.419
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+centreSZG
+</td>
+<td style="text-align:left;">
+-0.0728
+</td>
+<td style="text-align:left;">
+0.188
+</td>
+<td style="text-align:left;">
+-0.386
+</td>
+<td style="text-align:left;">
+0.699
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.0237
+</td>
+<td style="text-align:left;">
+0.0192
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+<td style="text-align:left;">
+0.218
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.000179
+</td>
+<td style="text-align:left;">
+0.000816
+</td>
+<td style="text-align:left;">
+-0.219
+</td>
+<td style="text-align:left;">
+0.827
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+-0.0081
+</td>
+<td style="text-align:left;">
+0.00598
+</td>
+<td style="text-align:left;">
+-1.35
+</td>
+<td style="text-align:left;">
+0.176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.0142
+</td>
+<td style="text-align:left;">
+0.083
+</td>
+<td style="text-align:left;">
+-0.171
+</td>
+<td style="text-align:left;">
+0.864
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.0955
+</td>
+<td style="text-align:left;">
+0.0875
+</td>
+<td style="text-align:left;">
+1.09
+</td>
+<td style="text-align:left;">
+0.275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.129
+</td>
+<td style="text-align:left;">
+0.0953
+</td>
+<td style="text-align:left;">
+-1.36
+</td>
+<td style="text-align:left;">
+0.174
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.0688
+</td>
+<td style="text-align:left;">
+0.108
+</td>
+<td style="text-align:left;">
+-0.639
+</td>
+<td style="text-align:left;">
+0.523
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Time
+</td>
+<td style="text-align:left;">
+0.00286
+</td>
+<td style="text-align:left;">
+0.0046
+</td>
+<td style="text-align:left;">
+0.62
+</td>
+<td style="text-align:left;">
+0.535
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+-0.0975
+</td>
+<td style="text-align:left;">
+0.136
+</td>
+<td style="text-align:left;">
+-0.716
+</td>
+<td style="text-align:left;">
+0.474
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:Time
+</td>
+<td style="text-align:left;">
+0.00696
+</td>
+<td style="text-align:left;">
+0.00665
+</td>
+<td style="text-align:left;">
+1.05
+</td>
+<td style="text-align:left;">
+0.296
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:Time
+</td>
+<td style="text-align:left;">
+-0.00235
+</td>
+<td style="text-align:left;">
+0.00682
+</td>
+<td style="text-align:left;">
+-0.344
+</td>
+<td style="text-align:left;">
+0.731
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:Time
+</td>
+<td style="text-align:left;">
+0.00555
+</td>
+<td style="text-align:left;">
+0.00997
+</td>
+<td style="text-align:left;">
+0.557
+</td>
+<td style="text-align:left;">
+0.578
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<pre><code>Warning: Removed 360 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>Warning: Removed 360 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 10.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 5.6675e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 101</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+10.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 5.6675e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 101</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 10.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 5.5247e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 101</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+10.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 5.5247e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 101</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 10.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 1.0535e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 101</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+10.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 1.0535e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 101</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : pseudoinverse used at -0.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : neighborhood radius 10.05</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : reciprocal condition number 5.9616e-016</code></pre>
+<pre><code>Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
+parametric, : There are other near singularities as well. 101</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : pseudoinverse used at
+-0.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : neighborhood radius
+10.05</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : reciprocal condition
+number 5.9616e-016</code></pre>
+<pre><code>Warning in predLoess(object$y, object$x, newx = if
+(is.null(newdata)) object$x else if (is.data.frame(newdata))
+as.matrix(model.frame(delete.response(terms(object)), : There are other near
+singularities as well. 101</code></pre>
+<pre><code>Warning: Removed 360 rows containing missing values (geom_point).</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/unnamed-chunk-3-2.png" width="672" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.4 (2021-02-15)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 18363)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=German_Germany.1252  LC_CTYPE=German_Germany.1252   
+[3] LC_MONETARY=German_Germany.1252 LC_NUMERIC=C                   
+[5] LC_TIME=German_Germany.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] compareGroups_4.5.1 caret_6.0-86        lattice_0.20-41    
+ [4] kableExtra_1.3.4    lme4_1.1-26         Matrix_1.3-2       
+ [7] data.table_1.14.0   forcats_0.5.1       stringr_1.4.0      
+[10] dplyr_1.0.5         purrr_0.3.4         readr_1.4.0        
+[13] tidyr_1.1.3         tibble_3.1.0        ggplot2_3.3.3      
+[16] tidyverse_1.3.0     haven_2.3.1        
+
+loaded via a namespace (and not attached):
+  [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
+  [4] class_7.3-18         rprojroot_2.0.2      flextable_0.6.4     
+  [7] base64enc_0.1-3      fs_1.5.0             rstudioapi_0.13     
+ [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
+ [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
+ [16] codetools_0.2-18     splines_4.0.4        knitr_1.31          
+ [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
+ [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
+ [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
+ [28] assertthat_0.2.1     cli_2.3.1            later_1.1.0.1       
+ [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
+ [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
+ [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
+ [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
+ [43] iterators_1.0.13     timeDate_3043.102    xfun_0.21           
+ [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
+ [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
+ [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
+ [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
+ [58] gdtools_0.2.3        sass_0.3.1           rpart_4.1-15        
+ [61] stringi_1.5.3        highr_0.8            corrplot_0.84       
+ [64] foreach_1.5.1        zip_2.1.1            boot_1.3-27         
+ [67] truncnorm_1.0-8      lava_1.6.9           chron_2.3-56        
+ [70] rlang_0.4.10         pkgconfig_2.0.3      systemfonts_1.0.1   
+ [73] Rsolnp_1.16          evaluate_0.14        labeling_0.4.2      
+ [76] recipes_0.1.15       tidyselect_1.1.0     plyr_1.8.6          
+ [79] magrittr_2.0.1       R6_2.5.0             generics_0.1.0      
+ [82] DBI_1.1.1            mgcv_1.8-34          pillar_1.5.1        
+ [85] withr_2.4.1          survival_3.2-9       nnet_7.3-15         
+ [88] modelr_0.1.8         crayon_1.4.1         uuid_0.1-4          
+ [91] utf8_1.1.4           officer_0.3.17       rmarkdown_2.7       
+ [94] grid_4.0.4           readxl_1.3.1         git2r_0.28.0        
+ [97] ModelMetrics_1.2.2.2 reprex_1.0.0         digest_0.6.27       
+[100] webshot_0.5.2        httpuv_1.5.5         stats4_4.0.4        
+[103] munsell_0.5.0        viridisLite_0.3.0    bslib_0.2.4         </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
