@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -389,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-04-16
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreecf04288e594124b69e74af39e12e1e63937b97a4targetblankcf04288a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/cf04288e594124b69e74af39e12e1e63937b97a4" target="_blank">cf04288</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree4678e604427995ddd5c28e5b2ac031296611e10btargetblank4678e60a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/4678e604427995ddd5c28e5b2ac031296611e10b" target="_blank">4678e60</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreecf04288e594124b69e74af39e12e1e63937b97a4targetblankcf04288a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree4678e604427995ddd5c28e5b2ac031296611e10btargetblank4678e60a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/cf04288e594124b69e74af39e12e1e63937b97a4" target="_blank">cf04288</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/4678e604427995ddd5c28e5b2ac031296611e10b" target="_blank">4678e60</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,9 +497,6 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
-
-Unstaged changes:
-    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -710,16 +707,19 @@ for (depvar in names(AV)){
   cols = names(AV[[depvar]])
   long = df[,c(&quot;twuid&quot;,cols, UV)] %&gt;% 
     gather(key = &quot;value&quot;, value = &quot;DV&quot;, all_of(cols))
-  long$Time = AV[[depvar]][long$value]
-  long$twuid = as.factor(long$twuid)
   long2  = long%&gt;% mutate_if(is.numeric, scale)
+  long2$Time = AV[[depvar]][long2$value]
+  long2$value =as.factor(long2$value) %&gt;% 
+    relevel(., ref=grep(&quot;BL|stressed_1&quot;,  unique(long2$value),value = T))
+  long2$twuid = as.factor(long2$twuid)
+  
   model.lme = lme4::lmer(models[[depvar]], data=long2)
   model.lme0 = lme4::lmer(DV~1+(1|twuid), data=long2)
   anovah0 = anova(model.lme0, model.lme)
   model_p_val = anovah0$`Pr(&gt;Chisq)`[2]
   Res = summary(model.lme)
   resall[[depvar]] = model.lme
-  resall[[paste0(depvar,&quot;_longdat&quot;)]] = long
+  resall[[paste0(depvar,&quot;_longdat&quot;)]] = long2
   res.coeff = as.data.frame(Res$coefficients)
   res.coeff$pvalue = pt(abs(res.coeff$&quot;t value&quot;), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,&quot;_coeff&quot;)]]=res.coeff
@@ -1401,7 +1401,7 @@ genderfemale:groupCD:valuestressed_8
 </table>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab(&quot;density&quot;) + xlab(depvar)+
+  ylab(&quot;density&quot;) + xlab(paste(&quot;zscores&quot;,depvar))+
   geom_density()</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
@@ -1444,16 +1444,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-0.666
+-0.0674
 </td>
 <td style="text-align:left;">
 0.129
 </td>
 <td style="text-align:left;">
-5.17
+-0.524
 </td>
 <td style="text-align:left;">
-2.31e-07
+0.6
 </td>
 </tr>
 <tr>
@@ -1546,16 +1546,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.102
+-0.303
 </td>
 <td style="text-align:left;">
 0.151
 </td>
 <td style="text-align:left;">
-0.674
+-2.01
 </td>
 <td style="text-align:left;">
-0.501
+0.0446
 </td>
 </tr>
 <tr>
@@ -1563,81 +1563,30 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.722
+0.0402
 </td>
 <td style="text-align:left;">
 0.185
 </td>
 <td style="text-align:left;">
--3.91
+0.218
 </td>
 <td style="text-align:left;">
-9.14e-05
+0.828
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-valueCORT_25_log
+valueCORT_10_log
 </td>
 <td style="text-align:left;">
--0.289
+0.733
 </td>
 <td style="text-align:left;">
 0.0997
 </td>
 <td style="text-align:left;">
--2.9
-</td>
-<td style="text-align:left;">
-0.00378
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-valueCORT_40_log
-</td>
-<td style="text-align:left;">
--0.549
-</td>
-<td style="text-align:left;">
-0.0997
-</td>
-<td style="text-align:left;">
--5.5
-</td>
-<td style="text-align:left;">
-3.73e-08
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-valueCORT_55_log
-</td>
-<td style="text-align:left;">
--0.557
-</td>
-<td style="text-align:left;">
-0.0997
-</td>
-<td style="text-align:left;">
--5.58
-</td>
-<td style="text-align:left;">
-2.36e-08
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-valueCORT_BL_log
-</td>
-<td style="text-align:left;">
--0.733
-</td>
-<td style="text-align:left;">
-0.0997
-</td>
-<td style="text-align:left;">
--7.35
+7.35
 </td>
 <td style="text-align:left;">
 1.93e-13
@@ -1645,84 +1594,84 @@ valueCORT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
+valueCORT_25_log
+</td>
+<td style="text-align:left;">
+0.444
+</td>
+<td style="text-align:left;">
+0.0997
+</td>
+<td style="text-align:left;">
+4.46
+</td>
+<td style="text-align:left;">
+8.28e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+valueCORT_40_log
+</td>
+<td style="text-align:left;">
+0.184
+</td>
+<td style="text-align:left;">
+0.0997
+</td>
+<td style="text-align:left;">
+1.85
+</td>
+<td style="text-align:left;">
+0.0643
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+valueCORT_55_log
+</td>
+<td style="text-align:left;">
+0.176
+</td>
+<td style="text-align:left;">
+0.0997
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+0.0767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
--0.145
+0.211
 </td>
 <td style="text-align:left;">
 0.226
 </td>
 <td style="text-align:left;">
--0.641
+0.934
 </td>
 <td style="text-align:left;">
-0.521
+0.351
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-groupCD:valueCORT_25_log
+groupCD:valueCORT_10_log
 </td>
 <td style="text-align:left;">
-0.132
+-0.763
 </td>
 <td style="text-align:left;">
 0.147
 </td>
 <td style="text-align:left;">
-0.897
-</td>
-<td style="text-align:left;">
-0.37
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:valueCORT_40_log
-</td>
-<td style="text-align:left;">
-0.363
-</td>
-<td style="text-align:left;">
-0.147
-</td>
-<td style="text-align:left;">
-2.47
-</td>
-<td style="text-align:left;">
-0.0135
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:valueCORT_55_log
-</td>
-<td style="text-align:left;">
-0.282
-</td>
-<td style="text-align:left;">
-0.147
-</td>
-<td style="text-align:left;">
-1.92
-</td>
-<td style="text-align:left;">
-0.0545
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:valueCORT_BL_log
-</td>
-<td style="text-align:left;">
-0.763
-</td>
-<td style="text-align:left;">
-0.147
-</td>
-<td style="text-align:left;">
-5.2
+-5.2
 </td>
 <td style="text-align:left;">
 2.03e-07
@@ -1730,64 +1679,47 @@ groupCD:valueCORT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueCORT_25_log
+groupCD:valueCORT_25_log
 </td>
 <td style="text-align:left;">
--0.0444
+-0.631
 </td>
 <td style="text-align:left;">
-0.124
+0.147
 </td>
 <td style="text-align:left;">
--0.359
+-4.3
 </td>
 <td style="text-align:left;">
-0.72
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:valueCORT_40_log
-</td>
-<td style="text-align:left;">
--0.0593
-</td>
-<td style="text-align:left;">
-0.124
-</td>
-<td style="text-align:left;">
--0.479
-</td>
-<td style="text-align:left;">
-0.632
+1.71e-05
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueCORT_55_log
+groupCD:valueCORT_40_log
 </td>
 <td style="text-align:left;">
--0.352
+-0.4
 </td>
 <td style="text-align:left;">
-0.124
+0.147
 </td>
 <td style="text-align:left;">
--2.85
+-2.73
 </td>
 <td style="text-align:left;">
-0.00439
+0.00641
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueCORT_BL_log
+groupCD:valueCORT_55_log
 </td>
 <td style="text-align:left;">
--0.405
+-0.48
 </td>
 <td style="text-align:left;">
-0.124
+0.147
 </td>
 <td style="text-align:left;">
 -3.27
@@ -1798,19 +1730,104 @@ genderfemale:valueCORT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:valueCORT_25_log
+genderfemale:valueCORT_10_log
 </td>
 <td style="text-align:left;">
-0.145
+0.405
+</td>
+<td style="text-align:left;">
+0.124
+</td>
+<td style="text-align:left;">
+3.27
+</td>
+<td style="text-align:left;">
+0.00106
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:valueCORT_25_log
+</td>
+<td style="text-align:left;">
+0.36
+</td>
+<td style="text-align:left;">
+0.124
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+0.00356
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:valueCORT_40_log
+</td>
+<td style="text-align:left;">
+0.345
+</td>
+<td style="text-align:left;">
+0.124
+</td>
+<td style="text-align:left;">
+2.79
+</td>
+<td style="text-align:left;">
+0.00521
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:valueCORT_55_log
+</td>
+<td style="text-align:left;">
+0.0525
+</td>
+<td style="text-align:left;">
+0.124
+</td>
+<td style="text-align:left;">
+0.425
+</td>
+<td style="text-align:left;">
+0.671
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:valueCORT_10_log
+</td>
+<td style="text-align:left;">
+-0.356
 </td>
 <td style="text-align:left;">
 0.183
 </td>
 <td style="text-align:left;">
-0.79
+-1.94
 </td>
 <td style="text-align:left;">
-0.429
+0.0523
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:valueCORT_25_log
+</td>
+<td style="text-align:left;">
+-0.211
+</td>
+<td style="text-align:left;">
+0.183
+</td>
+<td style="text-align:left;">
+-1.15
+</td>
+<td style="text-align:left;">
+0.25
 </td>
 </tr>
 <tr>
@@ -1818,16 +1835,16 @@ genderfemale:groupCD:valueCORT_25_log
 genderfemale:groupCD:valueCORT_40_log
 </td>
 <td style="text-align:left;">
-0.0934
+-0.263
 </td>
 <td style="text-align:left;">
 0.183
 </td>
 <td style="text-align:left;">
-0.509
+-1.43
 </td>
 <td style="text-align:left;">
-0.611
+0.152
 </td>
 </tr>
 <tr>
@@ -1835,33 +1852,16 @@ genderfemale:groupCD:valueCORT_40_log
 genderfemale:groupCD:valueCORT_55_log
 </td>
 <td style="text-align:left;">
-0.388
+0.032
 </td>
 <td style="text-align:left;">
 0.183
 </td>
 <td style="text-align:left;">
-2.12
+0.175
 </td>
 <td style="text-align:left;">
-0.0344
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:groupCD:valueCORT_BL_log
-</td>
-<td style="text-align:left;">
-0.356
-</td>
-<td style="text-align:left;">
-0.183
-</td>
-<td style="text-align:left;">
-1.94
-</td>
-<td style="text-align:left;">
-0.0523
+0.861
 </td>
 </tr>
 </tbody>
@@ -1911,16 +1911,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-0.583
+0.377
 </td>
 <td style="text-align:left;">
 0.16
 </td>
 <td style="text-align:left;">
-3.65
+2.36
 </td>
 <td style="text-align:left;">
-0.000266
+0.0183
 </td>
 </tr>
 <tr>
@@ -2013,16 +2013,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
--0.48
+-0.674
 </td>
 <td style="text-align:left;">
 0.143
 </td>
 <td style="text-align:left;">
--3.36
+-4.72
 </td>
 <td style="text-align:left;">
-0.000781
+2.36e-06
 </td>
 </tr>
 <tr>
@@ -2030,47 +2030,30 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.0289
+0.0889
 </td>
 <td style="text-align:left;">
 0.174
 </td>
 <td style="text-align:left;">
--0.167
+0.512
 </td>
 <td style="text-align:left;">
-0.868
+0.609
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-valueTEST_55_log
+valueTEST_10_log
 </td>
 <td style="text-align:left;">
--0.0025
+0.206
 </td>
 <td style="text-align:left;">
 0.0611
 </td>
 <td style="text-align:left;">
--0.0409
-</td>
-<td style="text-align:left;">
-0.967
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-valueTEST_BL_log
-</td>
-<td style="text-align:left;">
--0.206
-</td>
-<td style="text-align:left;">
-0.0611
-</td>
-<td style="text-align:left;">
--3.36
+3.36
 </td>
 <td style="text-align:left;">
 0.000766
@@ -2078,50 +2061,50 @@ valueTEST_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
+valueTEST_55_log
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+<td style="text-align:left;">
+0.0611
+</td>
+<td style="text-align:left;">
+3.32
+</td>
+<td style="text-align:left;">
+0.000887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
--0.269
+-0.0218
 </td>
 <td style="text-align:left;">
 0.213
 </td>
 <td style="text-align:left;">
--1.26
+-0.103
 </td>
 <td style="text-align:left;">
-0.206
+0.918
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-groupCD:valueTEST_55_log
+groupCD:valueTEST_10_log
 </td>
 <td style="text-align:left;">
--0.0751
+-0.118
 </td>
 <td style="text-align:left;">
 0.0899
 </td>
 <td style="text-align:left;">
--0.835
-</td>
-<td style="text-align:left;">
-0.404
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:valueTEST_BL_log
-</td>
-<td style="text-align:left;">
-0.118
-</td>
-<td style="text-align:left;">
-0.0899
-</td>
-<td style="text-align:left;">
-1.31
+-1.31
 </td>
 <td style="text-align:left;">
 0.19
@@ -2129,33 +2112,33 @@ groupCD:valueTEST_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueTEST_55_log
+groupCD:valueTEST_55_log
 </td>
 <td style="text-align:left;">
--0.308
+-0.193
 </td>
 <td style="text-align:left;">
-0.0758
+0.0899
 </td>
 <td style="text-align:left;">
--4.07
+-2.14
 </td>
 <td style="text-align:left;">
-4.74e-05
+0.032
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueTEST_BL_log
+genderfemale:valueTEST_10_log
 </td>
 <td style="text-align:left;">
--0.194
+0.194
 </td>
 <td style="text-align:left;">
 0.0758
 </td>
 <td style="text-align:left;">
--2.56
+2.56
 </td>
 <td style="text-align:left;">
 0.0104
@@ -2163,36 +2146,53 @@ genderfemale:valueTEST_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:valueTEST_55_log
+genderfemale:valueTEST_55_log
 </td>
 <td style="text-align:left;">
-0.363
+-0.114
 </td>
 <td style="text-align:left;">
-0.112
+0.0758
 </td>
 <td style="text-align:left;">
-3.23
+-1.5
 </td>
 <td style="text-align:left;">
-0.00123
+0.132
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:valueTEST_BL_log
+genderfemale:groupCD:valueTEST_10_log
 </td>
 <td style="text-align:left;">
-0.247
+-0.247
 </td>
 <td style="text-align:left;">
 0.112
 </td>
 <td style="text-align:left;">
-2.2
+-2.2
 </td>
 <td style="text-align:left;">
 0.0277
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:valueTEST_55_log
+</td>
+<td style="text-align:left;">
+0.116
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+1.03
+</td>
+<td style="text-align:left;">
+0.303
 </td>
 </tr>
 </tbody>
@@ -2242,16 +2242,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
-0.0833
+-0.322
 </td>
 <td style="text-align:left;">
 0.16
 </td>
 <td style="text-align:left;">
-0.522
+-2.01
 </td>
 <td style="text-align:left;">
-0.602
+0.044
 </td>
 </tr>
 <tr>
@@ -2344,16 +2344,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.192
+0.299
 </td>
 <td style="text-align:left;">
 0.212
 </td>
 <td style="text-align:left;">
-0.905
+1.41
 </td>
 <td style="text-align:left;">
-0.366
+0.157
 </td>
 </tr>
 <tr>
@@ -2361,47 +2361,30 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.475
+-0.236
 </td>
 <td style="text-align:left;">
 0.242
 </td>
 <td style="text-align:left;">
--1.97
+-0.977
 </td>
 <td style="text-align:left;">
-0.0493
+0.329
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-valueOXT_10_log
+valueOXT_1_log
 </td>
 <td style="text-align:left;">
--0.223
+0.405
 </td>
 <td style="text-align:left;">
 0.122
 </td>
 <td style="text-align:left;">
--1.83
-</td>
-<td style="text-align:left;">
-0.0671
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-valueOXT_BL_log
-</td>
-<td style="text-align:left;">
--0.405
-</td>
-<td style="text-align:left;">
-0.122
-</td>
-<td style="text-align:left;">
--3.32
+3.32
 </td>
 <td style="text-align:left;">
 0.000906
@@ -2409,50 +2392,50 @@ valueOXT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
+valueOXT_10_log
+</td>
+<td style="text-align:left;">
+0.181
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+0.137
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
-0.233
+0.222
 </td>
 <td style="text-align:left;">
 0.317
 </td>
 <td style="text-align:left;">
-0.735
+0.701
 </td>
 <td style="text-align:left;">
-0.462
+0.483
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-groupCD:valueOXT_10_log
+groupCD:valueOXT_1_log
 </td>
 <td style="text-align:left;">
-0.408
+-0.239
 </td>
 <td style="text-align:left;">
 0.18
 </td>
 <td style="text-align:left;">
-2.27
-</td>
-<td style="text-align:left;">
-0.0232
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:valueOXT_BL_log
-</td>
-<td style="text-align:left;">
-0.239
-</td>
-<td style="text-align:left;">
-0.18
-</td>
-<td style="text-align:left;">
-1.33
+-1.33
 </td>
 <td style="text-align:left;">
 0.184
@@ -2460,33 +2443,33 @@ groupCD:valueOXT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueOXT_10_log
+groupCD:valueOXT_10_log
 </td>
 <td style="text-align:left;">
-0.113
+0.169
 </td>
 <td style="text-align:left;">
-0.165
+0.18
 </td>
 <td style="text-align:left;">
-0.683
+0.939
 </td>
 <td style="text-align:left;">
-0.494
+0.348
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:valueOXT_BL_log
+genderfemale:valueOXT_1_log
 </td>
 <td style="text-align:left;">
-0.108
+-0.108
 </td>
 <td style="text-align:left;">
 0.165
 </td>
 <td style="text-align:left;">
-0.652
+-0.652
 </td>
 <td style="text-align:left;">
 0.514
@@ -2494,36 +2477,53 @@ genderfemale:valueOXT_BL_log
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:valueOXT_10_log
+genderfemale:valueOXT_10_log
 </td>
 <td style="text-align:left;">
--0.126
+0.00515
 </td>
 <td style="text-align:left;">
-0.242
+0.165
 </td>
 <td style="text-align:left;">
--0.521
+0.0312
 </td>
 <td style="text-align:left;">
-0.602
+0.975
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:valueOXT_BL_log
+genderfemale:groupCD:valueOXT_1_log
 </td>
 <td style="text-align:left;">
--0.0108
+0.0108
 </td>
 <td style="text-align:left;">
 0.242
 </td>
 <td style="text-align:left;">
--0.0446
+0.0446
 </td>
 <td style="text-align:left;">
 0.964
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:valueOXT_10_log
+</td>
+<td style="text-align:left;">
+-0.115
+</td>
+<td style="text-align:left;">
+0.242
+</td>
+<td style="text-align:left;">
+-0.476
+</td>
+<td style="text-align:left;">
+0.634
 </td>
 </tr>
 </tbody>
@@ -2567,7 +2567,7 @@ other attached packages:
  [7] data.table_1.14.0   forcats_0.5.1       stringr_1.4.0      
 [10] dplyr_1.0.5         purrr_0.3.4         readr_1.4.0        
 [13] tidyr_1.1.3         tibble_3.1.0        ggplot2_3.3.3      
-[16] tidyverse_1.3.0     haven_2.3.1        
+[16] tidyverse_1.3.0     haven_2.3.1         workflowr_1.6.2    
 
 loaded via a namespace (and not attached):
   [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
@@ -2576,23 +2576,23 @@ loaded via a namespace (and not attached):
  [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
  [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
  [16] codetools_0.2-18     splines_4.0.4        knitr_1.31          
- [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
- [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
- [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
- [28] assertthat_0.2.1     cli_2.3.1            later_1.1.0.1       
- [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
- [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
- [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
- [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
- [43] iterators_1.0.13     timeDate_3043.102    xfun_0.21           
- [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
+ [19] jsonlite_1.7.2       nloptr_1.2.2.2       pROC_1.17.0.1       
+ [22] broom_0.7.5          dbplyr_2.1.0         compiler_4.0.4      
+ [25] httr_1.4.2           backports_1.2.1      assertthat_0.2.1    
+ [28] cli_2.3.1            later_1.1.0.1        htmltools_0.5.1.1   
+ [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
+ [34] reshape2_1.4.4       Rcpp_1.0.6           cellranger_1.1.0    
+ [37] jquerylib_0.1.3      vctrs_0.3.6          writexl_1.3.1       
+ [40] svglite_2.0.0        nlme_3.1-152         iterators_1.0.13    
+ [43] timeDate_3043.102    xfun_0.21            gower_0.2.2         
+ [46] ps_1.6.0             rvest_1.0.0          lifecycle_1.0.0     
  [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
  [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
  [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
  [58] gdtools_0.2.3        sass_0.3.1           rpart_4.1-15        
  [61] stringi_1.5.3        highr_0.8            corrplot_0.84       
  [64] foreach_1.5.1        zip_2.1.1            boot_1.3-27         
- [67] lava_1.6.9           truncnorm_1.0-8      chron_2.3-56        
+ [67] truncnorm_1.0-8      lava_1.6.9           chron_2.3-56        
  [70] rlang_0.4.10         pkgconfig_2.0.3      systemfonts_1.0.1   
  [73] Rsolnp_1.16          evaluate_0.14        labeling_0.4.2      
  [76] recipes_0.1.15       tidyselect_1.1.0     plyr_1.8.6          
