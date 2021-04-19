@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,10 +386,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-04-16
+<strong>Last updated:</strong> 2021-04-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreeb7fd3dfc429e61c96de00a0319b48ed53ad2e6aetargetblankb7fd3dfa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/b7fd3dfc429e61c96de00a0319b48ed53ad2e6ae" target="_blank">b7fd3df</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreef30686b176faa4216da608bd9666b875f2573f52targetblankf30686ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/f30686b176faa4216da608bd9666b875f2573f52" target="_blank">f30686b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreeb7fd3dfc429e61c96de00a0319b48ed53ad2e6aetargetblankb7fd3dfa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreef30686b176faa4216da608bd9666b875f2573f52targetblankf30686ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/b7fd3dfc429e61c96de00a0319b48ed53ad2e6ae" target="_blank">b7fd3df</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/f30686b176faa4216da608bd9666b875f2573f52" target="_blank">f30686b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,6 +497,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
+
+Unstaged changes:
+    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -589,17 +592,6 @@ AV_stressed = c(stressed_1=0, stressed_2=2,
 AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
 AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
-
-models=list(
-AV_stressed = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid)+(1|centre)&quot;,
-
-AV_CORT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;,
-
-AV_TEST = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;,
-
-AV_OXT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;)
-
-# do not include site in correlation plot 
 
 tmpframe = df[,UV[!UV%in% c(&quot;centre&quot;)]] %&gt;% mutate_if(is.factor, function(x) as.numeric(x)-1)
 
@@ -757,9 +749,18 @@ OXT_1_log                  0.37 (0.55)  0.27 (0.37)   0.341
 OXT_10_log                 0.32 (0.48)  0.35 (0.36)   0.696   
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ </code></pre>
 </div>
-<div id="linear-model-with-mixed-effects" class="section level2">
-<h2>linear model with mixed effects</h2>
+</div>
+<div id="linear-model-with-mixed-effects-and-time-as-factor" class="section level1">
+<h1>linear model with mixed effects and time as factor</h1>
 <p>We adapted a boxed design by individual over Time</p>
+<pre class="r"><code>models=list(
+AV_stressed = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid)+(1|centre)&quot;,
+
+AV_CORT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;,
+
+AV_TEST = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;,
+
+AV_OXT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)&quot;)</code></pre>
 <pre class="r"><code>resall = list()
 
 for (depvar in names(AV)){
@@ -792,12 +793,10 @@ refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular</code></pre>
 <pre><code>refitting model(s) with ML (instead of REML)</code></pre>
-</div>
-</div>
-<div id="results" class="section level1">
-<h1>Results</h1>
-<div id="stressed" class="section level2">
-<h2>stressed</h2>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<div id="stressed" class="section level3">
+<h3>stressed</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid)+(1|centre)</p>
 <p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value:7.8e-155</p>
@@ -1472,8 +1471,8 @@ genderfemale:groupCD:valuestressed_8
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="cort" class="section level2">
-<h2>CORT</h2>
+<div id="cort" class="section level3">
+<h3>CORT</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
 <p>h0 model:DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value:2.8e-71</p>
@@ -1939,8 +1938,8 @@ genderfemale:groupCD:valueCORT_55_log
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_CORT-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="test" class="section level2">
-<h2>TEST</h2>
+<div id="test" class="section level3">
+<h3>TEST</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
 <p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value: 4.38e-35</p>
@@ -2270,8 +2269,8 @@ genderfemale:groupCD:valueTEST_55_log
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST-2.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="oxt" class="section level2">
-<h2>OXT</h2>
+<div id="oxt" class="section level3">
+<h3>OXT</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender<em>group+value</em>group+gender<em>value</em>group+(1|twuid) + (1|centre)</p>
 <p>h0 model: DV<sub>DV</sub>1+(1|twuid)+(1|centre):</p>
 <p>overall model p-value: 0.000464</p>
@@ -2600,6 +2599,1858 @@ genderfemale:groupCD:valueOXT_10_log
   geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="linear-model-with-mixed-effects-and-time-as-polynomial" class="section level1">
+<h1>linear model with mixed effects and time as polynomial</h1>
+<p>We adapted a boxed design by individual over Time with a maximum pol&lt;nomial decomposion (n-dim - 1)</p>
+<pre class="r"><code>models=list(
+AV_stressed = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 7)+gender*group+poly(Time, 7)*group+gender*poly(Time, 7)*group+(1|twuid)+(1|centre)&quot;,
+
+AV_CORT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender*group+poly(Time, 4)*group+gender*poly(Time, 4)*group+(1|twuid) + (1|centre)&quot;,
+
+AV_TEST = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid) + (1|centre)&quot;,
+
+AV_OXT = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid) + (1|centre)&quot;)</code></pre>
+<pre class="r"><code>resall = list()
+
+for (depvar in names(AV)){
+  cols = names(AV[[depvar]])
+  long = df[,c(&quot;twuid&quot;,cols, UV)] %&gt;% 
+    gather(key = &quot;value&quot;, value = &quot;DV&quot;, all_of(cols))
+  long2  = long%&gt;% mutate_if(is.numeric, scale)
+  long2$Time = AV[[depvar]][long2$value]
+  long2$value =as.factor(long2$value) %&gt;% 
+    relevel(., ref=grep(&quot;BL|stressed_1&quot;,  unique(long2$value),value = T))
+  long2$twuid = as.factor(long2$twuid)
+  model.lme = lme4::lmer(models[[depvar]], data=long2)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid)+(1|centre), data=long2)
+  anovah0 = anova(model.lme0, model.lme)
+  model_p_val = anovah0$`Pr(&gt;Chisq)`[2]
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,&quot;_longdat&quot;)]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$&quot;t value&quot;), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,&quot;_coeff&quot;)]]=res.coeff
+  resall[[paste0(depvar,&quot;_modsig&quot;)]]=model_p_val
+}</code></pre>
+<pre><code>boundary (singular) fit: see ?isSingular
+boundary (singular) fit: see ?isSingular</code></pre>
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+<pre><code>boundary (singular) fit: see ?isSingular</code></pre>
+<pre><code>refitting model(s) with ML (instead of REML)
+refitting model(s) with ML (instead of REML)</code></pre>
+<pre><code>boundary (singular) fit: see ?isSingular
+boundary (singular) fit: see ?isSingular</code></pre>
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+<div id="results-1" class="section level2">
+<h2>Results</h2>
+<div id="stressed-1" class="section level3">
+<h3>stressed</h3>
+<p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 7)+gender<em>group+poly(Time, 7)</em>group+gender<em>poly(Time, 7)</em>group+(1|twuid)+(1|centre)</p>
+<p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
+<p>overall model p-value:7.8e-155</p>
+<pre class="r"><code>tableplot = function (x){
+  x %&gt;% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %&gt;% kbl() %&gt;% kable_classic()
+  }
+
+
+depvar = &quot;AV_stressed&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+-0.185
+</td>
+<td style="text-align:left;">
+0.0869
+</td>
+<td style="text-align:left;">
+-2.13
+</td>
+<td style="text-align:left;">
+0.0328
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.00996
+</td>
+<td style="text-align:left;">
+0.042
+</td>
+<td style="text-align:left;">
+0.237
+</td>
+<td style="text-align:left;">
+0.813
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.022
+</td>
+<td style="text-align:left;">
+0.0381
+</td>
+<td style="text-align:left;">
+-0.578
+</td>
+<td style="text-align:left;">
+0.564
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.0535
+</td>
+<td style="text-align:left;">
+0.0393
+</td>
+<td style="text-align:left;">
+1.36
+</td>
+<td style="text-align:left;">
+0.173
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+0.0773
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.77
+</td>
+<td style="text-align:left;">
+0.441
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.0829
+</td>
+<td style="text-align:left;">
+0.103
+</td>
+<td style="text-align:left;">
+0.805
+</td>
+<td style="text-align:left;">
+0.421
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+<td style="text-align:left;">
+0.241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+0.154
+</td>
+<td style="text-align:left;">
+0.133
+</td>
+<td style="text-align:left;">
+1.16
+</td>
+<td style="text-align:left;">
+0.246
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+-13.1
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-8.54
+</td>
+<td style="text-align:left;">
+1.33e-17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+3.97
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+2.59
+</td>
+<td style="text-align:left;">
+0.00955
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+3.1
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+2.02
+</td>
+<td style="text-align:left;">
+0.0431
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+-7.04
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-4.6
+</td>
+<td style="text-align:left;">
+4.27e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+7.73
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+5.05
+</td>
+<td style="text-align:left;">
+4.41e-07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+-4.88
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-3.19
+</td>
+<td style="text-align:left;">
+0.00142
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+-8.3
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-5.42
+</td>
+<td style="text-align:left;">
+5.96e-08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+-0.0317
+</td>
+<td style="text-align:left;">
+0.161
+</td>
+<td style="text-align:left;">
+-0.197
+</td>
+<td style="text-align:left;">
+0.844
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+2.63
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+<td style="text-align:left;">
+0.243
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+-0.311
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+-0.138
+</td>
+<td style="text-align:left;">
+0.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+-1.85
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+-0.819
+</td>
+<td style="text-align:left;">
+0.413
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+1.73
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+0.767
+</td>
+<td style="text-align:left;">
+0.443
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+0.0777
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+0.0345
+</td>
+<td style="text-align:left;">
+0.972
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+0.0111
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+0.00493
+</td>
+<td style="text-align:left;">
+0.996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+3.6
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+1.6
+</td>
+<td style="text-align:left;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+-2.61
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-1.37
+</td>
+<td style="text-align:left;">
+0.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+0.998
+</td>
+<td style="text-align:left;">
+0.318
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+-0.9
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.474
+</td>
+<td style="text-align:left;">
+0.635
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+-0.151
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.0797
+</td>
+<td style="text-align:left;">
+0.936
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+1.56
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+0.823
+</td>
+<td style="text-align:left;">
+0.41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+-2.61
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-1.38
+</td>
+<td style="text-align:left;">
+0.169
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+3.28
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+1.73
+</td>
+<td style="text-align:left;">
+0.0839
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)1
+</td>
+<td style="text-align:left;">
+-2.06
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-0.731
+</td>
+<td style="text-align:left;">
+0.465
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)2
+</td>
+<td style="text-align:left;">
+-1.22
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-0.432
+</td>
+<td style="text-align:left;">
+0.666
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)3
+</td>
+<td style="text-align:left;">
+2.38
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.845
+</td>
+<td style="text-align:left;">
+0.398
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)4
+</td>
+<td style="text-align:left;">
+-1.73
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-0.613
+</td>
+<td style="text-align:left;">
+0.54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)5
+</td>
+<td style="text-align:left;">
+1.5
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+0.533
+</td>
+<td style="text-align:left;">
+0.594
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)6
+</td>
+<td style="text-align:left;">
+-1.66
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-0.589
+</td>
+<td style="text-align:left;">
+0.556
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 7)7
+</td>
+<td style="text-align:left;">
+-5.78
+</td>
+<td style="text-align:left;">
+2.82
+</td>
+<td style="text-align:left;">
+-2.05
+</td>
+<td style="text-align:left;">
+0.0401
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(paste(&quot;zscores&quot;,depvar))+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed_2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point() +   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_stressed_2-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cort-1" class="section level3">
+<h3>CORT</h3>
+<p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender<em>group+poly(Time, 4)</em>group+gender<em>poly(Time, 4)</em>group+(1|twuid) + (1|centre)</p>
+<p>h0 model:DV~1+(1|twuid)+(1|centre):</p>
+<p>overall model p-value:2.8e-71</p>
+<pre class="r"><code>depvar = &quot;AV_CORT&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.24
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+2.14
+</td>
+<td style="text-align:left;">
+0.0322
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.239
+</td>
+<td style="text-align:left;">
+0.0513
+</td>
+<td style="text-align:left;">
+4.65
+</td>
+<td style="text-align:left;">
+3.25e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.177
+</td>
+<td style="text-align:left;">
+0.0461
+</td>
+<td style="text-align:left;">
+-3.85
+</td>
+<td style="text-align:left;">
+0.000116
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.049
+</td>
+<td style="text-align:left;">
+0.0473
+</td>
+<td style="text-align:left;">
+1.04
+</td>
+<td style="text-align:left;">
+0.301
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.021
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+-0.172
+</td>
+<td style="text-align:left;">
+0.863
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+-0.106
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+-0.846
+</td>
+<td style="text-align:left;">
+0.397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.0705
+</td>
+<td style="text-align:left;">
+0.129
+</td>
+<td style="text-align:left;">
+-0.546
+</td>
+<td style="text-align:left;">
+0.585
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.415
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+<td style="text-align:left;">
+-2.6
+</td>
+<td style="text-align:left;">
+0.00939
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+-1.72
+</td>
+<td style="text-align:left;">
+1.2
+</td>
+<td style="text-align:left;">
+-1.43
+</td>
+<td style="text-align:left;">
+0.153
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+-5.45
+</td>
+<td style="text-align:left;">
+1.2
+</td>
+<td style="text-align:left;">
+-4.54
+</td>
+<td style="text-align:left;">
+5.6e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+7.32
+</td>
+<td style="text-align:left;">
+1.2
+</td>
+<td style="text-align:left;">
+6.09
+</td>
+<td style="text-align:left;">
+1.1e-09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+-2.93
+</td>
+<td style="text-align:left;">
+1.2
+</td>
+<td style="text-align:left;">
+-2.44
+</td>
+<td style="text-align:left;">
+0.0148
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+0.0515
+</td>
+<td style="text-align:left;">
+0.194
+</td>
+<td style="text-align:left;">
+0.266
+</td>
+<td style="text-align:left;">
+0.791
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+-2.57
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+-1.46
+</td>
+<td style="text-align:left;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+5.83
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+3.3
+</td>
+<td style="text-align:left;">
+0.000978
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+-7.25
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+-4.11
+</td>
+<td style="text-align:left;">
+4.04e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+2.09
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+1.18
+</td>
+<td style="text-align:left;">
+0.238
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+-0.183
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+-0.123
+</td>
+<td style="text-align:left;">
+0.902
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+-5.94
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+-3.99
+</td>
+<td style="text-align:left;">
+6.53e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+1.5
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+0.315
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+-2.12
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+-1.42
+</td>
+<td style="text-align:left;">
+0.154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)1
+</td>
+<td style="text-align:left;">
+1.21
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+0.549
+</td>
+<td style="text-align:left;">
+0.583
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)2
+</td>
+<td style="text-align:left;">
+4.68
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+2.12
+</td>
+<td style="text-align:left;">
+0.0343
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)3
+</td>
+<td style="text-align:left;">
+-1.09
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+-0.495
+</td>
+<td style="text-align:left;">
+0.621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 4)4
+</td>
+<td style="text-align:left;">
+2.92
+</td>
+<td style="text-align:left;">
+2.21
+</td>
+<td style="text-align:left;">
+1.32
+</td>
+<td style="text-align:left;">
+0.186
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_CORT_2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_CORT_2-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="test-1" class="section level3">
+<h3>TEST</h3>
+<p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender<em>group+poly(Time, 4)</em>group+gender<em>poly(Time, 4)</em>group+(1|twuid) + (1|centre)</p>
+<p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
+<p>overall model p-value: 4.38e-35</p>
+<pre class="r"><code>depvar = &quot;AV_TEST&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.513
+</td>
+<td style="text-align:left;">
+0.156
+</td>
+<td style="text-align:left;">
+3.29
+</td>
+<td style="text-align:left;">
+0.00099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.238
+</td>
+<td style="text-align:left;">
+0.0546
+</td>
+<td style="text-align:left;">
+4.35
+</td>
+<td style="text-align:left;">
+1.34e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.18
+</td>
+<td style="text-align:left;">
+0.0482
+</td>
+<td style="text-align:left;">
+-3.74
+</td>
+<td style="text-align:left;">
+0.000186
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.17
+</td>
+<td style="text-align:left;">
+0.0491
+</td>
+<td style="text-align:left;">
+3.45
+</td>
+<td style="text-align:left;">
+0.000552
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.207
+</td>
+<td style="text-align:left;">
+0.128
+</td>
+<td style="text-align:left;">
+-1.62
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.162
+</td>
+<td style="text-align:left;">
+0.132
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+<td style="text-align:left;">
+0.219
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.647
+</td>
+<td style="text-align:left;">
+0.136
+</td>
+<td style="text-align:left;">
+-4.76
+</td>
+<td style="text-align:left;">
+1.92e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.0147
+</td>
+<td style="text-align:left;">
+0.166
+</td>
+<td style="text-align:left;">
+-0.0887
+</td>
+<td style="text-align:left;">
+0.929
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+1.8
+</td>
+<td style="text-align:left;">
+0.736
+</td>
+<td style="text-align:left;">
+2.44
+</td>
+<td style="text-align:left;">
+0.0146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-2.2
+</td>
+<td style="text-align:left;">
+0.736
+</td>
+<td style="text-align:left;">
+-2.99
+</td>
+<td style="text-align:left;">
+0.00277
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+-0.0657
+</td>
+<td style="text-align:left;">
+0.203
+</td>
+<td style="text-align:left;">
+-0.324
+</td>
+<td style="text-align:left;">
+0.746
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-2.08
+</td>
+<td style="text-align:left;">
+1.08
+</td>
+<td style="text-align:left;">
+-1.92
+</td>
+<td style="text-align:left;">
+0.055
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.08
+</td>
+<td style="text-align:left;">
+1.08
+</td>
+<td style="text-align:left;">
+0.997
+</td>
+<td style="text-align:left;">
+0.319
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-2.49
+</td>
+<td style="text-align:left;">
+0.913
+</td>
+<td style="text-align:left;">
+-2.73
+</td>
+<td style="text-align:left;">
+0.00628
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-2.81
+</td>
+<td style="text-align:left;">
+0.913
+</td>
+<td style="text-align:left;">
+-3.08
+</td>
+<td style="text-align:left;">
+0.0021
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+2.77
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+2.05
+</td>
+<td style="text-align:left;">
+0.0404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+3.51
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+2.59
+</td>
+<td style="text-align:left;">
+0.00964
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST_2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_TEST_2-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="oxt-1" class="section level3">
+<h3>OXT</h3>
+<p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender<em>group+poly(Time, 4)</em>group+gender<em>poly(Time, 4)</em>group+(1|twuid) + (1|centre)</p>
+<p>h0 model: DV<sub>DV</sub>1+(1|twuid)+(1|centre):</p>
+<p>overall model p-value: 0.000464</p>
+<pre class="r"><code>depvar = &quot;AV_OXT&quot;
+
+resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+-0.126
+</td>
+<td style="text-align:left;">
+0.143
+</td>
+<td style="text-align:left;">
+-0.88
+</td>
+<td style="text-align:left;">
+0.379
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.0933
+</td>
+<td style="text-align:left;">
+0.0781
+</td>
+<td style="text-align:left;">
+1.19
+</td>
+<td style="text-align:left;">
+0.232
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+0.0142
+</td>
+<td style="text-align:left;">
+0.0933
+</td>
+<td style="text-align:left;">
+0.153
+</td>
+<td style="text-align:left;">
+0.879
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+-0.0846
+</td>
+<td style="text-align:left;">
+0.0647
+</td>
+<td style="text-align:left;">
+-1.31
+</td>
+<td style="text-align:left;">
+0.191
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+0.0183
+</td>
+<td style="text-align:left;">
+0.176
+</td>
+<td style="text-align:left;">
+0.104
+</td>
+<td style="text-align:left;">
+0.917
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.185
+</td>
+<td style="text-align:left;">
+0.187
+</td>
+<td style="text-align:left;">
+0.987
+</td>
+<td style="text-align:left;">
+0.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.265
+</td>
+<td style="text-align:left;">
+0.189
+</td>
+<td style="text-align:left;">
+1.4
+</td>
+<td style="text-align:left;">
+0.161
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD
+</td>
+<td style="text-align:left;">
+-0.259
+</td>
+<td style="text-align:left;">
+0.218
+</td>
+<td style="text-align:left;">
+-1.19
+</td>
+<td style="text-align:left;">
+0.235
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+0.152
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+0.103
+</td>
+<td style="text-align:left;">
+0.918
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-4.88
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+-3.32
+</td>
+<td style="text-align:left;">
+0.000892
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD
+</td>
+<td style="text-align:left;">
+0.187
+</td>
+<td style="text-align:left;">
+0.284
+</td>
+<td style="text-align:left;">
+0.659
+</td>
+<td style="text-align:left;">
+0.51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+3.73
+</td>
+<td style="text-align:left;">
+2.17
+</td>
+<td style="text-align:left;">
+1.72
+</td>
+<td style="text-align:left;">
+0.0847
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+3.23
+</td>
+<td style="text-align:left;">
+2.17
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+0.136
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+0.7
+</td>
+<td style="text-align:left;">
+1.99
+</td>
+<td style="text-align:left;">
+0.352
+</td>
+<td style="text-align:left;">
+0.725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.37
+</td>
+<td style="text-align:left;">
+1.99
+</td>
+<td style="text-align:left;">
+0.687
+</td>
+<td style="text-align:left;">
+0.492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-1.66
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+-0.569
+</td>
+<td style="text-align:left;">
+0.569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-0.281
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+-0.0966
+</td>
+<td style="text-align:left;">
+0.923
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab(&quot;density&quot;) + xlab(depvar)+
+  geom_density()</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT_2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(data = resall[[paste0(depvar, &quot;_longdat&quot;)]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab(&quot;Time&quot;)+
+  geom_smooth(method = &#39;loess&#39;) + geom_point()+   facet_wrap(~gender)</code></pre>
+<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="figure/01_Preprocessing_Modelling.Rmd/wrap_res_OXT_2-2.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -2628,7 +4479,7 @@ other attached packages:
  [7] data.table_1.14.0   forcats_0.5.1       stringr_1.4.0      
 [10] dplyr_1.0.5         purrr_0.3.4         readr_1.4.0        
 [13] tidyr_1.1.3         tibble_3.1.0        ggplot2_3.3.3      
-[16] tidyverse_1.3.0     haven_2.3.1         workflowr_1.6.2    
+[16] tidyverse_1.3.0     haven_2.3.1        
 
 loaded via a namespace (and not attached):
   [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
@@ -2637,23 +4488,23 @@ loaded via a namespace (and not attached):
  [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
  [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
  [16] codetools_0.2-18     splines_4.0.4        knitr_1.31          
- [19] jsonlite_1.7.2       nloptr_1.2.2.2       pROC_1.17.0.1       
- [22] broom_0.7.5          dbplyr_2.1.0         compiler_4.0.4      
- [25] httr_1.4.2           backports_1.2.1      assertthat_0.2.1    
- [28] cli_2.3.1            later_1.1.0.1        htmltools_0.5.1.1   
- [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
- [34] reshape2_1.4.4       Rcpp_1.0.6           cellranger_1.1.0    
- [37] jquerylib_0.1.3      vctrs_0.3.6          writexl_1.3.1       
- [40] svglite_2.0.0        nlme_3.1-152         iterators_1.0.13    
- [43] timeDate_3043.102    xfun_0.21            gower_0.2.2         
- [46] ps_1.6.0             rvest_1.0.0          lifecycle_1.0.0     
+ [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
+ [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
+ [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
+ [28] assertthat_0.2.1     cli_2.3.1            later_1.1.0.1       
+ [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
+ [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
+ [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
+ [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
+ [43] iterators_1.0.13     timeDate_3043.102    xfun_0.21           
+ [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
  [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
  [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
  [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
  [58] gdtools_0.2.3        sass_0.3.1           rpart_4.1-15        
  [61] stringi_1.5.3        highr_0.8            corrplot_0.84       
  [64] foreach_1.5.1        zip_2.1.1            boot_1.3-27         
- [67] truncnorm_1.0-8      lava_1.6.9           chron_2.3-56        
+ [67] lava_1.6.9           truncnorm_1.0-8      chron_2.3-56        
  [70] rlang_0.4.10         pkgconfig_2.0.3      systemfonts_1.0.1   
  [73] Rsolnp_1.16          evaluate_0.14        labeling_0.4.2      
  [76] recipes_0.1.15       tidyselect_1.1.0     plyr_1.8.6          
@@ -2666,6 +4517,7 @@ loaded via a namespace (and not attached):
  [97] ModelMetrics_1.2.2.2 reprex_1.0.0         digest_0.6.27       
 [100] webshot_0.5.2        httpuv_1.5.5         stats4_4.0.4        
 [103] munsell_0.5.0        viridisLite_0.3.0    bslib_0.2.4         </code></pre>
+</div>
 </div>
 </div>
 </div>

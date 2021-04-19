@@ -87,21 +87,11 @@ AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_
 AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
 
-models=list(
-AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid)+(1|centre)",
-
-AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
-
-AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
-
-AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)")
-
-# do not include site in correlation plot 
-
 tmpframe = df[,UV[!UV%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
 
 corrplot::corrplot(cor(tmpframe, use = "pairwise"))
 ```
+
 
 ## complete cohort descriptives
 
@@ -131,9 +121,21 @@ export_table
 ```
 
 
-## linear model with mixed effects 
+# linear model with mixed effects and time as factor 
 
 We adapted a boxed design by individual over Time
+
+```{r modeldef}
+models=list(
+AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid)+(1|centre)",
+
+AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
+
+AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)",
+
+AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+value+gender*group+value*group+gender*value*group+(1|twuid) + (1|centre)")
+```
+
 
 ```{r mml, warning=FALSE}
 resall = list()
@@ -162,9 +164,9 @@ for (depvar in names(AV)){
 
 ```
 
-# Results 
+## Results 
 
-## stressed
+### stressed
 
 
 full models: `r models[[1]]`
@@ -198,7 +200,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ```
 
-## CORT
+### CORT
 
 
 full models: `r models[[2]]`
@@ -225,7 +227,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ```
 
-## TEST
+### TEST
 
 
 full models: `r models[[2]]`
@@ -255,7 +257,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ```
 
-## OXT
+### OXT
 
 full models: `r models[[2]]`
 
@@ -283,3 +285,167 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   
 ```
 
+
+# linear model with mixed effects and time as polynomial  
+
+We adapted a boxed design by individual over Time with a maximum pol<nomial decomposion (n-dim - 1)
+
+```{r modeldef_poly}
+models=list(
+AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 7)+gender*group+poly(Time, 7)*group+gender*poly(Time, 7)*group+(1|twuid)+(1|centre)",
+
+AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender*group+poly(Time, 4)*group+gender*poly(Time, 4)*group+(1|twuid) + (1|centre)",
+
+AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid) + (1|centre)",
+
+AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid) + (1|centre)")
+```
+
+
+```{r mml_2, warning=FALSE}
+resall = list()
+
+for (depvar in names(AV)){
+  cols = names(AV[[depvar]])
+  long = df[,c("twuid",cols, UV)] %>% 
+    gather(key = "value", value = "DV", all_of(cols))
+  long2  = long%>% mutate_if(is.numeric, scale)
+  long2$Time = AV[[depvar]][long2$value]
+  long2$value =as.factor(long2$value) %>% 
+    relevel(., ref=grep("BL|stressed_1",  unique(long2$value),value = T))
+  long2$twuid = as.factor(long2$twuid)
+  model.lme = lme4::lmer(models[[depvar]], data=long2)
+  model.lme0 = lme4::lmer(DV~1+(1|twuid)+(1|centre), data=long2)
+  anovah0 = anova(model.lme0, model.lme)
+  model_p_val = anovah0$`Pr(>Chisq)`[2]
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff")]]=res.coeff
+  resall[[paste0(depvar,"_modsig")]]=model_p_val
+}
+
+```
+
+## Results 
+
+### stressed
+
+
+full models: `r models[[1]]`
+
+h0 model: DV~1+(1|twuid)+(1|centre):
+
+overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
+
+```{r, wrap_res_stressed_2}
+tableplot = function (x){
+  x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
+  }
+
+
+depvar = "AV_stressed"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(paste("zscores",depvar))+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+
+
+
+
+```
+
+### CORT
+
+
+full models: `r models[[2]]`
+
+h0 model:DV~1+(1|twuid)+(1|centre):
+
+overall model p-value:`r as.character(signif(resall[["AV_CORT_modsig"]],3))`
+
+
+```{r wrap_res_CORT_2}
+depvar = "AV_CORT"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+
+```
+
+### TEST
+
+
+full models: `r models[[2]]`
+
+h0 model: DV~1+(1|twuid)+(1|centre):
+
+
+overall model p-value:
+`r as.character(signif(resall[["AV_TEST_modsig"]], 3))`
+
+
+```{r wrap_res_TEST_2}
+depvar = "AV_TEST"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+
+
+```
+
+### OXT
+
+full models: `r models[[2]]`
+
+h0 model: DV~DV~1+(1|twuid)+(1|centre):
+
+overall model p-value:
+`r as.character(signif(resall[["AV_OXT_modsig"]], 3))`
+
+
+```{r wrap_res_OXT_2}
+
+depvar = "AV_OXT"
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(DV, group=Time, col=Time)) + 
+  ylab("density") + xlab(depvar)+
+  geom_density()
+
+ggplot(data = resall[[paste0(depvar, "_longdat")]], 
+       aes(Time,DV, col=group)) + 
+  ylab(depvar) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+  
+```
