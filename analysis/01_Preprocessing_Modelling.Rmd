@@ -280,7 +280,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 
 ```
 
-###TEST/CORT ratio
+### TEST/CORT ratio
 
 
 full models: `r models[[4]]`
