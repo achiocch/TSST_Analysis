@@ -147,16 +147,16 @@ export_table
 We adapted a boxed design by individual over Time with a 2 polynomial decomposion
 
 ```{r modeldef_poly}
+
+general.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
+
 models=list(
-AV_stressed = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 7)+gender*group+poly(Time, 2)*group+(1|twuid)+(1|centre)",
+AV_stressed = general.model,
+AV_CORT = general.model,
+AV_TEST = general.model,
+AV_TESTCORT = general.model,
+AV_OXT = general.model)
 
-AV_CORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 4)+gender*group+poly(Time, 2)*group+(1|twuid) + (1|centre)",
-
-AV_TEST = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+(1|twuid) + (1|centre)",
-
-AV_TESTCORT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+(1|twuid) + (1|centre)",
-
-AV_OXT = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+(1|twuid) + (1|centre)")
 ```
 
 
