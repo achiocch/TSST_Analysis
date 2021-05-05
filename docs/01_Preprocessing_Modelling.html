@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -389,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-05-05
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreed4445ec6b4c3347f05a1f0bf63d88dee9f9601c3targetblankd4445eca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/d4445ec6b4c3347f05a1f0bf63d88dee9f9601c3" target="_blank">d4445ec</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree4854e73f5ed8664d475b1f8f0725d55d2778bdc9targetblank4854e73a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/4854e73f5ed8664d475b1f8f0725d55d2778bdc9" target="_blank">4854e73</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreed4445ec6b4c3347f05a1f0bf63d88dee9f9601c3targetblankd4445eca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree4854e73f5ed8664d475b1f8f0725d55d2778bdc9targetblank4854e73a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/d4445ec6b4c3347f05a1f0bf63d88dee9f9601c3" target="_blank">d4445ec</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/4854e73f5ed8664d475b1f8f0725d55d2778bdc9" target="_blank">4854e73</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,6 +497,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
+
+Unstaged changes:
+    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -595,18 +598,15 @@ UV = c(&quot;centre&quot;,&quot;age_meancentered&quot;, &quot;explstart_meancent
 
 
 
-
 AV = list(
 AV_stressed = c(stressed_1=0, stressed_2=2,
-                stressed_3=7, stressed_4=8,
-                stressed_5=18, stressed_6=33, 
-                stressed_7=48, stressed_8=63), 
-AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
-AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
-AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=10, TESTCORTlog55 = 55),
-AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
-
-
+                stressed_3=10, stressed_4=16,
+                stressed_5=25, stressed_6=40, 
+                stressed_7=55, stressed_8=70), 
+AV_CORT = c(CORT_BL_log=0, CORT_10_log=25, CORT_25_log=40, CORT_40_log=55, CORT_55_log=70) ,
+AV_TEST = c(TEST_BL_log=0, TEST_10_log=25, TEST_55_log=70),
+AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=25, TESTCORTlog55 = 70),
+AV_OXT =  c(OXT_BL_log=0, OXT_1_log=16, OXT_10_log=25))
 
 tmpframe = df[,UV[!UV%in% c(&quot;centre&quot;)]] %&gt;% mutate_if(is.factor, function(x) as.numeric(x)-1)
 
@@ -779,12 +779,14 @@ OXT_10_log                 0.32 (0.48)  0.35 (0.36)   0.696
 <p>We adapted a boxed design by individual over Time with a 2 polynomial decomposion</p>
 <pre class="r"><code>general.model = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)&quot;
 
+factor.model = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+as.factor(Time)+gender*group+as.factor(Time)*group+gender*as.factor(Time)*group+(1|twuid)+(1|centre)&quot;
+
 models=list(
 AV_stressed = general.model,
 AV_CORT = general.model,
 AV_TEST = general.model,
 AV_TESTCORT = general.model,
-AV_OXT = general.model)</code></pre>
+AV_OXT = factor.model)</code></pre>
 <pre class="r"><code>resall = list()
 
 for (depvar in names(AV)){
@@ -824,7 +826,7 @@ boundary (singular) fit: see ?isSingular</code></pre>
 <h3>stressed</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender<em>group+poly(Time, 2)</em>group+gender<em>poly(Time, 2)</em>group+(1|twuid)+(1|centre)</p>
 <p>h0 model: DV~1+(1|twuid)+(1|centre):</p>
-<p>overall model p-value:4.81e-72</p>
+<p>overall model p-value:3.11e-73</p>
 <pre class="r"><code>tableplot = function (x){
   x %&gt;% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %&gt;% kbl() %&gt;% kable_classic()
   }
@@ -994,16 +996,16 @@ groupCD
 poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--13.1
+-13.5
 </td>
 <td style="text-align:left;">
-1.71
+1.7
 </td>
 <td style="text-align:left;">
--7.66
+-7.9
 </td>
 <td style="text-align:left;">
-1.89e-14
+2.87e-15
 </td>
 </tr>
 <tr>
@@ -1011,16 +1013,16 @@ poly(Time, 2)1
 poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-3.97
+2.7
 </td>
 <td style="text-align:left;">
-1.71
+1.7
 </td>
 <td style="text-align:left;">
-2.32
+1.59
 </td>
 <td style="text-align:left;">
-0.0201
+0.113
 </td>
 </tr>
 <tr>
@@ -1045,16 +1047,16 @@ genderfemale:groupCD
 groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-2.63
+2.65
 </td>
 <td style="text-align:left;">
 2.51
 </td>
 <td style="text-align:left;">
-1.05
+1.06
 </td>
 <td style="text-align:left;">
-0.295
+0.291
 </td>
 </tr>
 <tr>
@@ -1062,16 +1064,16 @@ groupCD:poly(Time, 2)1
 groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--0.311
+0.0625
 </td>
 <td style="text-align:left;">
 2.51
 </td>
 <td style="text-align:left;">
--0.124
+0.0249
 </td>
 <td style="text-align:left;">
-0.901
+0.98
 </td>
 </tr>
 <tr>
@@ -1079,16 +1081,16 @@ groupCD:poly(Time, 2)2
 genderfemale:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--2.61
+-2.72
 </td>
 <td style="text-align:left;">
-2.12
+2.11
 </td>
 <td style="text-align:left;">
--1.23
+-1.29
 </td>
 <td style="text-align:left;">
-0.218
+0.198
 </td>
 </tr>
 <tr>
@@ -1096,16 +1098,16 @@ genderfemale:poly(Time, 2)1
 genderfemale:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-1.9
+1.71
 </td>
 <td style="text-align:left;">
-2.12
+2.11
 </td>
 <td style="text-align:left;">
-0.895
+0.807
 </td>
 <td style="text-align:left;">
-0.371
+0.42
 </td>
 </tr>
 <tr>
@@ -1113,16 +1115,16 @@ genderfemale:poly(Time, 2)2
 genderfemale:groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--2.06
+-2.1
 </td>
 <td style="text-align:left;">
 3.14
 </td>
 <td style="text-align:left;">
--0.656
+-0.67
 </td>
 <td style="text-align:left;">
-0.512
+0.503
 </td>
 </tr>
 <tr>
@@ -1130,16 +1132,16 @@ genderfemale:groupCD:poly(Time, 2)1
 genderfemale:groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--1.22
+-1.28
 </td>
 <td style="text-align:left;">
 3.14
 </td>
 <td style="text-align:left;">
--0.387
+-0.408
 </td>
 <td style="text-align:left;">
-0.698
+0.683
 </td>
 </tr>
 </tbody>
@@ -1160,7 +1162,7 @@ genderfemale:groupCD:poly(Time, 2)2
 <h3>CORT</h3>
 <p>full models: DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender<em>group+poly(Time, 2)</em>group+gender<em>poly(Time, 2)</em>group+(1|twuid)+(1|centre)</p>
 <p>h0 model:DV~1+(1|twuid)+(1|centre):</p>
-<p>overall model p-value:4.8e-42</p>
+<p>overall model p-value:9.94e-62</p>
 <pre class="r"><code>depvar = &quot;AV_CORT&quot;
 
 resall[[paste0(depvar, &quot;_coeff&quot;)]] %&gt;% tableplot()</code></pre>
@@ -1325,16 +1327,16 @@ groupCD
 poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--1.72
+0.0446
 </td>
 <td style="text-align:left;">
-1.29
+1.23
 </td>
 <td style="text-align:left;">
--1.34
+0.0361
 </td>
 <td style="text-align:left;">
-0.182
+0.971
 </td>
 </tr>
 <tr>
@@ -1342,16 +1344,16 @@ poly(Time, 2)1
 poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--5.45
+-7.78
 </td>
 <td style="text-align:left;">
-1.29
+1.23
 </td>
 <td style="text-align:left;">
--4.24
+-6.31
 </td>
 <td style="text-align:left;">
-2.22e-05
+2.81e-10
 </td>
 </tr>
 <tr>
@@ -1376,16 +1378,16 @@ genderfemale:groupCD
 groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--2.57
+-4.25
 </td>
 <td style="text-align:left;">
-1.89
+1.82
 </td>
 <td style="text-align:left;">
--1.36
+-2.34
 </td>
 <td style="text-align:left;">
-0.174
+0.0191
 </td>
 </tr>
 <tr>
@@ -1393,16 +1395,16 @@ groupCD:poly(Time, 2)1
 groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-5.83
+7.25
 </td>
 <td style="text-align:left;">
-1.89
+1.82
 </td>
 <td style="text-align:left;">
-3.08
+4
 </td>
 <td style="text-align:left;">
-0.00208
+6.46e-05
 </td>
 </tr>
 <tr>
@@ -1410,16 +1412,16 @@ groupCD:poly(Time, 2)2
 genderfemale:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--0.183
+0.948
 </td>
 <td style="text-align:left;">
-1.59
+1.53
 </td>
 <td style="text-align:left;">
--0.115
+0.62
 </td>
 <td style="text-align:left;">
-0.909
+0.536
 </td>
 </tr>
 <tr>
@@ -1427,16 +1429,16 @@ genderfemale:poly(Time, 2)1
 genderfemale:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--5.94
+-6.3
 </td>
 <td style="text-align:left;">
-1.59
+1.53
 </td>
 <td style="text-align:left;">
--3.73
+-4.12
 </td>
 <td style="text-align:left;">
-0.000192
+3.78e-05
 </td>
 </tr>
 <tr>
@@ -1444,16 +1446,16 @@ genderfemale:poly(Time, 2)2
 genderfemale:groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-1.21
+0.241
 </td>
 <td style="text-align:left;">
-2.37
+2.27
 </td>
 <td style="text-align:left;">
-0.513
+0.106
 </td>
 <td style="text-align:left;">
-0.608
+0.915
 </td>
 </tr>
 <tr>
@@ -1461,16 +1463,16 @@ genderfemale:groupCD:poly(Time, 2)1
 genderfemale:groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-4.68
+5.3
 </td>
 <td style="text-align:left;">
-2.37
+2.27
 </td>
 <td style="text-align:left;">
-1.98
+2.34
 </td>
 <td style="text-align:left;">
-0.048
+0.0195
 </td>
 </tr>
 </tbody>
@@ -1656,16 +1658,16 @@ groupCD
 poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-1.8
+2.18
 </td>
 <td style="text-align:left;">
 0.736
 </td>
 <td style="text-align:left;">
-2.44
+2.96
 </td>
 <td style="text-align:left;">
-0.0146
+0.00308
 </td>
 </tr>
 <tr>
@@ -1673,16 +1675,16 @@ poly(Time, 2)1
 poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--2.2
+-1.83
 </td>
 <td style="text-align:left;">
 0.736
 </td>
 <td style="text-align:left;">
--2.99
+-2.48
 </td>
 <td style="text-align:left;">
-0.00277
+0.0131
 </td>
 </tr>
 <tr>
@@ -1707,16 +1709,16 @@ genderfemale:groupCD
 groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--2.08
+-2.24
 </td>
 <td style="text-align:left;">
 1.08
 </td>
 <td style="text-align:left;">
--1.92
+-2.07
 </td>
 <td style="text-align:left;">
-0.055
+0.0383
 </td>
 </tr>
 <tr>
@@ -1724,16 +1726,16 @@ groupCD:poly(Time, 2)1
 groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-1.08
+0.671
 </td>
 <td style="text-align:left;">
 1.08
 </td>
 <td style="text-align:left;">
-0.997
+0.619
 </td>
 <td style="text-align:left;">
-0.319
+0.536
 </td>
 </tr>
 <tr>
@@ -1741,16 +1743,16 @@ groupCD:poly(Time, 2)2
 genderfemale:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--2.49
+-1.92
 </td>
 <td style="text-align:left;">
 0.913
 </td>
 <td style="text-align:left;">
--2.73
+-2.11
 </td>
 <td style="text-align:left;">
-0.00628
+0.0351
 </td>
 </tr>
 <tr>
@@ -1758,16 +1760,16 @@ genderfemale:poly(Time, 2)1
 genderfemale:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--2.81
+-3.22
 </td>
 <td style="text-align:left;">
 0.913
 </td>
 <td style="text-align:left;">
--3.08
+-3.53
 </td>
 <td style="text-align:left;">
-0.0021
+0.000411
 </td>
 </tr>
 <tr>
@@ -1775,16 +1777,16 @@ genderfemale:poly(Time, 2)2
 genderfemale:groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-2.77
+2.07
 </td>
 <td style="text-align:left;">
 1.35
 </td>
 <td style="text-align:left;">
-2.05
+1.53
 </td>
 <td style="text-align:left;">
-0.0404
+0.127
 </td>
 </tr>
 <tr>
@@ -1792,16 +1794,16 @@ genderfemale:groupCD:poly(Time, 2)1
 genderfemale:groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-3.51
+3.96
 </td>
 <td style="text-align:left;">
 1.35
 </td>
 <td style="text-align:left;">
-2.59
+2.93
 </td>
 <td style="text-align:left;">
-0.00964
+0.00342
 </td>
 </tr>
 </tbody>
@@ -1992,16 +1994,16 @@ groupCD
 poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-1.51
+0.415
 </td>
 <td style="text-align:left;">
-1.67
+1.68
 </td>
 <td style="text-align:left;">
-0.901
+0.248
 </td>
 <td style="text-align:left;">
-0.368
+0.804
 </td>
 </tr>
 <tr>
@@ -2009,16 +2011,16 @@ poly(Time, 2)1
 poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-5.67
+5.85
 </td>
 <td style="text-align:left;">
 1.67
 </td>
 <td style="text-align:left;">
-3.4
+3.51
 </td>
 <td style="text-align:left;">
-0.000685
+0.000442
 </td>
 </tr>
 <tr>
@@ -2043,16 +2045,16 @@ genderfemale:groupCD
 groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-2.04
+3.11
 </td>
 <td style="text-align:left;">
 2.49
 </td>
 <td style="text-align:left;">
-0.82
+1.25
 </td>
 <td style="text-align:left;">
-0.412
+0.211
 </td>
 </tr>
 <tr>
@@ -2060,16 +2062,16 @@ groupCD:poly(Time, 2)1
 groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--5.92
+-5.43
 </td>
 <td style="text-align:left;">
 2.45
 </td>
 <td style="text-align:left;">
--2.41
+-2.21
 </td>
 <td style="text-align:left;">
-0.0158
+0.0268
 </td>
 </tr>
 <tr>
@@ -2077,16 +2079,16 @@ groupCD:poly(Time, 2)2
 genderfemale:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--0.35
+-1.52
 </td>
 <td style="text-align:left;">
-2.09
+2.1
 </td>
 <td style="text-align:left;">
--0.168
+-0.725
 </td>
 <td style="text-align:left;">
-0.867
+0.468
 </td>
 </tr>
 <tr>
@@ -2094,16 +2096,16 @@ genderfemale:poly(Time, 2)1
 genderfemale:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-6.27
+6.09
 </td>
 <td style="text-align:left;">
 2.08
 </td>
 <td style="text-align:left;">
-3.01
+2.94
 </td>
 <td style="text-align:left;">
-0.0026
+0.00333
 </td>
 </tr>
 <tr>
@@ -2111,16 +2113,16 @@ genderfemale:poly(Time, 2)2
 genderfemale:groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-0.182
+1.04
 </td>
 <td style="text-align:left;">
 3.13
 </td>
 <td style="text-align:left;">
-0.0581
+0.334
 </td>
 <td style="text-align:left;">
-0.954
+0.739
 </td>
 </tr>
 <tr>
@@ -2128,16 +2130,16 @@ genderfemale:groupCD:poly(Time, 2)1
 genderfemale:groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
--4.61
+-4.5
 </td>
 <td style="text-align:left;">
 3.09
 </td>
 <td style="text-align:left;">
--1.49
+-1.46
 </td>
 <td style="text-align:left;">
-0.135
+0.145
 </td>
 </tr>
 </tbody>
@@ -2187,16 +2189,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
--0.126
+-0.322
 </td>
 <td style="text-align:left;">
-0.143
+0.16
 </td>
 <td style="text-align:left;">
--0.88
+-2.01
 </td>
 <td style="text-align:left;">
-0.379
+0.044
 </td>
 </tr>
 <tr>
@@ -2289,16 +2291,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.265
+0.299
 </td>
 <td style="text-align:left;">
-0.189
+0.212
 </td>
 <td style="text-align:left;">
-1.4
+1.41
 </td>
 <td style="text-align:left;">
-0.161
+0.157
 </td>
 </tr>
 <tr>
@@ -2306,50 +2308,50 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.259
+-0.236
 </td>
 <td style="text-align:left;">
-0.218
+0.242
 </td>
 <td style="text-align:left;">
--1.19
+-0.977
 </td>
 <td style="text-align:left;">
-0.235
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-poly(Time, 2)1
-</td>
-<td style="text-align:left;">
-0.152
-</td>
-<td style="text-align:left;">
-1.47
-</td>
-<td style="text-align:left;">
-0.103
-</td>
-<td style="text-align:left;">
-0.918
+0.329
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-poly(Time, 2)2
+as.factor(Time)16
 </td>
 <td style="text-align:left;">
--4.88
+0.405
 </td>
 <td style="text-align:left;">
-1.47
+0.122
 </td>
 <td style="text-align:left;">
--3.32
+3.32
 </td>
 <td style="text-align:left;">
-0.000892
+0.000906
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+as.factor(Time)25
+</td>
+<td style="text-align:left;">
+0.181
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+1.49
+</td>
+<td style="text-align:left;">
+0.137
 </td>
 </tr>
 <tr>
@@ -2357,118 +2359,118 @@ poly(Time, 2)2
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
-0.187
+0.222
 </td>
 <td style="text-align:left;">
-0.284
+0.317
 </td>
 <td style="text-align:left;">
-0.659
+0.701
 </td>
 <td style="text-align:left;">
-0.51
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:poly(Time, 2)1
-</td>
-<td style="text-align:left;">
-3.73
-</td>
-<td style="text-align:left;">
-2.17
-</td>
-<td style="text-align:left;">
-1.72
-</td>
-<td style="text-align:left;">
-0.0847
+0.483
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-groupCD:poly(Time, 2)2
+groupCD:as.factor(Time)16
 </td>
 <td style="text-align:left;">
-3.23
+-0.239
 </td>
 <td style="text-align:left;">
-2.17
+0.18
 </td>
 <td style="text-align:left;">
-1.49
+-1.33
 </td>
 <td style="text-align:left;">
-0.136
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:poly(Time, 2)1
-</td>
-<td style="text-align:left;">
-0.7
-</td>
-<td style="text-align:left;">
-1.99
-</td>
-<td style="text-align:left;">
-0.352
-</td>
-<td style="text-align:left;">
-0.725
+0.184
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:poly(Time, 2)2
+groupCD:as.factor(Time)25
 </td>
 <td style="text-align:left;">
-1.37
+0.169
 </td>
 <td style="text-align:left;">
-1.99
+0.18
 </td>
 <td style="text-align:left;">
-0.687
+0.939
 </td>
 <td style="text-align:left;">
-0.492
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:groupCD:poly(Time, 2)1
-</td>
-<td style="text-align:left;">
--1.66
-</td>
-<td style="text-align:left;">
-2.91
-</td>
-<td style="text-align:left;">
--0.569
-</td>
-<td style="text-align:left;">
-0.569
+0.348
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:poly(Time, 2)2
+genderfemale:as.factor(Time)16
 </td>
 <td style="text-align:left;">
--0.281
+-0.108
 </td>
 <td style="text-align:left;">
-2.91
+0.165
 </td>
 <td style="text-align:left;">
--0.0966
+-0.652
 </td>
 <td style="text-align:left;">
-0.923
+0.514
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:as.factor(Time)25
+</td>
+<td style="text-align:left;">
+0.00515
+</td>
+<td style="text-align:left;">
+0.165
+</td>
+<td style="text-align:left;">
+0.0312
+</td>
+<td style="text-align:left;">
+0.975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:as.factor(Time)16
+</td>
+<td style="text-align:left;">
+0.0108
+</td>
+<td style="text-align:left;">
+0.242
+</td>
+<td style="text-align:left;">
+0.0446
+</td>
+<td style="text-align:left;">
+0.964
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:as.factor(Time)25
+</td>
+<td style="text-align:left;">
+-0.115
+</td>
+<td style="text-align:left;">
+0.242
+</td>
+<td style="text-align:left;">
+-0.476
+</td>
+<td style="text-align:left;">
+0.634
 </td>
 </tr>
 </tbody>

@@ -93,18 +93,15 @@ UV = c("centre","age_meancentered", "explstart_meancentered_min",
 
 
 
-
 AV = list(
 AV_stressed = c(stressed_1=0, stressed_2=2,
-                stressed_3=7, stressed_4=8,
-                stressed_5=18, stressed_6=33, 
-                stressed_7=48, stressed_8=63), 
-AV_CORT = c(CORT_BL_log=0, CORT_10_log=10, CORT_25_log=25, CORT_40_log=40, CORT_55_log=55) ,
-AV_TEST = c(TEST_BL_log=0, TEST_10_log=10, TEST_55_log=55),
-AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=10, TESTCORTlog55 = 55),
-AV_OXT =  c(OXT_BL_log=0, OXT_1_log=1, OXT_10_log=10) )
-
-
+                stressed_3=10, stressed_4=16,
+                stressed_5=25, stressed_6=40, 
+                stressed_7=55, stressed_8=70), 
+AV_CORT = c(CORT_BL_log=0, CORT_10_log=25, CORT_25_log=40, CORT_40_log=55, CORT_55_log=70) ,
+AV_TEST = c(TEST_BL_log=0, TEST_10_log=25, TEST_55_log=70),
+AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=25, TESTCORTlog55 = 70),
+AV_OXT =  c(OXT_BL_log=0, OXT_1_log=16, OXT_10_log=25))
 
 tmpframe = df[,UV[!UV%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
 
@@ -150,12 +147,15 @@ We adapted a boxed design by individual over Time with a 2 polynomial decomposio
 
 general.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
 
+factor.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+as.factor(Time)+gender*group+as.factor(Time)*group+gender*as.factor(Time)*group+(1|twuid)+(1|centre)"
+
 models=list(
 AV_stressed = general.model,
 AV_CORT = general.model,
 AV_TEST = general.model,
 AV_TESTCORT = general.model,
-AV_OXT = general.model)
+AV_OXT = factor.model)
+
 
 ```
 
