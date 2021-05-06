@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,10 +386,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-05-05
+<strong>Last updated:</strong> 2021-05-06
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8268bf2052c51ee15896d02b6bf52ec1c960e026targetblank8268bf2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/8268bf2052c51ee15896d02b6bf52ec1c960e026" target="_blank">8268bf2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreea67b73e755af14ad25fdaf5bed2b1c40604952c0targetblanka67b73ea"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/a67b73e755af14ad25fdaf5bed2b1c40604952c0" target="_blank">a67b73e</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree8268bf2052c51ee15896d02b6bf52ec1c960e026targetblank8268bf2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistreea67b73e755af14ad25fdaf5bed2b1c40604952c0targetblanka67b73ea" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/8268bf2052c51ee15896d02b6bf52ec1c960e026" target="_blank">8268bf2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/a67b73e755af14ad25fdaf5bed2b1c40604952c0" target="_blank">a67b73e</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,6 +497,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
+
+Unstaged changes:
+    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -526,7 +529,8 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <li>sex (“gender”)</li>
 <li>Zeitpunkt (“Time”) with 2xpolynomes</li>
 <li>Gruppe x Zeitpunkt(each poly)</li>
-<li>Gruppe x sex (no three way interaction)</li>
+<li>Gruppe x sex</li>
+<li>Gruppe x sex x Time</li>
 </ul>
 <p><strong>IV of no interest :</strong></p>
 <ul>
@@ -773,17 +777,18 @@ OXT_10_log                 0.32 (0.48)  0.35 (0.36)   0.696
 </div>
 <div id="linear-model-with-mixed-effects-and-time-as-polynomial" class="section level1">
 <h1>linear model with mixed effects and time as polynomial</h1>
-<p>We adapted a boxed design by individual over Time with a 2 polynomial decomposion</p>
+<p>We adapted a boxed design by individual and site over Time with a 2 polynomial decomposion</p>
 <pre class="r"><code>general.model = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)&quot;
 
-factor.model = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+as.factor(Time)+gender*group+as.factor(Time)*group+gender*as.factor(Time)*group+(1|twuid)+(1|centre)&quot;
+# 
+# factor.model = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+as.factor(Time)+gender*group+as.factor(Time)*group+gender*as.factor(Time)*group+(1|twuid)+(1|centre)&quot;
 
 models=list(
 AV_stressed = general.model,
 AV_CORT = general.model,
 AV_TEST = general.model,
 AV_TESTCORT = general.model,
-AV_OXT = factor.model)</code></pre>
+AV_OXT = general.model)</code></pre>
 <pre class="r"><code>resall = list()
 
 for (depvar in names(AV)){
@@ -2186,16 +2191,16 @@ pvalue
 (Intercept)
 </td>
 <td style="text-align:left;">
--0.322
+-0.126
 </td>
 <td style="text-align:left;">
-0.16
+0.143
 </td>
 <td style="text-align:left;">
--2.01
+-0.88
 </td>
 <td style="text-align:left;">
-0.044
+0.379
 </td>
 </tr>
 <tr>
@@ -2288,16 +2293,16 @@ smoking_yes_nosmk
 genderfemale
 </td>
 <td style="text-align:left;">
-0.299
+0.265
 </td>
 <td style="text-align:left;">
-0.212
+0.189
 </td>
 <td style="text-align:left;">
-1.41
+1.4
 </td>
 <td style="text-align:left;">
-0.157
+0.161
 </td>
 </tr>
 <tr>
@@ -2305,50 +2310,50 @@ genderfemale
 groupCD
 </td>
 <td style="text-align:left;">
--0.236
+-0.259
 </td>
 <td style="text-align:left;">
-0.242
+0.218
 </td>
 <td style="text-align:left;">
--0.977
+-1.19
 </td>
 <td style="text-align:left;">
-0.329
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-as.factor(Time)16
-</td>
-<td style="text-align:left;">
-0.405
-</td>
-<td style="text-align:left;">
-0.122
-</td>
-<td style="text-align:left;">
-3.32
-</td>
-<td style="text-align:left;">
-0.000906
+0.235
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-as.factor(Time)25
+poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-0.181
+2.85
 </td>
 <td style="text-align:left;">
-0.122
+1.47
 </td>
 <td style="text-align:left;">
-1.49
+1.94
 </td>
 <td style="text-align:left;">
-0.137
+0.0521
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-3.96
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+-2.7
+</td>
+<td style="text-align:left;">
+0.00699
 </td>
 </tr>
 <tr>
@@ -2356,118 +2361,118 @@ as.factor(Time)25
 genderfemale:groupCD
 </td>
 <td style="text-align:left;">
-0.222
+0.187
 </td>
 <td style="text-align:left;">
-0.317
+0.284
 </td>
 <td style="text-align:left;">
-0.701
+0.659
 </td>
 <td style="text-align:left;">
-0.483
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-groupCD:as.factor(Time)16
-</td>
-<td style="text-align:left;">
--0.239
-</td>
-<td style="text-align:left;">
-0.18
-</td>
-<td style="text-align:left;">
--1.33
-</td>
-<td style="text-align:left;">
-0.184
+0.51
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-groupCD:as.factor(Time)25
+groupCD:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
-0.169
+1.29
 </td>
 <td style="text-align:left;">
-0.18
+2.17
 </td>
 <td style="text-align:left;">
-0.939
+0.596
 </td>
 <td style="text-align:left;">
-0.348
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:as.factor(Time)16
-</td>
-<td style="text-align:left;">
--0.108
-</td>
-<td style="text-align:left;">
-0.165
-</td>
-<td style="text-align:left;">
--0.652
-</td>
-<td style="text-align:left;">
-0.514
+0.551
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:as.factor(Time)25
+groupCD:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
-0.00515
+4.77
 </td>
 <td style="text-align:left;">
-0.165
+2.17
 </td>
 <td style="text-align:left;">
-0.0312
+2.2
 </td>
 <td style="text-align:left;">
-0.975
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genderfemale:groupCD:as.factor(Time)16
-</td>
-<td style="text-align:left;">
-0.0108
-</td>
-<td style="text-align:left;">
-0.242
-</td>
-<td style="text-align:left;">
-0.0446
-</td>
-<td style="text-align:left;">
-0.964
+0.0277
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-genderfemale:groupCD:as.factor(Time)25
+genderfemale:poly(Time, 2)1
 </td>
 <td style="text-align:left;">
--0.115
+-0.184
 </td>
 <td style="text-align:left;">
-0.242
+1.99
 </td>
 <td style="text-align:left;">
--0.476
+-0.0923
 </td>
 <td style="text-align:left;">
-0.634
+0.926
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+1.99
+</td>
+<td style="text-align:left;">
+0.766
+</td>
+<td style="text-align:left;">
+0.444
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-1.22
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+-0.418
+</td>
+<td style="text-align:left;">
+0.676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:groupCD:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-1.16
+</td>
+<td style="text-align:left;">
+2.91
+</td>
+<td style="text-align:left;">
+-0.398
+</td>
+<td style="text-align:left;">
+0.69
 </td>
 </tr>
 </tbody>

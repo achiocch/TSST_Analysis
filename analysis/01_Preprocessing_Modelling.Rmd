@@ -142,7 +142,7 @@ export_table
 
 # linear model with mixed effects and time as polynomial  
 
-We adapted a boxed design by individual over Time with a 2 polynomial decomposion
+We adapted a boxed design by individual and site over Time with a 2 polynomial decomposion
 
 ```{r modeldef_poly}
 
