@@ -52,20 +52,40 @@ home = getwd()
 
 **DV:**
 
-* psychologischer Stress („stressed“)
-* Cortisol („CORT“)
-* Testosteron („TEST”) 
-* Oxytocin (OXT”)
+* psychologischer Stress („stressed")
+* Cortisol („CORT")
+* Testosteron („TEST") 
+* Oxytocin (OXT")
 * log(TEST/CORT)
 
 ## read and check data 
 
-```{r preprocess}
+```{r preprocess, fig.height=10, fig.width=10}
 df = as.data.frame(read_sav(paste0(home,"/data/13.04.2021_290_170_CORTAUCsplit.sav")))
 
-df$group = drop(factor(df$group, levels = c(1,2), labels=c("CD", "CTRL"))) %>% relevel(., ref="CTRL")
-df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("Frankfurt", "Aachen", 
-                                                                   "Amsterdam", "SouthHampton", "Basel")))
+df$group = drop(factor(df$group, levels = c(1,2), labels=c("CD", "HCs"))) %>% relevel(., ref="HCs")
+df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("Frankfurt", 
+                                                                   "Aachen", 
+                                                                   "Amsterdam", 
+                                                                   "SouthHampton", 
+                                                                   "Basel")))
+df$twuid = as.factor(df$twuid)
+
+
+
+df$ADHD_life = drop(factor(df$ADHD_life, levels = c(0,1), 
+                               labels=c("no_ADHD", "ADHD")))%>% relevel(., ref="no_ADHD")
+df$Depression_lifetime = drop(factor(df$Depression_lifetime, levels = c(0,1), 
+                               labels=c("no_Depression", "Depression")))%>% relevel(., ref="no_Depression")
+
+df$PTSD_lifetime = drop(factor(df$PTSD_lifetime, levels = c(0,1), 
+                               labels=c("no_PTSD", "PTSD")))%>% relevel(., ref="no_PTSD")
+df$SUD_life = drop(factor(df$SUD_life, levels = c(0,1), 
+                               labels=c("no_SUD", "SUD")))%>% relevel(., ref="no_SUD")
+
+df$Anxiety_lifetime = drop(factor(df$Anxiety_lifetime, levels = c(0,1), 
+                               labels=c("no_Anxiety", "Anxiety")))%>% relevel(., ref="no_Anxiety")
+
 df$any_med_ccept = drop(factor(df$any_med_ccept, levels = c(0,1), 
                                labels=c("no_med", "med")))%>% relevel(., ref="no_med")
 df$smoking_yes_no = drop(factor(df$smoking_yes_no, levels = c(0,1), 
@@ -73,11 +93,11 @@ df$smoking_yes_no = drop(factor(df$smoking_yes_no, levels = c(0,1),
 df$gender = drop(factor(df$gender, levels = c(1,2), 
                         labels=c("female", "male")))%>% relevel(., ref="male")
 
-table(df$group, useNA = "always")
-table(df$centre, useNA = "always")
-table(df$any_med_ccept, useNA = "always")
-table(df$smoking_yes_no, useNA = "always")
-table(df$gender, useNA = "always")
+# table(df$group, useNA = "always")
+# table(df$centre, useNA = "always")
+# table(df$any_med_ccept, useNA = "always")
+# table(df$smoking_yes_no, useNA = "always")
+# table(df$gender, useNA = "always")
 
 df$TESTCORTlogBL = log(df$TEST_BL_log/df$CORT_BL_log)
 df$TESTCORTlogBL[is.infinite(df$TESTCORTlogBL)] = NA
@@ -88,11 +108,21 @@ df$TESTCORTlog10[is.infinite(df$TESTCORTlog10)] = NA
 df$TESTCORTlog55 = log(df$TEST_55_log/df$CORT_55_log)
 df$TESTCORTlog55[is.infinite(df$TESTCORTlog55)] = NA
 
+# added mean centered
+df$dayslastmens_meancentered = df$days_since_last_mens-mean(df$days_since_last_mens, na.rm=T)
 
 UV = c("centre","age_meancentered", "explstart_meancentered_min", 
   "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group")
 
-
+Sensvar = c("iq_e_total_imp_meancentered", 
+           "EduParentsISCEDMean_meancentered",
+           "pubcatimp_meancentered",
+           "dayslastmens_meancentered",
+           "ADHD_life",
+           "Depression_lifetime",
+           "PTSD_lifetime",
+           "SUD_life",
+           "Anxiety_lifetime")
 
 AV = list(
 AV_stressed = c(stressed_1=0, stressed_2=2,
@@ -104,7 +134,8 @@ AV_TEST = c(TEST_BL_log=0, TEST_10_log=25, TEST_55_log=70),
 AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=25, TESTCORTlog55 = 70),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=16, OXT_10_log=25))
 
-tmpframe = df[,UV[!UV%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
+vartoplot = c(UV, Sensvar)
+tmpframe = df[,vartoplot[!vartoplot%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
 
 corrplot::corrplot(cor(tmpframe, use = "pairwise"))
 
@@ -114,16 +145,16 @@ corrplot::corrplot(cor(tmpframe, use = "pairwise"))
 ## complete cohort descriptives
 
 ```{r preprocess_allstat}
-res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))])
+res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)), Sensvar)])
 #summary(res)
 export_table <- createTable(res)
 export_table
-
 ```
 
 ## male only cohort descriptives
 ```{r preprocess_malestat}
-res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)))], subset = gender=="male")
+res = compareGroups(group~., data = df[,c(UV, unlist(lapply(AV, names)), Sensvar)], 
+                    subset = gender=="male")
 export_table <- createTable(res)
 export_table
 ```
@@ -131,12 +162,10 @@ export_table
 ## female only cohort descriptives
 ```{r preprocess_femalestat}
 res = compareGroups(group~., 
-                    data = df[,c(UV, unlist(lapply(AV, names)))], 
+                    data = df[,c(UV, unlist(lapply(AV, names)), Sensvar)], 
                     subset = gender=="female")
 export_table <- createTable(res)
 export_table
-
-
 ```
 
 
@@ -146,34 +175,43 @@ We adapted a boxed design by individual and site over Time with a 2 polynomial d
 
 ```{r modeldef_poly}
 
-general.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
+bio.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
 
-# 
-# factor.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+as.factor(Time)+gender*group+as.factor(Time)*group+gender*as.factor(Time)*group+(1|twuid)+(1|centre)"
+psych.model = "DV~1+age_meancentered+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+(1|twuid)+(1|centre)"
 
 models=list(
-AV_stressed = general.model,
-AV_CORT = general.model,
-AV_TEST = general.model,
-AV_TESTCORT = general.model,
-AV_OXT = general.model)
+  AV_stressed = psych.model,
+  AV_CORT = bio.model,
+  AV_TEST = bio.model,
+  AV_TESTCORT = bio.model,
+  AV_OXT = bio.model)
 
+Sensvar = c("iq_e_total_imp_meancentered",
+           "EduParentsISCEDMean_meancentered",
+           "pubcatimp_meancentered",
+           #"dayslastmens_meancentered",
+           "ADHD_life",
+           "Depression_lifetime",
+           "PTSD_lifetime",
+           "SUD_life",
+           "Anxiety_lifetime")
 
 ```
 
 
 ```{r mml_2, warning=FALSE}
+
 resall = list()
 
 for (depvar in names(AV)){
   cols = names(AV[[depvar]])
-  long = df[,c("twuid",cols, UV)] %>% 
+  long = df[,c("twuid",cols, UV, Sensvar)] %>% 
     gather(key = "value", value = "DV", all_of(cols))
+  long$twuid = as.factor(long$twuid)
   long2  = long%>% mutate_if(is.numeric, scale)
   long2$Time = AV[[depvar]][long2$value]
   long2$value =as.factor(long2$value) %>% 
     relevel(., ref=grep("BL|stressed_1",  unique(long2$value),value = T))
-  long2$twuid = as.factor(long2$twuid)
   model.lme = lme4::lmer(models[[depvar]], data=long2)
   model.lme0 = lme4::lmer(DV~1+(1|twuid)+(1|centre), data=long2)
   anovah0 = anova(model.lme0, model.lme)
@@ -184,7 +222,15 @@ for (depvar in names(AV)){
   res.coeff = as.data.frame(Res$coefficients)
   res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,"_coeff")]]=res.coeff
-  resall[[paste0(depvar,"_modsig")]]=model_p_val
+  resall[[paste0(depvar,"_modsig")]]=model_p_val  
+
+  for (sv in Sensvar){
+      model.lme = lme4::lmer(str_replace(models[[depvar]], "~1+",paste0("~1+",sv,"+")), data=long2)
+      Res = summary(model.lme)
+      res.coeff = as.data.frame(Res$coefficients)
+      res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+      resall[[paste0(depvar,"_coeff", "_",sv)]]=res.coeff
+  }
 }
 
 ```
@@ -193,7 +239,6 @@ for (depvar in names(AV)){
 
 ### stressed
 
-
 full models: `r models[[1]]`
 
 h0 model: DV~1+(1|twuid)+(1|centre):
@@ -201,27 +246,36 @@ h0 model: DV~1+(1|twuid)+(1|centre):
 overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
 
 ```{r, wrap_res_stressed_2}
+
 tableplot = function (x){
   x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
   }
 
 
 depvar = "AV_stressed"
-
-resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+labeltag = "Psychological stress"
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(paste("zscores",depvar))+
+  ylab("density") + xlab(labeltag)+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(Time,DV, col=group)) + 
-  ylab(depvar) + xlab("Time")+
+  ylab(labeltag) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
 
 
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_ADHD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
 
 ```
 
@@ -237,18 +291,28 @@ overall model p-value:`r as.character(signif(resall[["AV_CORT_modsig"]],3))`
 
 ```{r wrap_res_CORT_2}
 depvar = "AV_CORT"
-
-resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+labeltag = "Cortisol"
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(depvar)+
+  ylab("density") + xlab(labeltag)+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(Time,DV, col=group)) + 
-  ylab(depvar) + xlab("Time")+
-  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+  ylab(labeltag) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_ADHD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
 
 ```
 
@@ -266,18 +330,28 @@ overall model p-value:
 
 ```{r wrap_res_TEST_2}
 depvar = "AV_TEST"
-
-resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+labeltag = "Testosterone"
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(depvar)+
+  ylab("density") + xlab(labeltag)+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(Time,DV, col=group)) + 
-  ylab(depvar) + xlab("Time")+
-  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+  ylab(labeltag) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_ADHD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
 
 
 ```
@@ -294,25 +368,29 @@ overall model p-value:
 `r as.character(signif(resall[["AV_TESTCORT_modsig"]], 3))`
 
 ```{r, wrap_res_testcort_2}
-tableplot = function (x){
-  x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
-  }
-
 
 depvar = "AV_TESTCORT"
-
-resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+labeltag = "Testosterone/Cortisol ratio"
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(paste("zscores",depvar))+
+  ylab("density") + xlab(labeltag)+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(Time,DV, col=group)) + 
-  ylab(depvar) + xlab("Time")+
+  ylab(labeltag) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_ADHD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
 
 ```
 
@@ -330,18 +408,29 @@ overall model p-value:
 ```{r wrap_res_OXT_2}
 
 depvar = "AV_OXT"
-
-resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+labeltag = "Oxytocin"
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(DV, group=Time, col=Time)) + 
-  ylab("density") + xlab(depvar)+
+  ylab("density") + xlab(labeltag)+
   geom_density()
 
 ggplot(data = resall[[paste0(depvar, "_longdat")]], 
        aes(Time,DV, col=group)) + 
-  ylab(depvar) + xlab("Time")+
-  geom_smooth(method = 'loess') + geom_point()+   facet_wrap(~gender)
+  ylab(labeltag) + xlab("Time")+
+  geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+
+
+resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_ADHD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
+
   
 ```
 
