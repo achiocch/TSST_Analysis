@@ -2,7 +2,9 @@
 title: "TSST LMM"
 author: "AGC"
 date: "15 4 2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -37,7 +39,6 @@ home = getwd()
 * Gruppe x sex
 * Gruppe x sex x Time 
 
-
 **IV of no interest :** 
 
 * Age scaled ("age_meancentered")
@@ -57,6 +58,19 @@ home = getwd()
 * Testosteron („TEST") 
 * Oxytocin (OXT")
 * log(TEST/CORT)
+
+**sensitivity check**
+
+* quantitative CD [instead of group]
+* gender 
+* IQ
+* Parental education
+* pubertal status
+* ADHD lifetime diagnosis
+* Depression lifetime diagnosis
+* PTSD lifetime diagnosis
+* SUD lifetime diagnosis
+* Anxiety lifetime diagnosis
 
 ## read and check data 
 
@@ -112,7 +126,9 @@ df$TESTCORTlog55[is.infinite(df$TESTCORTlog55)] = NA
 df$dayslastmens_meancentered = df$days_since_last_mens-mean(df$days_since_last_mens, na.rm=T)
 
 UV = c("centre","age_meancentered", "explstart_meancentered_min", 
-  "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group")
+  "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group",
+  "CDsymptomscurrent")
+
 
 Sensvar = c("iq_e_total_imp_meancentered", 
            "EduParentsISCEDMean_meancentered",
@@ -177,7 +193,20 @@ We adapted a boxed design by individual and site over Time with a 2 polynomial d
 
 bio.model = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
 
-psych.model = "DV~1+age_meancentered+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+(1|twuid)+(1|centre)"
+psych.model = "DV~1+age_meancentered+gender+group+poly(Time, 2)+gender*group+poly(Time, 2)*group+gender*poly(Time, 2)*group+(1|twuid)+(1|centre)"
+
+
+bio.model.nogen = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+group+poly(Time, 2)+poly(Time, 2)*group+
+(1|twuid)+(1|centre)"
+
+psych.model.nogen = "DV~1+age_meancentered+group+poly(Time, 2)+poly(Time, 2)*group+(1|twuid)+(1|centre)"
+
+
+bio.model.quantcd = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+CDsymptomscurrent+poly(Time, 2)+gender*CDsymptomscurrent+poly(Time, 2)*CDsymptomscurrent+gender*poly(Time, 2)*CDsymptomscurrent+(1|twuid)+(1|centre)"
+
+psych.model.quantcd = "DV~1+age_meancentered+gender+CDsymptomscurrent+poly(Time, 2)+gender*CDsymptomscurrent+poly(Time, 2)*CDsymptomscurrent+gender*poly(Time, 2)*CDsymptomscurrent+(1|twuid)+(1|centre)"
+
+
 
 models=list(
   AV_stressed = psych.model,
@@ -185,6 +214,22 @@ models=list(
   AV_TEST = bio.model,
   AV_TESTCORT = bio.model,
   AV_OXT = bio.model)
+
+models.nogen=list(
+  AV_stressed = psych.model.nogen,
+  AV_CORT = bio.model.nogen,
+  AV_TEST = bio.model.nogen,
+  AV_TESTCORT = bio.model.nogen,
+  AV_OXT = bio.model.nogen)
+
+
+models.quant=list(
+  AV_stressed = psych.model.quantcd,
+  AV_CORT = bio.model.quantcd,
+  AV_TEST = bio.model.quantcd,
+  AV_TESTCORT = bio.model.quantcd,
+  AV_OXT = bio.model.quantcd)
+
 
 Sensvar = c("iq_e_total_imp_meancentered",
            "EduParentsISCEDMean_meancentered",
@@ -222,7 +267,35 @@ for (depvar in names(AV)){
   res.coeff = as.data.frame(Res$coefficients)
   res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,"_coeff")]]=res.coeff
-  resall[[paste0(depvar,"_modsig")]]=model_p_val  
+  resall[[paste0(depvar,"_modsig")]]=model_p_val
+  
+  ## CD quant
+  model.lme = lme4::lmer(models.quant[[depvar]], data=long2)
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff_CDquant")]]=res.coeff
+  
+  ## nogenmod 
+  ### males
+  model.lme = lme4::lmer(models.nogen[[depvar]], data=long2, subset = long2$gender=="male")
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff_males")]]=res.coeff
+  
+  ### females
+  model.lme = lme4::lmer(models.nogen[[depvar]], data=long2, subset = long2$gender=="female")
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff_females")]]=res.coeff
 
   for (sv in Sensvar){
       model.lme = lme4::lmer(str_replace(models[[depvar]], "~1+",paste0("~1+",sv,"+")), data=long2)
@@ -246,7 +319,6 @@ h0 model: DV~1+(1|twuid)+(1|centre):
 overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
 
 ```{r, wrap_res_stressed_2}
-
 tableplot = function (x){
   x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
   }
@@ -264,10 +336,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
        aes(Time,DV, col=group)) + 
   ylab(labeltag) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
+```
 
+#### sensitivity analyses
 
-
+```{r, sensitivity_stressed}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
@@ -303,8 +380,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   ylab(labeltag) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
+```
 
+#### sensitivity analyses
+
+```{r, sensitivity_cort}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
@@ -343,7 +427,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
 
+```
+
+#### sensitivity analyses
+
+```{r, sensitivity_test}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
@@ -352,7 +444,6 @@ resall[[paste0(depvar, "_coeff_Depression_lifetime")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
-
 
 ```
 
@@ -382,7 +473,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   ylab(labeltag) + xlab("Time")+
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
+```
+
+#### sensitivity analyses
+
+```{r, sensitivity_testcort}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
@@ -421,7 +520,15 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
   geom_smooth(method = 'loess') + geom_point() +   facet_wrap(~gender)
 
 
+```
+
+#### sensitivity analyses
+
+```{r, sensitivity_OXT}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_EduParentsISCEDMean_meancentered")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_pubcatimp_meancentered")]] %>% tableplot()
@@ -431,6 +538,58 @@ resall[[paste0(depvar, "_coeff_PTSD_lifetime")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_SUD_life")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_Anxiety_lifetime")]] %>% tableplot()
 
-  
+```
+
+```{r summarytablefunc}
+restabnames = grep("coeff$",names(resall), value=T)
+resall_mod=lapply(resall[restabnames], tibble::rownames_to_column)
+fullres=resall_mod %>% reduce(full_join, by="rowname")
+fullres = fullres %>% select (.,- grep("t value", colnames(fullres), value = T))
+newnames = c("-", rep(c("beta", "se", "P"), length(names(AV))))
+
+tableplot_2= function (x){
+    x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% 
+    kbl(.,col.names = newnames) %>% 
+    add_header_above(c("indep. variable" = 1, 
+                       "Psych. stress"=3, 
+                       "Testosterone"=3, 
+                       "Cortisol"=3, 
+                       "Test/Cort ratio"=3,
+                       "Oxytocin"=3)) %>% kable_classic()
+}
+
+
+tableplot_3= function (x){
+    x %>% dplyr::mutate_if(is.numeric, 
+                           function(x){as.character(round(x, 3))}) %>%
+    mutate_all(~replace(., .=="0", "<0.001")) %>%
+    kbl(.,col.names = newnames) %>% 
+    add_header_above(c("indep. variable" = 1, 
+                       "Psych. stress"=3, 
+                       "Testosterone"=3, 
+                       "Cortisol"=3, 
+                       "Test/Cort ratio"=3,
+                       "Oxytocin"=3)) %>% kable_classic()
+}
+
+
+```
+## summary table main models 
+
+### all effects
+```{r summarytableshow}
+#fullres %>% tableplot_2() 
+fullres %>% tableplot_3() 
+```
+
+### effects of interest
+
+```{r summarytable reduced}
+
+index = complete.cases(fullres) & !fullres$rowname %in% c("(Intercept)","age_meancentered")
+
+#fullres[index,1:16] %>% as.tibble() %>% tableplot_2()
+fullres[index,1:16] %>% as.tibble() %>% tableplot_3()
+      
 ```
 
