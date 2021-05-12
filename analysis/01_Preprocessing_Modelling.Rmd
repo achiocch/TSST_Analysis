@@ -580,6 +580,7 @@ tableplot_3= function (x){
 ```{r summarytableshow}
 #fullres %>% tableplot_2() 
 fullres %>% tableplot_3() 
+
 ```
 
 ### effects of interest
