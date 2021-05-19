@@ -572,8 +572,8 @@ tableplot_2= function (x){
 # with symblic p-values 
 tableplot_3= function (x){
     x %>% dplyr::mutate_if(is.numeric, 
-                           function(x){as.character(round(x, 3))}) %>%
-    mutate_all(~replace(., .=="0", "<0.001")) %>%
+                           function(x){as.character(round(x, 2))}) %>%
+    mutate_all(~replace(., .=="0", "<0.01")) %>%
     kbl(.,col.names = newnames) %>% 
     add_header_above(c("indep. variable" = 1, 
                        "Psych. stress"=4, 
