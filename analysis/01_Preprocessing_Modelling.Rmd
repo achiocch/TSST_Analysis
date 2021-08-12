@@ -131,7 +131,7 @@ df$dayslastmens_meancentered = df$days_since_last_mens-mean(df$days_since_last_m
 
 UV = c("centre","age_meancentered", "explstart_meancentered_min", 
   "BMI_imp_meancentered", "any_med_ccept", "smoking_yes_no", "gender", "group",
-  "CDsymptomscurrent")
+  "CDsymptomscurrent", "LPE")
 
 
 Sensvar = c("iq_e_total_imp_meancentered", 
@@ -215,6 +215,11 @@ bio.model.quantcd = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_me
 psych.model.quantcd = "DV~1+age_meancentered+gender+CDsymptomscurrent+poly(Time, 2)+gender*CDsymptomscurrent+poly(Time, 2)*CDsymptomscurrent+gender*poly(Time, 2)*CDsymptomscurrent+(1|twuid)+(1|centre)"
 
 
+bio.model.quantcdintLPE = "DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+CDsymptomscurrent+poly(Time, 2)+LPE+CDsymptomscurrent*LPE+gender*LPE+poly(Time, 2)*LPE + gender*CDsymptomscurrent*LPE+poly(Time, 2)*CDsymptomscurrent*LPE+gender*poly(Time, 2)*CDsymptomscurrent*LPE+(1|twuid)+(1|centre)"
+
+psych.model.quantcdintLPE = "DV~1+age_meancentered+gender+CDsymptomscurrent+poly(Time, 2)+LPE+CDsymptomscurrent*LPE+gender*LPE+poly(Time, 2)*LPE + gender*CDsymptomscurrent*LPE+poly(Time, 2)*CDsymptomscurrent*LPE+gender*poly(Time, 2)*CDsymptomscurrent*LPE+(1|twuid)+(1|centre)"
+
+
 
 models=list(
   AV_stressed = psych.model,
@@ -237,6 +242,13 @@ models.quant=list(
   AV_TEST = bio.model.quantcd,
   AV_TESTCORT = bio.model.quantcd,
   AV_OXT = bio.model.quantcd)
+
+models.quantcdintLPE=list(
+  AV_stressed = psych.model.quantcdintLPE,
+  AV_CORT = bio.model.quantcdintLPE,
+  AV_TEST = bio.model.quantcdintLPE,
+  AV_TESTCORT = bio.model.quantcdintLPE,
+  AV_OXT = bio.model.quantcdintLPE)
 
 
 Sensvar = c("iq_e_total_imp_meancentered",
@@ -294,6 +306,16 @@ for (depvar in names(AV)){
   res.coeff$stbeta = c(NA,lm.beta.lmer(model.lme))
   res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,"_coeff_CDquant")]]=res.coeff
+  
+  ## CD quant intereaction LPE
+  model.lme = lme4::lmer(models.quantcdintLPE[[depvar]], data=long2)
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,"_longdat")]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$stbeta = c(NA,lm.beta.lmer(model.lme))
+  res.coeff$pvalue = pt(abs(res.coeff$"t value"), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,"_coeff_CDquant_intPLE")]]=res.coeff
   
   ## nogenmod 
   ### males
@@ -363,6 +385,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 ```{r, sensitivity_stressed}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant_intPLE")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
@@ -407,6 +430,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 ```{r, sensitivity_cort}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant_intPLE")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
@@ -454,6 +478,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 ```{r, sensitivity_test}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant_intPLE")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
@@ -500,6 +525,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 ```{r, sensitivity_testcort}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant_intPLE")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
@@ -547,6 +573,7 @@ ggplot(data = resall[[paste0(depvar, "_longdat")]],
 ```{r, sensitivity_OXT}
 resall[[paste0(depvar, "_coeff")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_CDquant")]] %>% tableplot()
+resall[[paste0(depvar, "_coeff_CDquant_intPLE")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_males")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_females")]] %>% tableplot()
 resall[[paste0(depvar, "_coeff_iq_e_total_imp_meancentered")]] %>% tableplot()
@@ -654,6 +681,21 @@ fullres %>% tableplot_3()
 ```{r summarytableshow_CDquant}
 
 restabnames = grep("coeff_CDquant$",names(resall), value=T)
+resall_mod=lapply(resall[restabnames], tibble::rownames_to_column)
+fullres=resall_mod %>% reduce(full_join, by="rowname")
+fullres = fullres %>% select (.,- grep("t value", colnames(fullres), value = T))
+newnames = c("-", rep(c("beta", "se", "st.beta", "P"), length(names(AV))))
+
+#fullres %>% tableplot_2() 
+fullres %>% tableplot_3() 
+
+```
+
+
+### quantitative CDxLPE 
+```{r summarytableshow_CDquantxLPE}
+
+restabnames = grep("coeff_CDquant_intPLE$",names(resall), value=T)
 resall_mod=lapply(resall[restabnames], tibble::rownames_to_column)
 fullres=resall_mod %>% reduce(full_join, by="rowname")
 fullres = fullres %>% select (.,- grep("t value", colnames(fullres), value = T))

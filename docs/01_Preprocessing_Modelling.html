@@ -368,7 +368,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -377,7 +377,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -389,7 +389,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-08-12
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>TSST_Analysis/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -405,12 +405,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -477,16 +477,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree9fadb860e3bfa65e16ebf593e2f45e6e5a944db5targetblank9fadb86a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/9fadb860e3bfa65e16ebf593e2f45e6e5a944db5" target="_blank">9fadb86</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree5a3bf7ce1e6c32c9d52e0b501c481e44f84be0bdtargetblank5a3bf7ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/achiocch/TSST_Analysis/tree/5a3bf7ce1e6c32c9d52e0b501c481e44f84be0bd" target="_blank">5a3bf7c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree9fadb860e3bfa65e16ebf593e2f45e6e5a944db5targetblank9fadb86a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomachiocchTSSTAnalysistree5a3bf7ce1e6c32c9d52e0b501c481e44f84be0bdtargetblank5a3bf7ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/9fadb860e3bfa65e16ebf593e2f45e6e5a944db5" target="_blank">9fadb86</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/achiocch/TSST_Analysis/tree/5a3bf7ce1e6c32c9d52e0b501c481e44f84be0bd" target="_blank">5a3bf7c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -500,6 +500,9 @@ Untracked files:
     Untracked:  data/11.08.2021_290_170_LPE.sav
     Untracked:  data/13.04.2021_290_170_CORTAUCsplit.sav
     Untracked:  wflowrun.R
+
+Unstaged changes:
+    Modified:   analysis/01_Preprocessing_Modelling.Rmd
 
 </code></pre>
 <p>
@@ -620,7 +623,7 @@ df$dayslastmens_meancentered = df$days_since_last_mens-mean(df$days_since_last_m
 
 UV = c(&quot;centre&quot;,&quot;age_meancentered&quot;, &quot;explstart_meancentered_min&quot;, 
   &quot;BMI_imp_meancentered&quot;, &quot;any_med_ccept&quot;, &quot;smoking_yes_no&quot;, &quot;gender&quot;, &quot;group&quot;,
-  &quot;CDsymptomscurrent&quot;)
+  &quot;CDsymptomscurrent&quot;, &quot;LPE&quot;)
 
 
 Sensvar = c(&quot;iq_e_total_imp_meancentered&quot;, 
@@ -685,6 +688,9 @@ gender:                                                                         
     male                          39 (30.2%)   17 (54.8%)   20 (28.6%)   28 (46.7%)            
     female                        90 (69.8%)   14 (45.2%)   50 (71.4%)   32 (53.3%)            
 CDsymptomscurrent                0.08 (0.27)  0.06 (0.25)  5.16 (2.12)  5.35 (2.25)   &lt;0.001   
+LPE:                                                                                  &lt;0.001   
+    -LPE                          129 (100%)   0 (0.00%)    70 (100%)    0 (0.00%)             
+    +LPE                          0 (0.00%)    31 (100%)    0 (0.00%)    60 (100%)             
 stressed_1                       1.17 (1.93)  0.91 (1.74)  1.73 (2.33)  1.20 (2.00)    0.180   
 stressed_2                       2.96 (2.89)  2.84 (2.81)  3.73 (3.43)  3.29 (3.06)    0.339   
 stressed_3                       3.39 (3.08)  2.62 (2.32)  4.23 (3.47)  3.18 (3.28)    0.077   
@@ -757,6 +763,9 @@ smoking_yes_no:                                                                 
     smk                            8 (20.5%)    1 (5.88%)    8 (40.0%)    17 (60.7%)            
 gender: male                       39 (100%)    17 (100%)    20 (100%)    28 (100%)       .     
 CDsymptomscurrent                 0.15 (0.37)  0.00 (0.00)  5.15 (2.25)  5.36 (2.47)   &lt;0.001   
+LPE:                                                                                   &lt;0.001   
+    -LPE                           39 (100%)    0 (0.00%)    20 (100%)    0 (0.00%)             
+    +LPE                           0 (0.00%)    17 (100%)    0 (0.00%)    28 (100%)             
 stressed_1                        0.89 (1.58)  1.04 (1.98)  1.56 (1.72)  1.34 (1.61)    0.471   
 stressed_2                        2.54 (2.43)  1.88 (2.47)  2.94 (3.20)  2.80 (2.56)    0.622   
 stressed_3                        3.74 (2.99)  2.04 (2.09)  3.64 (3.52)  2.71 (2.76)    0.161   
@@ -831,6 +840,9 @@ smoking_yes_no:                                                                 
     smk                           5 (5.56%)    2 (14.3%)    31 (62.0%)   20 (62.5%)             
 gender: female                    90 (100%)    14 (100%)    50 (100%)     32 (100%)       .     
 CDsymptomscurrent                0.04 (0.21)  0.14 (0.36)  5.16 (2.09)   5.34 (2.09)   &lt;0.001   
+LPE:                                                                                   &lt;0.001   
+    -LPE                          90 (100%)    0 (0.00%)    50 (100%)     0 (0.00%)             
+    +LPE                          0 (0.00%)    14 (100%)    0 (0.00%)     32 (100%)             
 stressed_1                       1.29 (2.06)  0.76 (1.44)  1.79 (2.54)   1.07 (2.30)    0.308   
 stressed_2                       3.15 (3.06)  3.99 (2.83)  4.05 (3.50)   3.72 (3.42)    0.404   
 stressed_3                       3.24 (3.12)  3.31 (2.47)  4.46 (3.46)   3.58 (3.68)    0.205   
@@ -894,6 +906,11 @@ bio.model.quantcd = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_i
 psych.model.quantcd = &quot;DV~1+age_meancentered+gender+CDsymptomscurrent+poly(Time, 2)+gender*CDsymptomscurrent+poly(Time, 2)*CDsymptomscurrent+gender*poly(Time, 2)*CDsymptomscurrent+(1|twuid)+(1|centre)&quot;
 
 
+bio.model.quantcdintLPE = &quot;DV~1+age_meancentered+explstart_meancentered_min+BMI_imp_meancentered+any_med_ccept+smoking_yes_no+gender+CDsymptomscurrent+poly(Time, 2)+LPE+CDsymptomscurrent*LPE+gender*LPE+poly(Time, 2)*LPE + gender*CDsymptomscurrent*LPE+poly(Time, 2)*CDsymptomscurrent*LPE+gender*poly(Time, 2)*CDsymptomscurrent*LPE+(1|twuid)+(1|centre)&quot;
+
+psych.model.quantcdintLPE = &quot;DV~1+age_meancentered+gender+CDsymptomscurrent+poly(Time, 2)+LPE+CDsymptomscurrent*LPE+gender*LPE+poly(Time, 2)*LPE + gender*CDsymptomscurrent*LPE+poly(Time, 2)*CDsymptomscurrent*LPE+gender*poly(Time, 2)*CDsymptomscurrent*LPE+(1|twuid)+(1|centre)&quot;
+
+
 
 models=list(
   AV_stressed = psych.model,
@@ -916,6 +933,13 @@ models.quant=list(
   AV_TEST = bio.model.quantcd,
   AV_TESTCORT = bio.model.quantcd,
   AV_OXT = bio.model.quantcd)
+
+models.quantcdintLPE=list(
+  AV_stressed = psych.model.quantcdintLPE,
+  AV_CORT = bio.model.quantcdintLPE,
+  AV_TEST = bio.model.quantcdintLPE,
+  AV_TESTCORT = bio.model.quantcdintLPE,
+  AV_OXT = bio.model.quantcdintLPE)
 
 
 Sensvar = c(&quot;iq_e_total_imp_meancentered&quot;,
@@ -968,6 +992,16 @@ for (depvar in names(AV)){
   res.coeff$pvalue = pt(abs(res.coeff$&quot;t value&quot;), 1000000, lower.tail = F) * 2
   resall[[paste0(depvar,&quot;_coeff_CDquant&quot;)]]=res.coeff
   
+  ## CD quant intereaction LPE
+  model.lme = lme4::lmer(models.quantcdintLPE[[depvar]], data=long2)
+  Res = summary(model.lme)
+  resall[[depvar]] = model.lme
+  resall[[paste0(depvar,&quot;_longdat&quot;)]] = long2
+  res.coeff = as.data.frame(Res$coefficients)
+  res.coeff$stbeta = c(NA,lm.beta.lmer(model.lme))
+  res.coeff$pvalue = pt(abs(res.coeff$&quot;t value&quot;), 1000000, lower.tail = F) * 2
+  resall[[paste0(depvar,&quot;_coeff_CDquant_intPLE&quot;)]]=res.coeff
+  
   ## nogenmod 
   ### males
   model.lme = lme4::lmer(models.nogen[[depvar]], data=long2, subset = long2$gender==&quot;male&quot;)
@@ -1012,6 +1046,7 @@ boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
+boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular</code></pre>
 <pre><code>refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>boundary (singular) fit: see ?isSingular</code></pre>
@@ -1022,6 +1057,7 @@ boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular</code></pre>
 <pre><code>refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>boundary (singular) fit: see ?isSingular
+boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
 boundary (singular) fit: see ?isSingular
@@ -1867,6 +1903,532 @@ genderfemale:CDsymptomscurrent:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
 0.511
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_CDquant_intPLE&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+stbeta
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.00289
+</td>
+<td style="text-align:left;">
+0.0843
+</td>
+<td style="text-align:left;">
+0.0343
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.973
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.0234
+</td>
+<td style="text-align:left;">
+0.0381
+</td>
+<td style="text-align:left;">
+0.615
+</td>
+<td style="text-align:left;">
+0.0234
+</td>
+<td style="text-align:left;">
+0.539
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.069
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.688
+</td>
+<td style="text-align:left;">
+0.0331
+</td>
+<td style="text-align:left;">
+0.492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.0904
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.244
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-12.2
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+-7.24
+</td>
+<td style="text-align:left;">
+-0.254
+</td>
+<td style="text-align:left;">
+4.58e-13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.859
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+0.508
+</td>
+<td style="text-align:left;">
+0.0178
+</td>
+<td style="text-align:left;">
+0.612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.184
+</td>
+<td style="text-align:left;">
+0.13
+</td>
+<td style="text-align:left;">
+-1.41
+</td>
+<td style="text-align:left;">
+-0.0855
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.0436
+</td>
+<td style="text-align:left;">
+0.126
+</td>
+<td style="text-align:left;">
+-0.345
+</td>
+<td style="text-align:left;">
+-0.0267
+</td>
+<td style="text-align:left;">
+0.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.107
+</td>
+<td style="text-align:left;">
+0.174
+</td>
+<td style="text-align:left;">
+0.616
+</td>
+<td style="text-align:left;">
+0.0392
+</td>
+<td style="text-align:left;">
+0.538
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.817
+</td>
+<td style="text-align:left;">
+2.6
+</td>
+<td style="text-align:left;">
+0.314
+</td>
+<td style="text-align:left;">
+0.0095
+</td>
+<td style="text-align:left;">
+0.754
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+3.44
+</td>
+<td style="text-align:left;">
+2.6
+</td>
+<td style="text-align:left;">
+1.32
+</td>
+<td style="text-align:left;">
+0.04
+</td>
+<td style="text-align:left;">
+0.186
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.0587
+</td>
+<td style="text-align:left;">
+0.107
+</td>
+<td style="text-align:left;">
+0.546
+</td>
+<td style="text-align:left;">
+0.0463
+</td>
+<td style="text-align:left;">
+0.585
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+3.33
+</td>
+<td style="text-align:left;">
+1.82
+</td>
+<td style="text-align:left;">
+1.84
+</td>
+<td style="text-align:left;">
+0.0692
+</td>
+<td style="text-align:left;">
+0.0665
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-1.86
+</td>
+<td style="text-align:left;">
+1.82
+</td>
+<td style="text-align:left;">
+-1.03
+</td>
+<td style="text-align:left;">
+-0.0387
+</td>
+<td style="text-align:left;">
+0.305
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-4.44
+</td>
+<td style="text-align:left;">
+2.02
+</td>
+<td style="text-align:left;">
+-2.2
+</td>
+<td style="text-align:left;">
+-0.0739
+</td>
+<td style="text-align:left;">
+0.0275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+2.95
+</td>
+<td style="text-align:left;">
+2.02
+</td>
+<td style="text-align:left;">
+1.46
+</td>
+<td style="text-align:left;">
+0.049
+</td>
+<td style="text-align:left;">
+0.144
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.00365
+</td>
+<td style="text-align:left;">
+0.167
+</td>
+<td style="text-align:left;">
+-0.0218
+</td>
+<td style="text-align:left;">
+-0.00157
+</td>
+<td style="text-align:left;">
+0.983
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-3.29
+</td>
+<td style="text-align:left;">
+2.52
+</td>
+<td style="text-align:left;">
+-1.31
+</td>
+<td style="text-align:left;">
+-0.0427
+</td>
+<td style="text-align:left;">
+0.192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+3.25
+</td>
+<td style="text-align:left;">
+2.52
+</td>
+<td style="text-align:left;">
+1.29
+</td>
+<td style="text-align:left;">
+0.0422
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-4.9
+</td>
+<td style="text-align:left;">
+2.15
+</td>
+<td style="text-align:left;">
+-2.28
+</td>
+<td style="text-align:left;">
+-0.0804
+</td>
+<td style="text-align:left;">
+0.0228
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.25
+</td>
+<td style="text-align:left;">
+2.15
+</td>
+<td style="text-align:left;">
+0.582
+</td>
+<td style="text-align:left;">
+0.0206
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.226
+</td>
+<td style="text-align:left;">
+3.5
+</td>
+<td style="text-align:left;">
+-0.0646
+</td>
+<td style="text-align:left;">
+-0.00187
+</td>
+<td style="text-align:left;">
+0.948
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-2.88
+</td>
+<td style="text-align:left;">
+3.5
+</td>
+<td style="text-align:left;">
+-0.822
+</td>
+<td style="text-align:left;">
+-0.0238
+</td>
+<td style="text-align:left;">
+0.411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+8.36
+</td>
+<td style="text-align:left;">
+3.35
+</td>
+<td style="text-align:left;">
+2.49
+</td>
+<td style="text-align:left;">
+0.076
+</td>
+<td style="text-align:left;">
+0.0126
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-3.97
+</td>
+<td style="text-align:left;">
+3.35
+</td>
+<td style="text-align:left;">
+-1.19
+</td>
+<td style="text-align:left;">
+-0.0361
+</td>
+<td style="text-align:left;">
+0.236
 </td>
 </tr>
 </tbody>
@@ -7802,6 +8364,612 @@ genderfemale:CDsymptomscurrent:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
 0.0264
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_CDquant_intPLE&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+stbeta
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.0124
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+0.11
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.912
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.262
+</td>
+<td style="text-align:left;">
+0.0519
+</td>
+<td style="text-align:left;">
+5.04
+</td>
+<td style="text-align:left;">
+0.262
+</td>
+<td style="text-align:left;">
+4.62e-07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.172
+</td>
+<td style="text-align:left;">
+0.0468
+</td>
+<td style="text-align:left;">
+-3.67
+</td>
+<td style="text-align:left;">
+-0.172
+</td>
+<td style="text-align:left;">
+0.000243
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.0369
+</td>
+<td style="text-align:left;">
+0.0477
+</td>
+<td style="text-align:left;">
+0.774
+</td>
+<td style="text-align:left;">
+0.0369
+</td>
+<td style="text-align:left;">
+0.439
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.0553
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+-0.453
+</td>
+<td style="text-align:left;">
+-0.0239
+</td>
+<td style="text-align:left;">
+0.651
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+-0.173
+</td>
+<td style="text-align:left;">
+0.129
+</td>
+<td style="text-align:left;">
+-1.34
+</td>
+<td style="text-align:left;">
+-0.0806
+</td>
+<td style="text-align:left;">
+0.181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.0281
+</td>
+<td style="text-align:left;">
+0.128
+</td>
+<td style="text-align:left;">
+0.22
+</td>
+<td style="text-align:left;">
+0.0135
+</td>
+<td style="text-align:left;">
+0.826
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+-0.16
+</td>
+<td style="text-align:left;">
+0.113
+</td>
+<td style="text-align:left;">
+-1.41
+</td>
+<td style="text-align:left;">
+-0.16
+</td>
+<td style="text-align:left;">
+0.158
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-1.23
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+<td style="text-align:left;">
+-0.993
+</td>
+<td style="text-align:left;">
+-0.0322
+</td>
+<td style="text-align:left;">
+0.321
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-5
+</td>
+<td style="text-align:left;">
+1.23
+</td>
+<td style="text-align:left;">
+-4.05
+</td>
+<td style="text-align:left;">
+-0.131
+</td>
+<td style="text-align:left;">
+5.05e-05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+0.167
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+<td style="text-align:left;">
+1.05
+</td>
+<td style="text-align:left;">
+0.0777
+</td>
+<td style="text-align:left;">
+0.296
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.0806
+</td>
+<td style="text-align:left;">
+0.156
+</td>
+<td style="text-align:left;">
+0.516
+</td>
+<td style="text-align:left;">
+0.0494
+</td>
+<td style="text-align:left;">
+0.606
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.141
+</td>
+<td style="text-align:left;">
+0.214
+</td>
+<td style="text-align:left;">
+-0.661
+</td>
+<td style="text-align:left;">
+-0.0517
+</td>
+<td style="text-align:left;">
+0.509
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.71
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+-0.898
+</td>
+<td style="text-align:left;">
+-0.0251
+</td>
+<td style="text-align:left;">
+0.369
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+2.31
+</td>
+<td style="text-align:left;">
+1.9
+</td>
+<td style="text-align:left;">
+1.22
+</td>
+<td style="text-align:left;">
+0.0341
+</td>
+<td style="text-align:left;">
+0.223
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.00928
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.0691
+</td>
+<td style="text-align:left;">
+0.00732
+</td>
+<td style="text-align:left;">
+0.945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-2.21
+</td>
+<td style="text-align:left;">
+1.32
+</td>
+<td style="text-align:left;">
+-1.67
+</td>
+<td style="text-align:left;">
+-0.0581
+</td>
+<td style="text-align:left;">
+0.0948
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+4.77
+</td>
+<td style="text-align:left;">
+1.32
+</td>
+<td style="text-align:left;">
+3.6
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+0.000316
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+0.823
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+0.559
+</td>
+<td style="text-align:left;">
+0.0173
+</td>
+<td style="text-align:left;">
+0.576
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-4.68
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+-3.18
+</td>
+<td style="text-align:left;">
+-0.0984
+</td>
+<td style="text-align:left;">
+0.00148
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.0866
+</td>
+<td style="text-align:left;">
+0.207
+</td>
+<td style="text-align:left;">
+-0.419
+</td>
+<td style="text-align:left;">
+-0.0374
+</td>
+<td style="text-align:left;">
+0.675
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.857
+</td>
+<td style="text-align:left;">
+1.84
+</td>
+<td style="text-align:left;">
+0.467
+</td>
+<td style="text-align:left;">
+0.0141
+</td>
+<td style="text-align:left;">
+0.641
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-4.28
+</td>
+<td style="text-align:left;">
+1.84
+</td>
+<td style="text-align:left;">
+-2.33
+</td>
+<td style="text-align:left;">
+-0.0704
+</td>
+<td style="text-align:left;">
+0.0197
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+0.518
+</td>
+<td style="text-align:left;">
+1.57
+</td>
+<td style="text-align:left;">
+0.33
+</td>
+<td style="text-align:left;">
+0.0107
+</td>
+<td style="text-align:left;">
+0.742
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.853
+</td>
+<td style="text-align:left;">
+1.57
+</td>
+<td style="text-align:left;">
+0.543
+</td>
+<td style="text-align:left;">
+0.0177
+</td>
+<td style="text-align:left;">
+0.587
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.436
+</td>
+<td style="text-align:left;">
+2.56
+</td>
+<td style="text-align:left;">
+-0.171
+</td>
+<td style="text-align:left;">
+-0.00456
+</td>
+<td style="text-align:left;">
+0.865
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+4.35
+</td>
+<td style="text-align:left;">
+2.56
+</td>
+<td style="text-align:left;">
+1.7
+</td>
+<td style="text-align:left;">
+0.0456
+</td>
+<td style="text-align:left;">
+0.0883
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.238
+</td>
+<td style="text-align:left;">
+2.45
+</td>
+<td style="text-align:left;">
+0.0971
+</td>
+<td style="text-align:left;">
+0.00273
+</td>
+<td style="text-align:left;">
+0.923
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.628
+</td>
+<td style="text-align:left;">
+2.45
+</td>
+<td style="text-align:left;">
+0.257
+</td>
+<td style="text-align:left;">
+0.00722
+</td>
+<td style="text-align:left;">
+0.797
 </td>
 </tr>
 </tbody>
@@ -14541,6 +15709,612 @@ genderfemale:CDsymptomscurrent:poly(Time, 2)2
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_CDquant_intPLE&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+stbeta
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.472
+</td>
+<td style="text-align:left;">
+0.153
+</td>
+<td style="text-align:left;">
+3.09
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.253
+</td>
+<td style="text-align:left;">
+0.0542
+</td>
+<td style="text-align:left;">
+4.66
+</td>
+<td style="text-align:left;">
+0.253
+</td>
+<td style="text-align:left;">
+3.21e-06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.17
+</td>
+<td style="text-align:left;">
+0.0481
+</td>
+<td style="text-align:left;">
+-3.54
+</td>
+<td style="text-align:left;">
+-0.17
+</td>
+<td style="text-align:left;">
+0.000397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+0.173
+</td>
+<td style="text-align:left;">
+0.0484
+</td>
+<td style="text-align:left;">
+3.57
+</td>
+<td style="text-align:left;">
+0.173
+</td>
+<td style="text-align:left;">
+0.000357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.243
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+-1.94
+</td>
+<td style="text-align:left;">
+-0.105
+</td>
+<td style="text-align:left;">
+0.0522
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.0898
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.672
+</td>
+<td style="text-align:left;">
+0.0418
+</td>
+<td style="text-align:left;">
+0.502
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.689
+</td>
+<td style="text-align:left;">
+0.132
+</td>
+<td style="text-align:left;">
+-5.22
+</td>
+<td style="text-align:left;">
+-0.33
+</td>
+<td style="text-align:left;">
+1.82e-07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+-0.116
+</td>
+<td style="text-align:left;">
+0.115
+</td>
+<td style="text-align:left;">
+-1.01
+</td>
+<td style="text-align:left;">
+-0.116
+</td>
+<td style="text-align:left;">
+0.311
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+1.15
+</td>
+<td style="text-align:left;">
+0.74
+</td>
+<td style="text-align:left;">
+1.55
+</td>
+<td style="text-align:left;">
+0.039
+</td>
+<td style="text-align:left;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-2.13
+</td>
+<td style="text-align:left;">
+0.74
+</td>
+<td style="text-align:left;">
+-2.88
+</td>
+<td style="text-align:left;">
+-0.0723
+</td>
+<td style="text-align:left;">
+0.00399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+0.0622
+</td>
+<td style="text-align:left;">
+0.163
+</td>
+<td style="text-align:left;">
+0.382
+</td>
+<td style="text-align:left;">
+0.0289
+</td>
+<td style="text-align:left;">
+0.703
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.299
+</td>
+<td style="text-align:left;">
+0.158
+</td>
+<td style="text-align:left;">
+1.89
+</td>
+<td style="text-align:left;">
+0.184
+</td>
+<td style="text-align:left;">
+0.0582
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.288
+</td>
+<td style="text-align:left;">
+0.217
+</td>
+<td style="text-align:left;">
+1.33
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.0758
+</td>
+<td style="text-align:left;">
+1.14
+</td>
+<td style="text-align:left;">
+0.0666
+</td>
+<td style="text-align:left;">
+0.00144
+</td>
+<td style="text-align:left;">
+0.947
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+1.14
+</td>
+<td style="text-align:left;">
+1.34
+</td>
+<td style="text-align:left;">
+0.029
+</td>
+<td style="text-align:left;">
+0.179
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.0811
+</td>
+<td style="text-align:left;">
+0.136
+</td>
+<td style="text-align:left;">
+0.595
+</td>
+<td style="text-align:left;">
+0.064
+</td>
+<td style="text-align:left;">
+0.552
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.0725
+</td>
+<td style="text-align:left;">
+0.794
+</td>
+<td style="text-align:left;">
+-0.0912
+</td>
+<td style="text-align:left;">
+-0.00246
+</td>
+<td style="text-align:left;">
+0.927
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.638
+</td>
+<td style="text-align:left;">
+0.794
+</td>
+<td style="text-align:left;">
+0.804
+</td>
+<td style="text-align:left;">
+0.0216
+</td>
+<td style="text-align:left;">
+0.422
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.765
+</td>
+<td style="text-align:left;">
+0.882
+</td>
+<td style="text-align:left;">
+-0.867
+</td>
+<td style="text-align:left;">
+-0.0208
+</td>
+<td style="text-align:left;">
+0.386
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-0.837
+</td>
+<td style="text-align:left;">
+0.882
+</td>
+<td style="text-align:left;">
+-0.949
+</td>
+<td style="text-align:left;">
+-0.0227
+</td>
+<td style="text-align:left;">
+0.342
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.376
+</td>
+<td style="text-align:left;">
+0.209
+</td>
+<td style="text-align:left;">
+-1.8
+</td>
+<td style="text-align:left;">
+-0.162
+</td>
+<td style="text-align:left;">
+0.0718
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.28
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+<td style="text-align:left;">
+-0.254
+</td>
+<td style="text-align:left;">
+-0.00594
+</td>
+<td style="text-align:left;">
+0.799
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.491
+</td>
+<td style="text-align:left;">
+1.1
+</td>
+<td style="text-align:left;">
+-0.446
+</td>
+<td style="text-align:left;">
+-0.0104
+</td>
+<td style="text-align:left;">
+0.656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.025
+</td>
+<td style="text-align:left;">
+0.942
+</td>
+<td style="text-align:left;">
+-0.0265
+</td>
+<td style="text-align:left;">
+-0.000668
+</td>
+<td style="text-align:left;">
+0.979
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.77
+</td>
+<td style="text-align:left;">
+0.942
+</td>
+<td style="text-align:left;">
+1.88
+</td>
+<td style="text-align:left;">
+0.0473
+</td>
+<td style="text-align:left;">
+0.0605
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.05
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-0.686
+</td>
+<td style="text-align:left;">
+-0.0142
+</td>
+<td style="text-align:left;">
+0.493
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.818
+</td>
+<td style="text-align:left;">
+1.53
+</td>
+<td style="text-align:left;">
+-0.534
+</td>
+<td style="text-align:left;">
+-0.0111
+</td>
+<td style="text-align:left;">
+0.593
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.554
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+0.378
+</td>
+<td style="text-align:left;">
+0.00821
+</td>
+<td style="text-align:left;">
+0.706
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.998
+</td>
+<td style="text-align:left;">
+1.47
+</td>
+<td style="text-align:left;">
+-0.681
+</td>
+<td style="text-align:left;">
+-0.0148
+</td>
+<td style="text-align:left;">
+0.496
+</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_males&quot;)]] %&gt;% tableplot()</code></pre>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -21276,6 +23050,612 @@ genderfemale:CDsymptomscurrent:poly(Time, 2)2
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_CDquant_intPLE&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+stbeta
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+1.19
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.233
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+-0.195
+</td>
+<td style="text-align:left;">
+0.0514
+</td>
+<td style="text-align:left;">
+-3.79
+</td>
+<td style="text-align:left;">
+-0.194
+</td>
+<td style="text-align:left;">
+0.000153
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+0.0464
+</td>
+<td style="text-align:left;">
+3.39
+</td>
+<td style="text-align:left;">
+0.155
+</td>
+<td style="text-align:left;">
+0.000705
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+-0.0225
+</td>
+<td style="text-align:left;">
+0.0468
+</td>
+<td style="text-align:left;">
+-0.481
+</td>
+<td style="text-align:left;">
+-0.0226
+</td>
+<td style="text-align:left;">
+0.63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+-0.093
+</td>
+<td style="text-align:left;">
+0.12
+</td>
+<td style="text-align:left;">
+-0.772
+</td>
+<td style="text-align:left;">
+-0.0404
+</td>
+<td style="text-align:left;">
+0.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.0824
+</td>
+<td style="text-align:left;">
+0.128
+</td>
+<td style="text-align:left;">
+0.646
+</td>
+<td style="text-align:left;">
+0.0384
+</td>
+<td style="text-align:left;">
+0.518
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+-0.0893
+</td>
+<td style="text-align:left;">
+0.126
+</td>
+<td style="text-align:left;">
+-0.709
+</td>
+<td style="text-align:left;">
+-0.043
+</td>
+<td style="text-align:left;">
+0.478
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.0971
+</td>
+<td style="text-align:left;">
+0.11
+</td>
+<td style="text-align:left;">
+0.88
+</td>
+<td style="text-align:left;">
+0.098
+</td>
+<td style="text-align:left;">
+0.379
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+2.32
+</td>
+<td style="text-align:left;">
+1.69
+</td>
+<td style="text-align:left;">
+1.37
+</td>
+<td style="text-align:left;">
+0.0783
+</td>
+<td style="text-align:left;">
+0.171
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+4.17
+</td>
+<td style="text-align:left;">
+1.68
+</td>
+<td style="text-align:left;">
+2.48
+</td>
+<td style="text-align:left;">
+0.142
+</td>
+<td style="text-align:left;">
+0.013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.137
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+-0.876
+</td>
+<td style="text-align:left;">
+-0.0639
+</td>
+<td style="text-align:left;">
+0.381
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.00864
+</td>
+<td style="text-align:left;">
+0.152
+</td>
+<td style="text-align:left;">
+0.0569
+</td>
+<td style="text-align:left;">
+0.00538
+</td>
+<td style="text-align:left;">
+0.955
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.101
+</td>
+<td style="text-align:left;">
+0.21
+</td>
+<td style="text-align:left;">
+0.48
+</td>
+<td style="text-align:left;">
+0.0369
+</td>
+<td style="text-align:left;">
+0.631
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.886
+</td>
+<td style="text-align:left;">
+2.6
+</td>
+<td style="text-align:left;">
+-0.341
+</td>
+<td style="text-align:left;">
+-0.0168
+</td>
+<td style="text-align:left;">
+0.733
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.78
+</td>
+<td style="text-align:left;">
+2.56
+</td>
+<td style="text-align:left;">
+-0.696
+</td>
+<td style="text-align:left;">
+-0.0344
+</td>
+<td style="text-align:left;">
+0.487
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.0517
+</td>
+<td style="text-align:left;">
+0.131
+</td>
+<td style="text-align:left;">
+0.394
+</td>
+<td style="text-align:left;">
+0.0408
+</td>
+<td style="text-align:left;">
+0.694
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+2.9
+</td>
+<td style="text-align:left;">
+1.79
+</td>
+<td style="text-align:left;">
+1.62
+</td>
+<td style="text-align:left;">
+0.0988
+</td>
+<td style="text-align:left;">
+0.104
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-2.3
+</td>
+<td style="text-align:left;">
+1.78
+</td>
+<td style="text-align:left;">
+-1.29
+</td>
+<td style="text-align:left;">
+-0.0789
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-2.31
+</td>
+<td style="text-align:left;">
+2.03
+</td>
+<td style="text-align:left;">
+-1.14
+</td>
+<td style="text-align:left;">
+-0.0623
+</td>
+<td style="text-align:left;">
+0.254
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+5.16
+</td>
+<td style="text-align:left;">
+2.01
+</td>
+<td style="text-align:left;">
+2.56
+</td>
+<td style="text-align:left;">
+0.14
+</td>
+<td style="text-align:left;">
+0.0105
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.0256
+</td>
+<td style="text-align:left;">
+0.202
+</td>
+<td style="text-align:left;">
+0.127
+</td>
+<td style="text-align:left;">
+0.0111
+</td>
+<td style="text-align:left;">
+0.899
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.88
+</td>
+<td style="text-align:left;">
+2.46
+</td>
+<td style="text-align:left;">
+-0.765
+</td>
+<td style="text-align:left;">
+-0.0403
+</td>
+<td style="text-align:left;">
+0.444
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.403
+</td>
+<td style="text-align:left;">
+2.45
+</td>
+<td style="text-align:left;">
+0.164
+</td>
+<td style="text-align:left;">
+0.00874
+</td>
+<td style="text-align:left;">
+0.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-1.64
+</td>
+<td style="text-align:left;">
+2.13
+</td>
+<td style="text-align:left;">
+-0.771
+</td>
+<td style="text-align:left;">
+-0.0438
+</td>
+<td style="text-align:left;">
+0.441
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-0.471
+</td>
+<td style="text-align:left;">
+2.13
+</td>
+<td style="text-align:left;">
+-0.221
+</td>
+<td style="text-align:left;">
+-0.0127
+</td>
+<td style="text-align:left;">
+0.825
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+5.77
+</td>
+<td style="text-align:left;">
+3.54
+</td>
+<td style="text-align:left;">
+1.63
+</td>
+<td style="text-align:left;">
+0.0774
+</td>
+<td style="text-align:left;">
+0.103
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-5.4
+</td>
+<td style="text-align:left;">
+3.49
+</td>
+<td style="text-align:left;">
+-1.54
+</td>
+<td style="text-align:left;">
+-0.0735
+</td>
+<td style="text-align:left;">
+0.123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.73
+</td>
+<td style="text-align:left;">
+3.34
+</td>
+<td style="text-align:left;">
+-0.519
+</td>
+<td style="text-align:left;">
+-0.0255
+</td>
+<td style="text-align:left;">
+0.604
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.322
+</td>
+<td style="text-align:left;">
+3.31
+</td>
+<td style="text-align:left;">
+-0.0973
+</td>
+<td style="text-align:left;">
+-0.00485
+</td>
+<td style="text-align:left;">
+0.923
+</td>
+</tr>
+</tbody>
+</table>
 <pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_males&quot;)]] %&gt;% tableplot()</code></pre>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
 <thead>
@@ -28007,6 +30387,612 @@ genderfemale:CDsymptomscurrent:poly(Time, 2)2
 </td>
 <td style="text-align:left;">
 0.856
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>resall[[paste0(depvar, &quot;_coeff_CDquant_intPLE&quot;)]] %&gt;% tableplot()</code></pre>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Estimate
+</th>
+<th style="text-align:left;">
+Std. Error
+</th>
+<th style="text-align:left;">
+t value
+</th>
+<th style="text-align:left;">
+stbeta
+</th>
+<th style="text-align:left;">
+pvalue
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+-0.202
+</td>
+<td style="text-align:left;">
+0.155
+</td>
+<td style="text-align:left;">
+-1.31
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.109
+</td>
+<td style="text-align:left;">
+0.0806
+</td>
+<td style="text-align:left;">
+1.35
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+<td style="text-align:left;">
+0.177
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+-0.00442
+</td>
+<td style="text-align:left;">
+0.0938
+</td>
+<td style="text-align:left;">
+-0.0471
+</td>
+<td style="text-align:left;">
+-0.00331
+</td>
+<td style="text-align:left;">
+0.962
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+-0.091
+</td>
+<td style="text-align:left;">
+0.0648
+</td>
+<td style="text-align:left;">
+-1.4
+</td>
+<td style="text-align:left;">
+-0.102
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+0.0258
+</td>
+<td style="text-align:left;">
+0.182
+</td>
+<td style="text-align:left;">
+0.142
+</td>
+<td style="text-align:left;">
+0.0115
+</td>
+<td style="text-align:left;">
+0.887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+0.139
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+<td style="text-align:left;">
+0.706
+</td>
+<td style="text-align:left;">
+0.0637
+</td>
+<td style="text-align:left;">
+0.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.327
+</td>
+<td style="text-align:left;">
+0.188
+</td>
+<td style="text-align:left;">
+1.74
+</td>
+<td style="text-align:left;">
+0.163
+</td>
+<td style="text-align:left;">
+0.0818
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.0436
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+0.278
+</td>
+<td style="text-align:left;">
+0.0437
+</td>
+<td style="text-align:left;">
+0.781
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+2.7
+</td>
+<td style="text-align:left;">
+1.54
+</td>
+<td style="text-align:left;">
+1.75
+</td>
+<td style="text-align:left;">
+0.0916
+</td>
+<td style="text-align:left;">
+0.0796
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-0.912
+</td>
+<td style="text-align:left;">
+1.54
+</td>
+<td style="text-align:left;">
+-0.593
+</td>
+<td style="text-align:left;">
+-0.031
+</td>
+<td style="text-align:left;">
+0.554
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.0327
+</td>
+<td style="text-align:left;">
+0.217
+</td>
+<td style="text-align:left;">
+-0.151
+</td>
+<td style="text-align:left;">
+-0.0156
+</td>
+<td style="text-align:left;">
+0.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.089
+</td>
+<td style="text-align:left;">
+0.215
+</td>
+<td style="text-align:left;">
+-0.415
+</td>
+<td style="text-align:left;">
+-0.0583
+</td>
+<td style="text-align:left;">
+0.678
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.116
+</td>
+<td style="text-align:left;">
+0.317
+</td>
+<td style="text-align:left;">
+0.364
+</td>
+<td style="text-align:left;">
+0.0396
+</td>
+<td style="text-align:left;">
+0.716
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+1.17
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+0.518
+</td>
+<td style="text-align:left;">
+0.0233
+</td>
+<td style="text-align:left;">
+0.604
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-1.86
+</td>
+<td style="text-align:left;">
+2.25
+</td>
+<td style="text-align:left;">
+-0.823
+</td>
+<td style="text-align:left;">
+-0.0371
+</td>
+<td style="text-align:left;">
+0.41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+-0.0237
+</td>
+<td style="text-align:left;">
+0.201
+</td>
+<td style="text-align:left;">
+-0.118
+</td>
+<td style="text-align:left;">
+-0.0172
+</td>
+<td style="text-align:left;">
+0.906
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.0961
+</td>
+<td style="text-align:left;">
+1.63
+</td>
+<td style="text-align:left;">
+-0.0591
+</td>
+<td style="text-align:left;">
+-0.00327
+</td>
+<td style="text-align:left;">
+0.953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+2.11
+</td>
+<td style="text-align:left;">
+1.63
+</td>
+<td style="text-align:left;">
+1.3
+</td>
+<td style="text-align:left;">
+0.0718
+</td>
+<td style="text-align:left;">
+0.194
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-1.12
+</td>
+<td style="text-align:left;">
+1.91
+</td>
+<td style="text-align:left;">
+-0.584
+</td>
+<td style="text-align:left;">
+-0.0282
+</td>
+<td style="text-align:left;">
+0.559
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.0597
+</td>
+<td style="text-align:left;">
+1.91
+</td>
+<td style="text-align:left;">
+0.0312
+</td>
+<td style="text-align:left;">
+0.00151
+</td>
+<td style="text-align:left;">
+0.975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.137
+</td>
+<td style="text-align:left;">
+0.308
+</td>
+<td style="text-align:left;">
+-0.445
+</td>
+<td style="text-align:left;">
+-0.0577
+</td>
+<td style="text-align:left;">
+0.656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+1.29
+</td>
+<td style="text-align:left;">
+2.19
+</td>
+<td style="text-align:left;">
+0.589
+</td>
+<td style="text-align:left;">
+0.0293
+</td>
+<td style="text-align:left;">
+0.556
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.346
+</td>
+<td style="text-align:left;">
+2.19
+</td>
+<td style="text-align:left;">
+-0.158
+</td>
+<td style="text-align:left;">
+-0.00787
+</td>
+<td style="text-align:left;">
+0.874
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-0.0719
+</td>
+<td style="text-align:left;">
+2.05
+</td>
+<td style="text-align:left;">
+-0.035
+</td>
+<td style="text-align:left;">
+-0.00177
+</td>
+<td style="text-align:left;">
+0.972
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-0.36
+</td>
+<td style="text-align:left;">
+2.05
+</td>
+<td style="text-align:left;">
+-0.175
+</td>
+<td style="text-align:left;">
+-0.00885
+</td>
+<td style="text-align:left;">
+0.861
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+4.47
+</td>
+<td style="text-align:left;">
+3.37
+</td>
+<td style="text-align:left;">
+1.33
+</td>
+<td style="text-align:left;">
+0.0558
+</td>
+<td style="text-align:left;">
+0.185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+1.97
+</td>
+<td style="text-align:left;">
+3.37
+</td>
+<td style="text-align:left;">
+0.586
+</td>
+<td style="text-align:left;">
+0.0246
+</td>
+<td style="text-align:left;">
+0.558
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-3.17
+</td>
+<td style="text-align:left;">
+3.17
+</td>
+<td style="text-align:left;">
+-0.999
+</td>
+<td style="text-align:left;">
+-0.0459
+</td>
+<td style="text-align:left;">
+0.318
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.859
+</td>
+<td style="text-align:left;">
+3.17
+</td>
+<td style="text-align:left;">
+0.271
+</td>
+<td style="text-align:left;">
+0.0124
+</td>
+<td style="text-align:left;">
+0.787
 </td>
 </tr>
 </tbody>
@@ -41046,6 +44032,2006 @@ NA
 </tbody>
 </table></li>
 </ul>
+</div>
+<div id="quantitative-cdxlpe" class="section level3">
+<h3>quantitative CDxLPE</h3>
+<pre class="r"><code>restabnames = grep(&quot;coeff_CDquant_intPLE$&quot;,names(resall), value=T)
+resall_mod=lapply(resall[restabnames], tibble::rownames_to_column)
+fullres=resall_mod %&gt;% reduce(full_join, by=&quot;rowname&quot;)
+fullres = fullres %&gt;% select (.,- grep(&quot;t value&quot;, colnames(fullres), value = T))
+newnames = c(&quot;-&quot;, rep(c(&quot;beta&quot;, &quot;se&quot;, &quot;st.beta&quot;, &quot;P&quot;), length(names(AV))))
+
+#fullres %&gt;% tableplot_2() 
+fullres %&gt;% tableplot_3() </code></pre>
+<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="1">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+indep. variable
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Psych. stress
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Cortisol
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Testosterone
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Test/Cort ratio
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Oxytocin
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+<ul>
+<li></th>
+<th style="text-align:left;">
+beta
+</th>
+<th style="text-align:left;">
+se
+</th>
+<th style="text-align:left;">
+st.beta
+</th>
+<th style="text-align:left;">
+P
+</th>
+<th style="text-align:left;">
+beta
+</th>
+<th style="text-align:left;">
+se
+</th>
+<th style="text-align:left;">
+st.beta
+</th>
+<th style="text-align:left;">
+P
+</th>
+<th style="text-align:left;">
+beta
+</th>
+<th style="text-align:left;">
+se
+</th>
+<th style="text-align:left;">
+st.beta
+</th>
+<th style="text-align:left;">
+P
+</th>
+<th style="text-align:left;">
+beta
+</th>
+<th style="text-align:left;">
+se
+</th>
+<th style="text-align:left;">
+st.beta
+</th>
+<th style="text-align:left;">
+P
+</th>
+<th style="text-align:left;">
+beta
+</th>
+<th style="text-align:left;">
+se
+</th>
+<th style="text-align:left;">
+st.beta
+</th>
+<th style="text-align:left;">
+P
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:left;">
+0.003
+</td>
+<td style="text-align:left;">
+0.084
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.973
+</td>
+<td style="text-align:left;">
+0.012
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.912
+</td>
+<td style="text-align:left;">
+0.472
+</td>
+<td style="text-align:left;">
+0.153
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.002
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.112
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.233
+</td>
+<td style="text-align:left;">
+-0.202
+</td>
+<td style="text-align:left;">
+0.155
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age_meancentered
+</td>
+<td style="text-align:left;">
+0.023
+</td>
+<td style="text-align:left;">
+0.038
+</td>
+<td style="text-align:left;">
+0.023
+</td>
+<td style="text-align:left;">
+0.539
+</td>
+<td style="text-align:left;">
+0.262
+</td>
+<td style="text-align:left;">
+0.052
+</td>
+<td style="text-align:left;">
+0.262
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+0.253
+</td>
+<td style="text-align:left;">
+0.054
+</td>
+<td style="text-align:left;">
+0.253
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-0.195
+</td>
+<td style="text-align:left;">
+0.051
+</td>
+<td style="text-align:left;">
+-0.194
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+0.109
+</td>
+<td style="text-align:left;">
+0.081
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+<td style="text-align:left;">
+0.177
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale
+</td>
+<td style="text-align:left;">
+0.069
+</td>
+<td style="text-align:left;">
+0.1
+</td>
+<td style="text-align:left;">
+0.033
+</td>
+<td style="text-align:left;">
+0.492
+</td>
+<td style="text-align:left;">
+0.028
+</td>
+<td style="text-align:left;">
+0.128
+</td>
+<td style="text-align:left;">
+0.013
+</td>
+<td style="text-align:left;">
+0.826
+</td>
+<td style="text-align:left;">
+-0.689
+</td>
+<td style="text-align:left;">
+0.132
+</td>
+<td style="text-align:left;">
+-0.33
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-0.089
+</td>
+<td style="text-align:left;">
+0.126
+</td>
+<td style="text-align:left;">
+-0.043
+</td>
+<td style="text-align:left;">
+0.478
+</td>
+<td style="text-align:left;">
+0.327
+</td>
+<td style="text-align:left;">
+0.188
+</td>
+<td style="text-align:left;">
+0.163
+</td>
+<td style="text-align:left;">
+0.082
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.09
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.244
+</td>
+<td style="text-align:left;">
+-0.16
+</td>
+<td style="text-align:left;">
+0.113
+</td>
+<td style="text-align:left;">
+-0.16
+</td>
+<td style="text-align:left;">
+0.158
+</td>
+<td style="text-align:left;">
+-0.116
+</td>
+<td style="text-align:left;">
+0.115
+</td>
+<td style="text-align:left;">
+-0.116
+</td>
+<td style="text-align:left;">
+0.311
+</td>
+<td style="text-align:left;">
+0.097
+</td>
+<td style="text-align:left;">
+0.11
+</td>
+<td style="text-align:left;">
+0.098
+</td>
+<td style="text-align:left;">
+0.379
+</td>
+<td style="text-align:left;">
+0.044
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+0.044
+</td>
+<td style="text-align:left;">
+0.781
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-12.247
+</td>
+<td style="text-align:left;">
+1.692
+</td>
+<td style="text-align:left;">
+-0.254
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-1.226
+</td>
+<td style="text-align:left;">
+1.235
+</td>
+<td style="text-align:left;">
+-0.032
+</td>
+<td style="text-align:left;">
+0.321
+</td>
+<td style="text-align:left;">
+1.15
+</td>
+<td style="text-align:left;">
+0.74
+</td>
+<td style="text-align:left;">
+0.039
+</td>
+<td style="text-align:left;">
+0.12
+</td>
+<td style="text-align:left;">
+2.318
+</td>
+<td style="text-align:left;">
+1.694
+</td>
+<td style="text-align:left;">
+0.078
+</td>
+<td style="text-align:left;">
+0.171
+</td>
+<td style="text-align:left;">
+2.698
+</td>
+<td style="text-align:left;">
+1.539
+</td>
+<td style="text-align:left;">
+0.092
+</td>
+<td style="text-align:left;">
+0.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+0.859
+</td>
+<td style="text-align:left;">
+1.692
+</td>
+<td style="text-align:left;">
+0.018
+</td>
+<td style="text-align:left;">
+0.612
+</td>
+<td style="text-align:left;">
+-5.004
+</td>
+<td style="text-align:left;">
+1.235
+</td>
+<td style="text-align:left;">
+-0.131
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-2.131
+</td>
+<td style="text-align:left;">
+0.74
+</td>
+<td style="text-align:left;">
+-0.072
+</td>
+<td style="text-align:left;">
+0.004
+</td>
+<td style="text-align:left;">
+4.173
+</td>
+<td style="text-align:left;">
+1.681
+</td>
+<td style="text-align:left;">
+0.142
+</td>
+<td style="text-align:left;">
+0.013
+</td>
+<td style="text-align:left;">
+-0.912
+</td>
+<td style="text-align:left;">
+1.539
+</td>
+<td style="text-align:left;">
+-0.031
+</td>
+<td style="text-align:left;">
+0.554
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.184
+</td>
+<td style="text-align:left;">
+0.13
+</td>
+<td style="text-align:left;">
+-0.086
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+0.167
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+<td style="text-align:left;">
+0.078
+</td>
+<td style="text-align:left;">
+0.296
+</td>
+<td style="text-align:left;">
+0.062
+</td>
+<td style="text-align:left;">
+0.163
+</td>
+<td style="text-align:left;">
+0.029
+</td>
+<td style="text-align:left;">
+0.703
+</td>
+<td style="text-align:left;">
+-0.137
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+-0.064
+</td>
+<td style="text-align:left;">
+0.381
+</td>
+<td style="text-align:left;">
+-0.033
+</td>
+<td style="text-align:left;">
+0.217
+</td>
+<td style="text-align:left;">
+-0.016
+</td>
+<td style="text-align:left;">
+0.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.044
+</td>
+<td style="text-align:left;">
+0.126
+</td>
+<td style="text-align:left;">
+-0.027
+</td>
+<td style="text-align:left;">
+0.73
+</td>
+<td style="text-align:left;">
+0.081
+</td>
+<td style="text-align:left;">
+0.156
+</td>
+<td style="text-align:left;">
+0.049
+</td>
+<td style="text-align:left;">
+0.606
+</td>
+<td style="text-align:left;">
+0.299
+</td>
+<td style="text-align:left;">
+0.158
+</td>
+<td style="text-align:left;">
+0.184
+</td>
+<td style="text-align:left;">
+0.058
+</td>
+<td style="text-align:left;">
+0.009
+</td>
+<td style="text-align:left;">
+0.152
+</td>
+<td style="text-align:left;">
+0.005
+</td>
+<td style="text-align:left;">
+0.955
+</td>
+<td style="text-align:left;">
+-0.089
+</td>
+<td style="text-align:left;">
+0.215
+</td>
+<td style="text-align:left;">
+-0.058
+</td>
+<td style="text-align:left;">
+0.678
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.107
+</td>
+<td style="text-align:left;">
+0.174
+</td>
+<td style="text-align:left;">
+0.039
+</td>
+<td style="text-align:left;">
+0.538
+</td>
+<td style="text-align:left;">
+-0.141
+</td>
+<td style="text-align:left;">
+0.214
+</td>
+<td style="text-align:left;">
+-0.052
+</td>
+<td style="text-align:left;">
+0.509
+</td>
+<td style="text-align:left;">
+0.288
+</td>
+<td style="text-align:left;">
+0.217
+</td>
+<td style="text-align:left;">
+0.105
+</td>
+<td style="text-align:left;">
+0.185
+</td>
+<td style="text-align:left;">
+0.101
+</td>
+<td style="text-align:left;">
+0.21
+</td>
+<td style="text-align:left;">
+0.037
+</td>
+<td style="text-align:left;">
+0.631
+</td>
+<td style="text-align:left;">
+0.116
+</td>
+<td style="text-align:left;">
+0.317
+</td>
+<td style="text-align:left;">
+0.04
+</td>
+<td style="text-align:left;">
+0.716
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+0.817
+</td>
+<td style="text-align:left;">
+2.604
+</td>
+<td style="text-align:left;">
+0.009
+</td>
+<td style="text-align:left;">
+0.754
+</td>
+<td style="text-align:left;">
+-1.705
+</td>
+<td style="text-align:left;">
+1.899
+</td>
+<td style="text-align:left;">
+-0.025
+</td>
+<td style="text-align:left;">
+0.369
+</td>
+<td style="text-align:left;">
+0.076
+</td>
+<td style="text-align:left;">
+1.138
+</td>
+<td style="text-align:left;">
+0.001
+</td>
+<td style="text-align:left;">
+0.947
+</td>
+<td style="text-align:left;">
+-0.886
+</td>
+<td style="text-align:left;">
+2.598
+</td>
+<td style="text-align:left;">
+-0.017
+</td>
+<td style="text-align:left;">
+0.733
+</td>
+<td style="text-align:left;">
+1.168
+</td>
+<td style="text-align:left;">
+2.254
+</td>
+<td style="text-align:left;">
+0.023
+</td>
+<td style="text-align:left;">
+0.604
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+3.442
+</td>
+<td style="text-align:left;">
+2.604
+</td>
+<td style="text-align:left;">
+0.04
+</td>
+<td style="text-align:left;">
+0.186
+</td>
+<td style="text-align:left;">
+2.315
+</td>
+<td style="text-align:left;">
+1.899
+</td>
+<td style="text-align:left;">
+0.034
+</td>
+<td style="text-align:left;">
+0.223
+</td>
+<td style="text-align:left;">
+1.528
+</td>
+<td style="text-align:left;">
+1.138
+</td>
+<td style="text-align:left;">
+0.029
+</td>
+<td style="text-align:left;">
+0.179
+</td>
+<td style="text-align:left;">
+-1.784
+</td>
+<td style="text-align:left;">
+2.564
+</td>
+<td style="text-align:left;">
+-0.034
+</td>
+<td style="text-align:left;">
+0.487
+</td>
+<td style="text-align:left;">
+-1.856
+</td>
+<td style="text-align:left;">
+2.254
+</td>
+<td style="text-align:left;">
+-0.037
+</td>
+<td style="text-align:left;">
+0.41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent
+</td>
+<td style="text-align:left;">
+0.059
+</td>
+<td style="text-align:left;">
+0.107
+</td>
+<td style="text-align:left;">
+0.046
+</td>
+<td style="text-align:left;">
+0.585
+</td>
+<td style="text-align:left;">
+0.009
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.007
+</td>
+<td style="text-align:left;">
+0.945
+</td>
+<td style="text-align:left;">
+0.081
+</td>
+<td style="text-align:left;">
+0.136
+</td>
+<td style="text-align:left;">
+0.064
+</td>
+<td style="text-align:left;">
+0.552
+</td>
+<td style="text-align:left;">
+0.052
+</td>
+<td style="text-align:left;">
+0.131
+</td>
+<td style="text-align:left;">
+0.041
+</td>
+<td style="text-align:left;">
+0.694
+</td>
+<td style="text-align:left;">
+-0.024
+</td>
+<td style="text-align:left;">
+0.201
+</td>
+<td style="text-align:left;">
+-0.017
+</td>
+<td style="text-align:left;">
+0.906
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+3.333
+</td>
+<td style="text-align:left;">
+1.816
+</td>
+<td style="text-align:left;">
+0.069
+</td>
+<td style="text-align:left;">
+0.066
+</td>
+<td style="text-align:left;">
+-2.214
+</td>
+<td style="text-align:left;">
+1.325
+</td>
+<td style="text-align:left;">
+-0.058
+</td>
+<td style="text-align:left;">
+0.095
+</td>
+<td style="text-align:left;">
+-0.072
+</td>
+<td style="text-align:left;">
+0.794
+</td>
+<td style="text-align:left;">
+-0.002
+</td>
+<td style="text-align:left;">
+0.927
+</td>
+<td style="text-align:left;">
+2.9
+</td>
+<td style="text-align:left;">
+1.785
+</td>
+<td style="text-align:left;">
+0.099
+</td>
+<td style="text-align:left;">
+0.104
+</td>
+<td style="text-align:left;">
+-0.096
+</td>
+<td style="text-align:left;">
+1.628
+</td>
+<td style="text-align:left;">
+-0.003
+</td>
+<td style="text-align:left;">
+0.953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+-1.863
+</td>
+<td style="text-align:left;">
+1.816
+</td>
+<td style="text-align:left;">
+-0.039
+</td>
+<td style="text-align:left;">
+0.305
+</td>
+<td style="text-align:left;">
+4.773
+</td>
+<td style="text-align:left;">
+1.325
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+0.638
+</td>
+<td style="text-align:left;">
+0.794
+</td>
+<td style="text-align:left;">
+0.022
+</td>
+<td style="text-align:left;">
+0.422
+</td>
+<td style="text-align:left;">
+-2.297
+</td>
+<td style="text-align:left;">
+1.78
+</td>
+<td style="text-align:left;">
+-0.079
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+<td style="text-align:left;">
+2.113
+</td>
+<td style="text-align:left;">
+1.628
+</td>
+<td style="text-align:left;">
+0.072
+</td>
+<td style="text-align:left;">
+0.194
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-4.444
+</td>
+<td style="text-align:left;">
+2.016
+</td>
+<td style="text-align:left;">
+-0.074
+</td>
+<td style="text-align:left;">
+0.028
+</td>
+<td style="text-align:left;">
+0.823
+</td>
+<td style="text-align:left;">
+1.471
+</td>
+<td style="text-align:left;">
+0.017
+</td>
+<td style="text-align:left;">
+0.576
+</td>
+<td style="text-align:left;">
+-0.765
+</td>
+<td style="text-align:left;">
+0.882
+</td>
+<td style="text-align:left;">
+-0.021
+</td>
+<td style="text-align:left;">
+0.386
+</td>
+<td style="text-align:left;">
+-2.313
+</td>
+<td style="text-align:left;">
+2.026
+</td>
+<td style="text-align:left;">
+-0.062
+</td>
+<td style="text-align:left;">
+0.254
+</td>
+<td style="text-align:left;">
+-1.118
+</td>
+<td style="text-align:left;">
+1.913
+</td>
+<td style="text-align:left;">
+-0.028
+</td>
+<td style="text-align:left;">
+0.559
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+2.947
+</td>
+<td style="text-align:left;">
+2.016
+</td>
+<td style="text-align:left;">
+0.049
+</td>
+<td style="text-align:left;">
+0.144
+</td>
+<td style="text-align:left;">
+-4.676
+</td>
+<td style="text-align:left;">
+1.471
+</td>
+<td style="text-align:left;">
+-0.098
+</td>
+<td style="text-align:left;">
+0.001
+</td>
+<td style="text-align:left;">
+-0.837
+</td>
+<td style="text-align:left;">
+0.882
+</td>
+<td style="text-align:left;">
+-0.023
+</td>
+<td style="text-align:left;">
+0.342
+</td>
+<td style="text-align:left;">
+5.157
+</td>
+<td style="text-align:left;">
+2.014
+</td>
+<td style="text-align:left;">
+0.14
+</td>
+<td style="text-align:left;">
+0.01
+</td>
+<td style="text-align:left;">
+0.06
+</td>
+<td style="text-align:left;">
+1.913
+</td>
+<td style="text-align:left;">
+0.002
+</td>
+<td style="text-align:left;">
+0.975
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.004
+</td>
+<td style="text-align:left;">
+0.167
+</td>
+<td style="text-align:left;">
+-0.002
+</td>
+<td style="text-align:left;">
+0.983
+</td>
+<td style="text-align:left;">
+-0.087
+</td>
+<td style="text-align:left;">
+0.207
+</td>
+<td style="text-align:left;">
+-0.037
+</td>
+<td style="text-align:left;">
+0.675
+</td>
+<td style="text-align:left;">
+-0.376
+</td>
+<td style="text-align:left;">
+0.209
+</td>
+<td style="text-align:left;">
+-0.162
+</td>
+<td style="text-align:left;">
+0.072
+</td>
+<td style="text-align:left;">
+0.026
+</td>
+<td style="text-align:left;">
+0.202
+</td>
+<td style="text-align:left;">
+0.011
+</td>
+<td style="text-align:left;">
+0.899
+</td>
+<td style="text-align:left;">
+-0.137
+</td>
+<td style="text-align:left;">
+0.308
+</td>
+<td style="text-align:left;">
+-0.058
+</td>
+<td style="text-align:left;">
+0.656
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-3.288
+</td>
+<td style="text-align:left;">
+2.518
+</td>
+<td style="text-align:left;">
+-0.043
+</td>
+<td style="text-align:left;">
+0.192
+</td>
+<td style="text-align:left;">
+0.857
+</td>
+<td style="text-align:left;">
+1.837
+</td>
+<td style="text-align:left;">
+0.014
+</td>
+<td style="text-align:left;">
+0.641
+</td>
+<td style="text-align:left;">
+-0.28
+</td>
+<td style="text-align:left;">
+1.101
+</td>
+<td style="text-align:left;">
+-0.006
+</td>
+<td style="text-align:left;">
+0.799
+</td>
+<td style="text-align:left;">
+-1.882
+</td>
+<td style="text-align:left;">
+2.46
+</td>
+<td style="text-align:left;">
+-0.04
+</td>
+<td style="text-align:left;">
+0.444
+</td>
+<td style="text-align:left;">
+1.29
+</td>
+<td style="text-align:left;">
+2.191
+</td>
+<td style="text-align:left;">
+0.029
+</td>
+<td style="text-align:left;">
+0.556
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+3.249
+</td>
+<td style="text-align:left;">
+2.518
+</td>
+<td style="text-align:left;">
+0.042
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+<td style="text-align:left;">
+-4.284
+</td>
+<td style="text-align:left;">
+1.837
+</td>
+<td style="text-align:left;">
+-0.07
+</td>
+<td style="text-align:left;">
+0.02
+</td>
+<td style="text-align:left;">
+-0.491
+</td>
+<td style="text-align:left;">
+1.101
+</td>
+<td style="text-align:left;">
+-0.01
+</td>
+<td style="text-align:left;">
+0.656
+</td>
+<td style="text-align:left;">
+0.403
+</td>
+<td style="text-align:left;">
+2.455
+</td>
+<td style="text-align:left;">
+0.009
+</td>
+<td style="text-align:left;">
+0.87
+</td>
+<td style="text-align:left;">
+-0.346
+</td>
+<td style="text-align:left;">
+2.191
+</td>
+<td style="text-align:left;">
+-0.008
+</td>
+<td style="text-align:left;">
+0.874
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1
+</td>
+<td style="text-align:left;">
+-4.905
+</td>
+<td style="text-align:left;">
+2.154
+</td>
+<td style="text-align:left;">
+-0.08
+</td>
+<td style="text-align:left;">
+0.023
+</td>
+<td style="text-align:left;">
+0.518
+</td>
+<td style="text-align:left;">
+1.572
+</td>
+<td style="text-align:left;">
+0.011
+</td>
+<td style="text-align:left;">
+0.742
+</td>
+<td style="text-align:left;">
+-0.025
+</td>
+<td style="text-align:left;">
+0.942
+</td>
+<td style="text-align:left;">
+-0.001
+</td>
+<td style="text-align:left;">
+0.979
+</td>
+<td style="text-align:left;">
+-1.644
+</td>
+<td style="text-align:left;">
+2.133
+</td>
+<td style="text-align:left;">
+-0.044
+</td>
+<td style="text-align:left;">
+0.441
+</td>
+<td style="text-align:left;">
+-0.072
+</td>
+<td style="text-align:left;">
+2.054
+</td>
+<td style="text-align:left;">
+-0.002
+</td>
+<td style="text-align:left;">
+0.972
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2
+</td>
+<td style="text-align:left;">
+1.254
+</td>
+<td style="text-align:left;">
+2.154
+</td>
+<td style="text-align:left;">
+0.021
+</td>
+<td style="text-align:left;">
+0.56
+</td>
+<td style="text-align:left;">
+0.853
+</td>
+<td style="text-align:left;">
+1.572
+</td>
+<td style="text-align:left;">
+0.018
+</td>
+<td style="text-align:left;">
+0.587
+</td>
+<td style="text-align:left;">
+1.769
+</td>
+<td style="text-align:left;">
+0.942
+</td>
+<td style="text-align:left;">
+0.047
+</td>
+<td style="text-align:left;">
+0.061
+</td>
+<td style="text-align:left;">
+-0.471
+</td>
+<td style="text-align:left;">
+2.127
+</td>
+<td style="text-align:left;">
+-0.013
+</td>
+<td style="text-align:left;">
+0.825
+</td>
+<td style="text-align:left;">
+-0.36
+</td>
+<td style="text-align:left;">
+2.054
+</td>
+<td style="text-align:left;">
+-0.009
+</td>
+<td style="text-align:left;">
+0.861
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+-0.226
+</td>
+<td style="text-align:left;">
+3.503
+</td>
+<td style="text-align:left;">
+-0.002
+</td>
+<td style="text-align:left;">
+0.948
+</td>
+<td style="text-align:left;">
+-0.436
+</td>
+<td style="text-align:left;">
+2.555
+</td>
+<td style="text-align:left;">
+-0.005
+</td>
+<td style="text-align:left;">
+0.865
+</td>
+<td style="text-align:left;">
+-1.051
+</td>
+<td style="text-align:left;">
+1.532
+</td>
+<td style="text-align:left;">
+-0.014
+</td>
+<td style="text-align:left;">
+0.493
+</td>
+<td style="text-align:left;">
+5.774
+</td>
+<td style="text-align:left;">
+3.539
+</td>
+<td style="text-align:left;">
+0.077
+</td>
+<td style="text-align:left;">
+0.103
+</td>
+<td style="text-align:left;">
+4.468
+</td>
+<td style="text-align:left;">
+3.368
+</td>
+<td style="text-align:left;">
+0.056
+</td>
+<td style="text-align:left;">
+0.185
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-2.879
+</td>
+<td style="text-align:left;">
+3.503
+</td>
+<td style="text-align:left;">
+-0.024
+</td>
+<td style="text-align:left;">
+0.411
+</td>
+<td style="text-align:left;">
+4.355
+</td>
+<td style="text-align:left;">
+2.555
+</td>
+<td style="text-align:left;">
+0.046
+</td>
+<td style="text-align:left;">
+0.088
+</td>
+<td style="text-align:left;">
+-0.818
+</td>
+<td style="text-align:left;">
+1.532
+</td>
+<td style="text-align:left;">
+-0.011
+</td>
+<td style="text-align:left;">
+0.593
+</td>
+<td style="text-align:left;">
+-5.396
+</td>
+<td style="text-align:left;">
+3.495
+</td>
+<td style="text-align:left;">
+-0.073
+</td>
+<td style="text-align:left;">
+0.123
+</td>
+<td style="text-align:left;">
+1.974
+</td>
+<td style="text-align:left;">
+3.368
+</td>
+<td style="text-align:left;">
+0.025
+</td>
+<td style="text-align:left;">
+0.558
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)1:LPE+LPE
+</td>
+<td style="text-align:left;">
+8.363
+</td>
+<td style="text-align:left;">
+3.352
+</td>
+<td style="text-align:left;">
+0.076
+</td>
+<td style="text-align:left;">
+0.013
+</td>
+<td style="text-align:left;">
+0.238
+</td>
+<td style="text-align:left;">
+2.446
+</td>
+<td style="text-align:left;">
+0.003
+</td>
+<td style="text-align:left;">
+0.923
+</td>
+<td style="text-align:left;">
+0.554
+</td>
+<td style="text-align:left;">
+1.466
+</td>
+<td style="text-align:left;">
+0.008
+</td>
+<td style="text-align:left;">
+0.706
+</td>
+<td style="text-align:left;">
+-1.735
+</td>
+<td style="text-align:left;">
+3.341
+</td>
+<td style="text-align:left;">
+-0.026
+</td>
+<td style="text-align:left;">
+0.604
+</td>
+<td style="text-align:left;">
+-3.17
+</td>
+<td style="text-align:left;">
+3.173
+</td>
+<td style="text-align:left;">
+-0.046
+</td>
+<td style="text-align:left;">
+0.318
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genderfemale:CDsymptomscurrent:poly(Time, 2)2:LPE+LPE
+</td>
+<td style="text-align:left;">
+-3.973
+</td>
+<td style="text-align:left;">
+3.352
+</td>
+<td style="text-align:left;">
+-0.036
+</td>
+<td style="text-align:left;">
+0.236
+</td>
+<td style="text-align:left;">
+0.628
+</td>
+<td style="text-align:left;">
+2.446
+</td>
+<td style="text-align:left;">
+0.007
+</td>
+<td style="text-align:left;">
+0.797
+</td>
+<td style="text-align:left;">
+-0.998
+</td>
+<td style="text-align:left;">
+1.466
+</td>
+<td style="text-align:left;">
+-0.015
+</td>
+<td style="text-align:left;">
+0.496
+</td>
+<td style="text-align:left;">
+-0.322
+</td>
+<td style="text-align:left;">
+3.313
+</td>
+<td style="text-align:left;">
+-0.005
+</td>
+<td style="text-align:left;">
+0.923
+</td>
+<td style="text-align:left;">
+0.859
+</td>
+<td style="text-align:left;">
+3.173
+</td>
+<td style="text-align:left;">
+0.012
+</td>
+<td style="text-align:left;">
+0.787
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+explstart_meancentered_min
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+-0.172
+</td>
+<td style="text-align:left;">
+0.047
+</td>
+<td style="text-align:left;">
+-0.172
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-0.17
+</td>
+<td style="text-align:left;">
+0.048
+</td>
+<td style="text-align:left;">
+-0.17
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+0.157
+</td>
+<td style="text-align:left;">
+0.046
+</td>
+<td style="text-align:left;">
+0.155
+</td>
+<td style="text-align:left;">
+0.001
+</td>
+<td style="text-align:left;">
+-0.004
+</td>
+<td style="text-align:left;">
+0.094
+</td>
+<td style="text-align:left;">
+-0.003
+</td>
+<td style="text-align:left;">
+0.962
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI_imp_meancentered
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+0.037
+</td>
+<td style="text-align:left;">
+0.048
+</td>
+<td style="text-align:left;">
+0.037
+</td>
+<td style="text-align:left;">
+0.439
+</td>
+<td style="text-align:left;">
+0.173
+</td>
+<td style="text-align:left;">
+0.048
+</td>
+<td style="text-align:left;">
+0.173
+</td>
+<td style="text-align:left;">
+&lt;0.01
+</td>
+<td style="text-align:left;">
+-0.023
+</td>
+<td style="text-align:left;">
+0.047
+</td>
+<td style="text-align:left;">
+-0.023
+</td>
+<td style="text-align:left;">
+0.63
+</td>
+<td style="text-align:left;">
+-0.091
+</td>
+<td style="text-align:left;">
+0.065
+</td>
+<td style="text-align:left;">
+-0.102
+</td>
+<td style="text-align:left;">
+0.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+any_med_cceptmed
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+-0.055
+</td>
+<td style="text-align:left;">
+0.122
+</td>
+<td style="text-align:left;">
+-0.024
+</td>
+<td style="text-align:left;">
+0.651
+</td>
+<td style="text-align:left;">
+-0.243
+</td>
+<td style="text-align:left;">
+0.125
+</td>
+<td style="text-align:left;">
+-0.105
+</td>
+<td style="text-align:left;">
+0.052
+</td>
+<td style="text-align:left;">
+-0.093
+</td>
+<td style="text-align:left;">
+0.12
+</td>
+<td style="text-align:left;">
+-0.04
+</td>
+<td style="text-align:left;">
+0.44
+</td>
+<td style="text-align:left;">
+0.026
+</td>
+<td style="text-align:left;">
+0.182
+</td>
+<td style="text-align:left;">
+0.011
+</td>
+<td style="text-align:left;">
+0.887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+smoking_yes_nosmk
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+-0.173
+</td>
+<td style="text-align:left;">
+0.129
+</td>
+<td style="text-align:left;">
+-0.081
+</td>
+<td style="text-align:left;">
+0.181
+</td>
+<td style="text-align:left;">
+0.09
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.042
+</td>
+<td style="text-align:left;">
+0.502
+</td>
+<td style="text-align:left;">
+0.082
+</td>
+<td style="text-align:left;">
+0.128
+</td>
+<td style="text-align:left;">
+0.038
+</td>
+<td style="text-align:left;">
+0.518
+</td>
+<td style="text-align:left;">
+0.139
+</td>
+<td style="text-align:left;">
+0.197
+</td>
+<td style="text-align:left;">
+0.064
+</td>
+<td style="text-align:left;">
+0.48
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -41075,7 +46061,6 @@ other attached packages:
 [10] stringr_1.4.0       dplyr_1.0.5         purrr_0.3.4        
 [13] readr_1.4.0         tidyr_1.1.3         tibble_3.1.0       
 [16] ggplot2_3.3.5       tidyverse_1.3.0     haven_2.3.1        
-[19] workflowr_1.6.2    
 
 loaded via a namespace (and not attached):
   [1] minqa_1.2.4          colorspace_2.0-0     ellipsis_0.3.1      
@@ -41084,35 +46069,35 @@ loaded via a namespace (and not attached):
  [10] mice_3.13.0          farver_2.1.0         prodlim_2019.11.13  
  [13] fansi_0.4.2          lubridate_1.7.10     xml2_1.3.2          
  [16] codetools_0.2-18     splines_4.0.4        knitr_1.33          
- [19] jsonlite_1.7.2       nloptr_1.2.2.2       pROC_1.17.0.1       
- [22] broom_0.7.5          dbplyr_2.1.0         compiler_4.0.4      
- [25] httr_1.4.2           backports_1.2.1      assertthat_0.2.1    
- [28] cli_3.0.1            later_1.1.0.1        htmltools_0.5.1.1   
- [31] tools_4.0.4          gtable_0.3.0         glue_1.4.2          
- [34] reshape2_1.4.4       Rcpp_1.0.6           cellranger_1.1.0    
- [37] jquerylib_0.1.3      vctrs_0.3.6          writexl_1.3.1       
- [40] svglite_2.0.0        nlme_3.1-152         iterators_1.0.13    
- [43] timeDate_3043.102    xfun_0.24            gower_0.2.2         
- [46] rvest_1.0.0          lifecycle_1.0.0      statmod_1.4.35      
- [49] MASS_7.3-53.1        scales_1.1.1         ipred_0.9-11        
- [52] hms_1.0.0            promises_1.2.0.1     parallel_4.0.4      
- [55] HardyWeinberg_1.7.1  yaml_2.2.1           gdtools_0.2.3       
- [58] sass_0.3.1           rpart_4.1-15         stringi_1.7.3       
- [61] highr_0.9            corrplot_0.84        foreach_1.5.1       
- [64] zip_2.1.1            boot_1.3-27          lava_1.6.9          
- [67] truncnorm_1.0-8      chron_2.3-56         rlang_0.4.10        
- [70] pkgconfig_2.0.3      systemfonts_1.0.1    Rsolnp_1.16         
- [73] evaluate_0.14        labeling_0.4.2       recipes_0.1.15      
- [76] tidyselect_1.1.0     plyr_1.8.6           magrittr_2.0.1      
- [79] R6_2.5.0             generics_0.1.0       DBI_1.1.1           
- [82] mgcv_1.8-34          pillar_1.5.1         withr_2.4.1         
- [85] survival_3.2-9       nnet_7.3-15          modelr_0.1.8        
- [88] crayon_1.4.1         uuid_0.1-4           utf8_1.1.4          
- [91] officer_0.3.17       rmarkdown_2.9.7      grid_4.0.4          
- [94] readxl_1.3.1         git2r_0.28.0         ModelMetrics_1.2.2.2
- [97] reprex_1.0.0         digest_0.6.27        webshot_0.5.2       
-[100] httpuv_1.5.5         stats4_4.0.4         munsell_0.5.0       
-[103] viridisLite_0.3.0    bslib_0.2.4         </code></pre>
+ [19] jsonlite_1.7.2       workflowr_1.6.2      nloptr_1.2.2.2      
+ [22] pROC_1.17.0.1        broom_0.7.5          dbplyr_2.1.0        
+ [25] compiler_4.0.4       httr_1.4.2           backports_1.2.1     
+ [28] assertthat_0.2.1     cli_3.0.1            later_1.1.0.1       
+ [31] htmltools_0.5.1.1    tools_4.0.4          gtable_0.3.0        
+ [34] glue_1.4.2           reshape2_1.4.4       Rcpp_1.0.6          
+ [37] cellranger_1.1.0     jquerylib_0.1.3      vctrs_0.3.6         
+ [40] writexl_1.3.1        svglite_2.0.0        nlme_3.1-152        
+ [43] iterators_1.0.13     timeDate_3043.102    xfun_0.24           
+ [46] gower_0.2.2          rvest_1.0.0          lifecycle_1.0.0     
+ [49] statmod_1.4.35       MASS_7.3-53.1        scales_1.1.1        
+ [52] ipred_0.9-11         hms_1.0.0            promises_1.2.0.1    
+ [55] parallel_4.0.4       HardyWeinberg_1.7.1  yaml_2.2.1          
+ [58] gdtools_0.2.3        sass_0.3.1           rpart_4.1-15        
+ [61] stringi_1.7.3        highr_0.9            corrplot_0.84       
+ [64] foreach_1.5.1        zip_2.1.1            boot_1.3-27         
+ [67] lava_1.6.9           truncnorm_1.0-8      chron_2.3-56        
+ [70] rlang_0.4.10         pkgconfig_2.0.3      systemfonts_1.0.1   
+ [73] Rsolnp_1.16          evaluate_0.14        labeling_0.4.2      
+ [76] recipes_0.1.15       tidyselect_1.1.0     plyr_1.8.6          
+ [79] magrittr_2.0.1       R6_2.5.0             generics_0.1.0      
+ [82] DBI_1.1.1            mgcv_1.8-34          pillar_1.5.1        
+ [85] withr_2.4.1          survival_3.2-9       nnet_7.3-15         
+ [88] modelr_0.1.8         crayon_1.4.1         uuid_0.1-4          
+ [91] utf8_1.1.4           officer_0.3.17       rmarkdown_2.9.7     
+ [94] grid_4.0.4           readxl_1.3.1         git2r_0.28.0        
+ [97] ModelMetrics_1.2.2.2 reprex_1.0.0         digest_0.6.27       
+[100] webshot_0.5.2        httpuv_1.5.5         stats4_4.0.4        
+[103] munsell_0.5.0        viridisLite_0.3.0    bslib_0.2.4         </code></pre>
 </div>
 </div>
 </div>
