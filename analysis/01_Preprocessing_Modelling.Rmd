@@ -76,11 +76,12 @@ home = getwd()
 
 ```{r preprocess, fig.height=10, fig.width=10}
 
-#df = as.data.frame(read_sav(paste0(home,"/data/13.04.2021_290_170_CORTAUCsplit.sav")))
+df = as.data.frame(read_sav(paste0(home,"/data/11.08.2021_290_170_LPE.sav")))
 
-df = as.data.frame(read_sav("C:/Users/andreas_chiocchetti/Documents/13.04.2021_290_170_CORTAUCsplit.sav"))
+df$groupLPE=paste0(df$group,df$LPE)
 
-df$group = drop(factor(df$group, levels = c(1,2), labels=c("CD", "HCs"))) %>% relevel(., ref="HCs")
+df$LPE = drop(factor(df$LPE, levels = c(0,1), labels=c("-LPE","+LPE")))
+df$group = drop(factor(df$groupLPE, levels = c(20,21, 10,11), labels=c("HCs-LPE", "HCs+LPE","CD-LPE","CD+LPE"))) %>% relevel(., ref="HCs-LPE")
 df$centre = drop(factor(df$centre, levels = c(1,2,3,4,5), labels=c("Frankfurt", 
                                                                    "Aachen", 
                                                                    "Amsterdam", 
@@ -154,7 +155,11 @@ AV_TESTCORT = c(TESTCORTlogBL = 0, TESTCORTlog10=25, TESTCORTlog55 = 70),
 AV_OXT =  c(OXT_BL_log=0, OXT_1_log=16, OXT_10_log=25))
 
 vartoplot = c(UV, Sensvar)
-tmpframe = df[,vartoplot[!vartoplot%in% c("centre")]] %>% mutate_if(is.factor, function(x) as.numeric(x)-1)
+tmpframe = df[,vartoplot[!vartoplot%in% c("centre")]]
+
+tmpframe=tmpframe %>% mutate(value=1) %>% 
+  spread(group, value,  fill = 0) %>% 
+  mutate_if(is.factor, function(x) as.numeric(x)-1) 
 
 corrplot::corrplot(cor(tmpframe, use = "pairwise"))
 
@@ -572,7 +577,7 @@ tableplot_2= function (x){
 # with symblic p-values 
 tableplot_3= function (x){
     x %>% dplyr::mutate_if(is.numeric, 
-                           function(x){as.character(round(x, 2))}) %>%
+                           function(x){as.character(round(x, 3))}) %>%
     mutate_all(~replace(., .=="0", "<0.01")) %>%
     kbl(.,col.names = newnames) %>% 
     add_header_above(c("indep. variable" = 1, 
@@ -599,6 +604,7 @@ newnames = c("-", rep(c("beta", "se", "st.beta", "P"), length(names(AV))))
 
 #fullres %>% tableplot_2() 
 fullres %>% tableplot_3() 
+
 
 ```
 
