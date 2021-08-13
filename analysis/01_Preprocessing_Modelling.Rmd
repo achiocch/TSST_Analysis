@@ -32,7 +32,7 @@ home = getwd()
 
 **IV of interest :**
 
-* Gruppe ("group") 
+* Gruppe ("group") = 4-Faktor HC +/- LPE; CD +/- LPE
 * sex ("gender")
 * Zeitpunkt ("Time") with 2xpolynomes
 * Gruppe x Zeitpunkt(each poly)
@@ -48,6 +48,7 @@ home = getwd()
 * "smoking_yes_no"
 
 **random effects**
+
 * Site ("centre")
 * individual id
 
@@ -62,6 +63,7 @@ home = getwd()
 **sensitivity check**
 
 * quantitative CD [instead of group]
+* quantitative CD x LPE specifier [instead of group]
 * gender 
 * IQ
 * Parental education
@@ -362,7 +364,7 @@ overall model p-value:`r as.character(signif(resall[["AV_stressed_modsig"]],3))`
 
 ```{r, wrap_res_stressed_2}
 tableplot = function (x){
-  x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 3))}) %>% kbl() %>% kable_classic()
+  x %>% dplyr::mutate_if(is.numeric, function(x){as.character(signif(x, 2))}) %>% kbl() %>% kable_classic()
   }
 
 
