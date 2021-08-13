@@ -10,5 +10,5 @@ editor_options:
 
 # Preprosessing of TSST Hormone Data 
 
-* Go to [Results](01_Preprocessing_Modelling.html)
-
+* Go to [Results CD vs HC](01_Preprocessing_Modelling.html)
+* Go to [Results CD vs HC with LPE specifier](01_Preprocessing_Modelling_LPE.html)
